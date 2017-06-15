@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>font</title>
+</head>
+<body>
+	<!-- font-family 属性设置文本的字体系列: -->
+	<!-- font-family 属性应该设置几个字体名称作为一种"后备"机制，如果浏览器不支持第一种字体，他将尝试下一种字体。 -->
+	<!-- 注意: 如果字体系列的名称超过一个字，它必须用引号，如Font Family："宋体"。 -->
+	<!-- font-size: 默认为16px ,浏览器字体大小有最小限制，chrome为12px，firefox:支持任意大小字体-->
+	<!-- font-weight:字体加粗，属性值如下：
+	bold：加粗
+	属性值bolder：更粗（浏览器不支持）
+	normal：默认值 
+	范围：100~900
+	>=600，字体才会加粗
+	
+	font-style: italic:斜体样式
+	-->
+	<p style="font-family: '宋体','微软雅黑','黑体';font-size: 16px;-line-height: 10px;font-weight: 900;font-style: italic;">
+		字体设置
+	</p>
+	<!-- 字体样式的复合写法：
+	其中font-size和font-family必须出现 -->
+	<p style="font:bold 30px serif;">复合写法</p>
+</body>
+</html>

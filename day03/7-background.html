@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>background</title>
+</head>
+<body>
+	<!-- background-image: url():背景图片设置，若标签没有设置宽高，背景不能撑起元素大小，就无法显示背景图片 
+	background-repeat：背景图片平铺
+	属性值：repeat：平铺
+			no-repeat：不平铺
+
+	水平方向平铺：repeat-x
+	垂直方向平铺：repeat-y
+
+	background-position:背景图片位置设置：
+	左上角是中心点，向右是x轴正方向，向下是y轴正方向
+	属性值：1.left top:默认位置为左上角
+			2.center center：中心位置
+			3.right bottom：右下角位置
+	只给出x轴，y轴默认为center，即left==left center
+
+	也可以给出具体数值：
+	x轴：正数向右，负数向左
+	y轴：正数向下，负数向上
+
+	背景图和img标签的使用选择：
+	如果是网页上经常改变图片（例如新闻的图片），还有需要标记title和alt来提示内容，便于搜索收录的图片等需要用img标签显示
+
+	背景：网页上很少变化的图片（例如小图标）
+
+	雪碧图：百度和w3c等网页的小图标都是用一张大图，这张图包含了所有的小图标，这种图叫做雪碧图。
+	雪碧图的优点：减少网络请求次数，减小网络消耗。
+	-->
+	<div style="border:3px solid blue;background-image: url(../young.jpg);width: 800px;height: 600px;background-repeat: no-repeat;background-position: 30px 30px;">
+		
+	</div>
+
+	<div style="width: 50px;height: 50px;border:3px solid #ccc;background: blue url(../young.jpg) no-repeat -80px -90px"></div>
+
+</body>
+</html>

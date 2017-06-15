@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>组合选择器</title>
+	<style type="text/css">
+		/*组合后的选择器优先级更高，组合选择器要找到对应的div，这个div的class属性值必须是box
+		组合选择器优先级>id选择器的优先级*/
+		#box{
+			color: red;
+		}
+		div#box{
+			color: black;
+		}
+		/*#box>p（子代选择器）:找到box下面的子元素p标签，该写法优先级大于div#box的优先级*/
+		#box>p{
+			color: blue;
+		}
+		/*box p（后代选择器）的含义：找到box下所有的p标签，其优先级与#box>p选择器的优先级相同*/
+		#box p{
+			color: yellow;
+		}
+		#box div p{
+			color: green;
+		}
+		/*优先级的判断方法：表达方式越精确优先级越高*/
+		/*计算方法：
+		#box p=100+1=101
+		#box div p=100+1+1=102*/
+
+		/*优先级：10+1=11*/
+		.innerDiv p{
+			color: pink;
+		}
+		#box .innerDiv p{
+			color: purple;
+		}
+		/*后兄弟选择器：.p2~p：找到class属性值为p2的后面为兄弟关系的p标签*/
+		#box2 .p2~p{
+			color: red;
+		}
+		/*.p2+p相邻兄弟选择器：找到p2的下面相邻的兄弟选择器*/
+		#box2 .p2+p{
+			color: gray;
+		}
+	</style>
+</head>
+<body>
+	<!-- 组合选择器的使用： -->
+	<div id="box">
+		组合选择器
+		<p>div的一级后代</p>
+		<div class="innerDiv" id="innerID">
+			<p>box儿子的儿子</p>
+		</div>
+	</div>
+
+	<hr>
+
+	<div id="box2">
+		<p>box2的后代</p>
+		<p class="p2">后代2</p>
+		<p>后代3</p>
+		<p>后代4</p>
+		<a href="###">aaa</a>
+		<div>
+			<p>p2的大侄子</p>
+		</div>
+		<p>后代5</p>
+	</div>
+</body>
+</html>

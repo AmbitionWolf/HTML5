@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<!-- 样式标签 -->
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+	<!-- CSS:层叠样式表 -->
+	<!-- 1.行内样式（通过style属性设置） 
+		 2.内部样式（写在style标签里面）
+		 3.外部样式（外部创建css文件，然后在html中引入）
+	-->
+
+	<!-- 行内样式： -->
+	<p style="background-color: yellow;">颜色名称设置</p>
+
+	<!-- rgb(r,g,b):取值范围是0~255，逗号“,”必须是英文状态下 -->
+	<p style="background-color: rgb(255,0,0);">RGB设置的颜色</p>
+	<!-- rgba()中a:代表透明度，取值范围是0~1 -->
+	<p style="background-color: rgba(0,0,0,0.5);">RGB设置的颜色</p>
+	
+	<!-- 16进制设置的颜色： -->
+	<!-- #000000:0~F，每两位代表一个颜色值（R,G,B） -->
+	<p style="background-color: #FF0000">16进制设置的颜色</p>
+	<!-- 当两位相同时可省略相同部分，变为三位数表达方式，如下，与上述等价 -->
+	<p style="background-color: #F00">16进制设置的颜色</p>
+
+	<!-- 文本设置 -->
+	<!-- text-align:设置水平对齐方式，默认为left，还可以为center,right -->
+	<!-- color:设置文本的颜色 -->
+	<!-- text-indent:文本缩进，2em：当前字体的两倍 -->
+	<!-- line-height:设置行高。
+		 测量行高方法：第一行文字顶部到第二行文字顶部的距离 -->
+	<p style="text-align: justify;background-color: #ccc;width: 80%;color: #fff;text-indent: 2em;line-height: 30px;">当text-align设置为"justify"，每一行被展开为宽度相等，左，右外边距是对齐（如杂志和报纸）</p>
+	<!-- 其中width为80%是占据父元素的 -->
+
+	<div style="text-align: center;background-color: pink;">
+		<a href="###">HTML1</a>
+		<a href="###">HTML2</a>
+		<a href="###">HTML3</a>
+		<a href="###">HTML4</a>
+		<a href="###">HTML5</a>
+	</div>
+
+	<!-- text-decoration下划线设置： -->
+	<!-- 1.underline:下
+		 2.overline:上
+		 3.line-through:中间
+		 4.none:取消 -->
+	<p style="text-decoration: underline;">文本修饰设置</p>
+	<a href="###" style="text-decoration: none;color: black">去除a的下划线</a>
+	
+	<!-- text-transform:文本大小写转换 -->
+	<!-- 1.uppercase：转换为大写
+		 2.lowercase：转换为小写
+		 3.capitalize:首字母大写 -->
+	<p style="text-transform: uppercase;">hello</p>
+	<p style="text-transform: lowercase;">HELLO</p>
+	<p style="text-transform: capitalize;">world</p>
+
+	<!-- 单行文本垂直居中 -->
+	<!-- 行高=元素的高度 -->
+	<p style="background-color: #ccc;width: 200px;text-align: center;height: 200px;line-height: 200px;">垂直居中</p>
+
+	<!-- 设置字符间距： -->
+	<!-- letter-spacing:可以是正数，也可以是负数，负数是字符间距变小 -->
+	<p style="letter-spacing: 5px;">this is a heading 1</p>
+	<p style="letter-spacing: -2px;">this is a heading 1</p>
+	
+	<!-- 设置单词之间的间距: -->
+	<!-- word-spacing:属性值可以为正数，也可以为负数 -->
+	<p style="word-spacing: 10px;">this is a heading 1</p>
+	<p style="word-spacing: -3px;">this is a heading 1</p>
+	
+	<!-- word-break文本换行问题: -->
+	<!-- break-all:若单词过长会被强制换行 -->
+	<p style="width: 200px;background-color: rgba(255,0,0,0.6);word-break: break-all;">
+	thisisaheading1thisisaheading1thisisaheading1
+	</p>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>内部样式</title>
+	<style type="text/css">
+		/*选择器：*/
+		/*标签选择器：找到页面中所有的div*/
+		div{
+			color: red;
+		}
+		p{
+			font-size: 20px;
+		}
+		ul{
+			list-style-type: none;
+			background-color: #ccc;
+		}
+		a{
+			text-decoration: none;
+			color: black;
+			font-size: 20px;
+		}
+		li{
+			display: inline-block;
+			/*em:倍数单位，2em：父元素字体大小的2倍*/
+			line-height: 2em;
+		}
+	</style>
+</head>
+<body>
+	<!-- 内部样式： -->
+	<!-- 调试阶段使用最多的方式，是通过style标签设置 -->
+	<div>The better your English is, the higher your position will be.</div>
+	<p>The better your English is, the higher your position will be.</p>
+	<div>The better your English is, the higher your position will be.</div>
+
+	<div>
+		<ul>
+			<li><a href="###">首页1</a></li>
+			<li><a href="###">首页2</a></li>
+			<li><a href="###">首页3</a></li>
+			<li><a href="###">首页4</a></li>
+			<li><a href="###">首页5</a></li>
+		</ul>
+	</div>
+
+	<ul>
+		<li>第一行</li>
+		<li>第二行</li>
+	</ul>
+</body>
+</html>

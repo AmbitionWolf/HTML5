@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>display</title>
+</head>
+<body>
+	<!-- display: -->
+	<!-- 显示隐藏方式一： -->
+	<!-- 用来显示或者隐藏元素：
+		 对于块元素：
+		 block：显示
+		 none：隐藏，none值隐藏元素并且脱离文档（不占据文档位置，下面的元素会上移）-->
+	<div>
+		<!-- 对于p标签，其属性display默认值为block -->
+		<p style="width: 100px;height: 100px;border:2px solid black;text-align: center;line-height: 100px;display:block;">显示隐藏</p>
+		<a href="###">位置参考</a>
+	</div>
+	<hr>
+	<!-- 显示隐藏方式二： -->
+	<div>
+		<!-- 对于p标签，其属性display默认值为block
+			 visibility:默认值为visible显示
+			 隐藏：hidden（与display区别是：即使元素被隐藏，但是文档位置还是会被占用）
+		 -->
+		<p style="width: 100px;height: 100px;border:2px solid black;text-align: center;line-height: 100px;visibility: hidden;">显示隐藏</p>
+		<a href="###">位置参考</a>
+	</div>
+
+	<!-- 对于内联元素的显示隐藏display：
+		 隐藏：none
+		 显示：inline(默认值)
+	 -->
+	<div>
+		<span style="background-color: #ccc;display: inline;">内联元素的显示隐藏</span>
+		<a href="###">位置参考</a>
+	</div>
+
+	<!-- div和p标签等元素的性质：display:block 
+		 a和span等他们的元素性质：display：inline
+
+		 我们可以用display样式属性修改元素的性质
+		 把div的display改为inline，div变成了span，就成了一个内联元素
+		 
+		 把a或者span标签的display的属性值设置为block，内联元素就会变成块元素，具备块元素的特性
+	 -->
+	<hr>
+	<div style="border :2px solid #ccc;width:100px;height: 100px;display: inline;">把块元素的div性质修改为内联元素</div>
+	<a href="###">位置参考</a>
+	<span style="border: 2px solid #ccc;width: 100px;height: 100px;display: block;">把内联元素span修改为块元素</span>
+
+	<!-- li列表： -->
+	<!-- displya:inline-block:内联块（img标签）
+		 特点：
+		 1.可以让块元素同行显示
+		 2.可以让内联元素修改宽高行高等样式
+		 3.块元素加上inline-block后默认内容撑起宽高
+		 4.问题：换行被解析（一像素的间距）
+		 5.在IE6和IE7下不支持该样式
+	 -->
+	<div>
+		<ul style="word-spacing: 30px;text-align: center;background-color: #ccc;line-height: 50px;">
+			<li style="display: inline-block; border: 1px solid black;border-radius: 3px;width: 100px; line-height: 25px;"><a href="###" style="text-decoration: none;color: white; ">首页1</a></li>
+			<li style="display: inline-block;border: 1px solid black;border-radius: 3px;line-height: 21px;width: 100px;"><a href="###" style="text-decoration: none;color: white; ">首页2</a></li>
+			<li style="display: inline;"><a href="###" style="text-decoration: none;color: white; border: 1px solid black;border-radius: 3px; ">首页3</a></li>
+		</ul>
+	</div>
+
+</body>
+</html>

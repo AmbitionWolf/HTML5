@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>外部样式引入</title>
+	<!-- 方式一：link -->
+	<!-- <link rel="stylesheet" type="text/css" href="4-style.css"> -->
+	<!-- 方式二：import -->
+	<style type="text/css">
+		@import url(4-style.css);
+	</style>
+</head>
+<body>
+	<!-- 引入外部CSS文件：-->
+	<!-- 引入方式：link或者import -->
+	<!-- 两者差别：
+		 import是css2后的新方法，IE老版本中不支持
+		 link没有任何兼容性问题，推荐使用 -->
+
+	<!-- css设置的三种方法： -->
+	<!-- 1.行间样式：结构和样式堆积在一起时，可读性差，一般采用js设置
+		 2.内部样式：在测试阶段使用
+		 3.外部样式：在项目开发中使用，结构样式分离
+	 -->
+	<div>The better your English is, the higher your position will be.</div>
+</body>
+</html>

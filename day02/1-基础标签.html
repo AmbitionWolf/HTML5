@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 
+	插件安装：
+	1.Click the Preferences >Browse Packages… menu
+	2.Browse up a folder and then into the Installed Packages/ folder(打开后在上层文件中找到installed packages文件夹）
+	3.Download Package Control.sublime-package and copy it into the Installed Packages/ directory
+	4.Restart Sublime Text
+
+	借助control安装其他插件
+	1.ctrl+shift+p
+	2.输入install package
+	3.等待。。。数据插件名找到回车
+	4.重启sublime
+	 -->
+
+	<!--strong：具有语义化，突出网页中重要字段信息，seo权重也很高，低于H1标签，便于百度引擎搜索
+	特点：可以多行显示，文字加重，内容撑起了宽度
+	-->
+	 <strong>语气加重</strong>
+	 <strong>中北大学666</strong>
+	 <p><strong>中北大学软件学院</strong>是全山西最好的学院</p>
+
+	<!-- 加粗字体b特点：
+	 同strong，区别就是b标签没有语义化
+	 -->
+	  <b>加粗字体</b>
+	  <b id="zhongbei">中北大学</b>
+	  <p><b>中北大学软件学院</b>是全山西最好的学院</p>
+
+	<!-- sub和sup特点：一行可以显示多个，内容撑起宽度 -->
+	<sub>上标</sub>
+	<sup>下标</sup>
+	<p>a <sup>2</sup>+b <sub>2</sub>=100</p>
+
+	<!-- code显示计算机代码 -->
+	<code>
+		var a=10；&nbsp; &nbsp; int b=20；&nbsp; &nbsp;
+	</code>
+	<code>
+		char c = 'abc';
+	</code>
+
+	<!-- pre标签可以原样显示编辑的内容（包括布局） 
+	特点：独占一行
+	-->
+	<pre style="background-color: red;">
+		var a =10；
+		int c =200；
+			char e = 'abc';
+	</pre>
+
+	<!-- 
+	< 和 > 需要转义字符才能在浏览器中显示
+	&lt; 转义字符，转义为<
+	&gt; 转义字符，转义为>
+	-->
+	<pre>
+		&lt;p&gt;This is a paragraph</p>
+		&lt;p&gt;This is a paragraph</p>
+		&lt;p&gt;This is a paragraph</p>
+	</pre>
+
+	<!-- q：具有语义化，引用一句话，一行显示多个,宽高设置无效
+	自己测试：strong，h，sub，sup是否相似？ -->
+	<p>蓝鸥科技:<q>让教育回归本质</q></p>
+	<q style="background-color: pink;width: 300px;height: 200px">致知于行</q>
+	<q>致知于行</q>
+
+	<!-- blockquote引用一段话
+	 特点：独占一行，往中间缩进，四周都有间距
+	 -->
+	<blockquote>
+		Blockquote 对象代表着一个 HTML 引用(blockquote)块元素。标签定义摘自另一个源的块引用。一个元素的内容通常展现为一个左、右两边进行缩进的段落。在HTML 文档中的每一个标签创建时，都会创建一个 Blockquote 对象。
+	</blockquote>
+	<blockquote style="background-color: yellow;width: 200px">123</blockquote>
+	<blockquote style="background-color: pink;width: 200px;">456</blockquote>
+
+
+	<!-- 实际中常用的标签 -->
+
+	<!-- 
+	img属性：
+	src="" 图片链接地址，可以是本地地址，也可以是服务器地址
+	修改图片大小，定宽度后高度自动调节
+	注意：若直接给图片宽高属性设置值，不用加单位px，若通过style样式修改大小，需要加px单位
+	本地路径：
+	（1）绝对路径：
+	 
+	（2）相对路径：
+	 ./:当前文件的路径，可以省略，默认为当前文件路径
+
+	特殊之处：既可以一行显示多个，也可以修改宽高大小
+	-->
+	<img src="http://img2.imgtn.bdimg.com/it/u=3592644171,2667616623&fm=26&gp=0.jpg" width="200px" -height="100px" style="width: 100px">
+	<img src="C:\Users\Administrator\Desktop\中北HTML5\阶段一\day02\2.jpg" width="200px" -height="100px" style="width: 100px">
+	<!-- 属性alt：若路径错误，则图片无法显示，显示内容为alt的属性值 -->
+	<img src="2.jpg" width="100px" alt="hope">
+	<!-- title属性：鼠标放在图片上显示title属性值 -->
+	<img src="./2.jpg" style="width: 100px;" title="dream">
+	<img src="./img/1.jpg" style="width: 200px;">
+	<!-- ../:表示当前目录的上层目录 -->
+	<img src="../young.jpg" style="width: 200px;">
+	<img src="../day02/img/1.jpg" style="width: 200px;">
+
+	<!--
+	a标签：链接。
+	特点：一行显示多个，宽高设置无效 
+	属性：href：链接地址
+	可以是相对地址，也可以是绝对地址
+	-->
+	<hr>
+	<a href="http:www.baidu.com" style="background-color:pink; width: 400px;">百度</a>
+	<hr>
+	<!-- 
+	target:默认值:_self:还在当前页面显示内容
+	_blank:打开新的窗口显示内容
+	 -->
+	<a href="./1-第二页.html" style="background-color:pink; width: 400px;" target="_blank">链接到第二页</a>
+	<a href="../day01/index01.html" target="_self">链接到昨天的day01下得index01文件</a>
+
+	<!-- 返回顶部：锚点跳转 
+	链接地址 # 后面的内容不会发送到服务器
+	锚点跳转：#zhongbei 点击会跳转到上面元素id为zhongbei的位置
+	-->
+	<a href="#zhongbei">跳转到顶部位置</a>
+	<!-- href=“###”，会返回一个错误页面 -->
+	<p>
+		<a href="＃＃＃">空链接</a>	
+	</p>
+	<!-- javascript:void(0)地址不会发生变化 -->
+	<p>
+		<a href="javascript:void(0)">空链接</a>
+	</p>
+	<!-- 文件必须是压缩文件 -->
+	<p>
+		<a href="2.zip">点击下载</a>
+	</p>
+
+	<!-- p标签可以合理嵌套如下标签 -->
+	<p>
+		<b></b>
+		<strong></strong>
+		<a href=""></a>
+		<img src="" alt="">
+	</p>
+
+	<!-- a标签比较特殊：可以嵌套其他元素 -->
+	<a href="./1-第二页.html">
+		<img src="img/1.jpg" style="width: 200px">
+	</a>
+	<p>
+		<a href="./1-第二页.html">这是一个蒲公英</a>
+	</p>
+	<!-- a里面所有内容都指向同一个地址 -->
+	<a href="./1-第二页.html">
+		<img src="img/1.jpg" style="width: 200px;">
+		<p>这是一个蒲公英</p>
+	</a>
+	
+	<!-- 有序列表  特点：独占一行，距离上下和左边有间距，会默认添加数字下标序号 -->
+	<ol>
+		<li>软件学院01班 <a href="###">小茗同学</a></li>
+		<li><img src="img/1.jpg" alt="" width="30px"> 软件学院02班</li>
+		<li>
+			<p>中北大学</p>
+		软件学院03班
+			<p>获得一等奖</p>
+			<img src="img/1.jpg" alt="" width="30">
+		</li>
+		<li>
+			<ol>
+				<li>二等奖</li>
+				<li>三等奖</li>
+			</ol>
+		</li>
+	</ol>
+	<a href="">abc</a>
+
+	<!-- 无序列表，前面的序数标号变成实心圆点 -->
+	<ul>
+		<li>第一</li>
+		<li>第二</li>
+		<li>第三</li>
+		<li>
+			<ol>
+				<li>有序列表1</li>
+				<li>有序列表2</li>
+			</ol>
+		</li>
+	</ul>
+
+	<!-- 自定义列表 -->
+	<dl>
+		<!-- dt：标题，一个dt对应多个dd -->
+		<dt>国内新闻</dt>
+		<!-- dd：详情 -->
+		<dd>
+			<img src="img/1.jpg" width="50px">
+			<a href="###">张三偷了李四的苹果</a>
+		</dd>
+		<dd>
+			<img src="2.jpg" width="50px">
+			<a href="###">张三偷了李四的苹果</a>
+		</dd>
+
+		<dt>国际新闻</dt>
+		<dd>
+			<img src="img/1.jpg" width="50px">
+			<a href="###">大四要毕业了</a>	
+			<img src="2.jpg" width="50px">
+			<a href="###">要学习</a>			
+		</dd>
+	</dl>
+
+
+	<!-- 可以通过链接引入其他网页 -->
+	<!-- <iframe src="http://www.lanou3g.com" width="100%" height="600px"></iframe> -->
+
+
+	<!-- 使用场景最多的标签div和span，没有任何语义和样式，主要用来做嵌套和布局 -->
+	<div style="background-color: pink;width: 400px;height: 50px;">div没有任何样式，可以独占一行显示，可以修改宽高
+	</div>
+
+	<div>
+		<div>头部
+			<a href="###">首页</a>
+			<a href="###">个人中心</a>
+			<a href="###">详情页面</a>
+		</div>
+		<div>身体
+			<div>left
+				<ol>
+					<li>apple</li>
+					<li>banana</li>
+				</ol>
+			</div>
+			<div>
+				<span style="color: red;">rightjjjjj</span>
+				<ul>
+					<li>watermelon</li>
+					<li>orange</li>
+				</ul>
+			</div>
+		</div>
+		<div>尾部</div>	
+	</div>
+
+	<span>没有语义化，没有样式，一行显示多个，内容撑起大小</span>
+	<span style="background-color: lightblue;width: 1000px;">abc</span>
+	<p>中北的<span style="color: red;">天气</span>温差真是太大了!</p>
+	
+
+	<!-- 
+	总结：
+	两大类标签：
+	1.块元素：h1-h6，hr,br,div,p,ul.ol,li,dl,dt,dd,pre,blockquote
+	特点：独占一行，支持宽高等样式的设置，一般我们会用块元素嵌套其他块元素或内联元素。
+
+	2.内联元素（行元素）：strong,sub,sup,code,a,b,q,span,em,i
+	特点：可以同行显示,不支持宽高等样式的设置，大小由内容撑开，一般不会嵌套块元素，a标签特殊
+	-->
+
+
+</body>
+</html>

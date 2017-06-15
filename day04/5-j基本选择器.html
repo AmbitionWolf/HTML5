@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基本选择器</title>
+	<style type="text/css">
+		/*1.标签选择器*/
+		/*html：左，右，上紧贴着浏览器，高度由内容撑开*/
+		html{
+			border: 2px solid black;
+			height: 100%;
+			/*定义网页基础字体样式，大小，背景*/
+			font-size: 15px;
+			color: black;
+			font-family: "宋体";
+			background-color: #ddd;
+		}
+		/*距离四周有8px的间距，高度也是有内容撑开*/
+		body{
+			border: 2px solid #ccc;
+			/*100%含义：与父元素html的高度一致*/
+			height: 100%;
+		}
+		/*通配选择器*：设置所有的标签，一般用在样式重置*/
+		*{
+			/*color: red;*/
+		}
+		/*对页面上所有的a标签样式重置*/
+		a{
+			color: black;
+			text-decoration: none;
+		}
+		/*修改从html祖先元素继承来的样式（字体的样式），在选择器编辑的样式等级高于继承来的样式*/
+		p{
+			font-size: 16px;
+			font-family: "微软雅黑";
+		}
+		div{
+			color: yellow;
+		}
+		/*相同选择器的优先级相同，代码从下向上解析，下面选择器的样式会覆盖上面选择器的样式*/
+		a{
+			color: yellow;
+		}
+		/*通过classs选择器设置样式：用. + class名
+		./lanou:找到所有class为lanou的标签*/
+		/*class选择器的特点：*/
+		/*可以设置多个class名相同的元素，为他们统一设置相同的样式,一个class属性可以设置多个属性值，以空格隔开*/
+		/*优先级问题：*/
+		/*class的优先级大于标签选择器的优先级*/
+		.lanou{
+			color:blue; 
+		}
+		a{
+			color:red;
+		}
+		.nav{
+			display: inline-block;
+			line-height: 30px;
+		}
+		.active{
+			font-size: 18px;
+			color: red;
+		}
+
+		/*设置id选择器：# + 选择器名*/
+		/*id选择器特点：*/
+		/*其属性值具有唯一性，页面上只能有一个标签的id属性值为box*/
+		/*id属性的优先级：*/
+		/*id选择器的优先级高于class选择器的优先级*/
+		#box{
+			color: black;
+		}
+		.box{
+			font-size: 18px;
+			color: green ;
+		}
+		/*important:权限最高，一般不用，后期也无法通过js动态修改了*/
+		div{
+			/*color: blue !important;*/
+		}
+
+		/*关于优先级的总结：*/
+		/*1.选择器优先级比较：
+		！important>行间样式>id选择器>class选择器>标签选择器>继承来的选择器
+		2.优先级大小赋值：
+		（1）行间样式=1000
+		（2）id=100
+		（3）class=10
+		（4）标签=1		*/
+	</style>
+</head>
+<body>
+	<div>选择器的使用
+		<a href="###">链接标签</a>
+		<span>span标签</span>
+	</div>
+	<p>选择器的使用
+		<a href="###">点击跳转</a>
+	</p>	
+
+	<!-- class和id选择器： -->
+	<div>
+		<a href="###" class="lanou">蓝鸥官网</a>
+		<span class="lanou">河南蓝鸥官网</span>
+	</div>
+	<div>
+		<a href="###">中北官网</a>
+		<a href="###" class="lanou">中北软件学院官网</a>
+	</div>
+
+	<!-- 通过class实线导航： -->
+	<div>
+		<ul>
+			<li class="nav">导航1</li>
+			<!-- 设置多个class时中间需要加空格隔开 -->
+			<li class="nav active">导航2</li>
+			<li class="nav">导航3</li>
+			<li class="nav active">导航4</li>
+		</ul>
+	</div>
+
+	<!-- id选择器： -->
+	<div id="box" class="box" style="color: #aaa">
+		id选择器的id属性值具有唯一性
+	</div>
+	<!-- 目前选择器虽然可以获取，但若通过js动态获取选择器时，多个id属性值相同的选择器就会报错 -->
+	<!-- <div id="box">
+		id选择器,id属性值具有唯一性
+	</div> -->
+
+</body>
+</html>

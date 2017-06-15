@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>overflow</title>
+</head>
+<body style="width: 500px;border:3px dashed black;">
+	<!-- 重要样式overflow -->
+	<!-- 1.hidden:超出隐藏(常用)
+		 2.scroll:超出滚动 -->
+	<div style="width: 100px;height: 100px;background-color: pink;overflow: scroll;">
+		<!-- opacity: 设置透明度，取值范围：0~1 -->
+		<div style="width: 200px;height: 200px;background-color: #ccc;opacity: 0.5">overflow样式</div>
+	</div>
+	<!-- overflow-x或overflow-y：控制只让一侧滚动 -->
+	<hr>
+	<div style="width: 100px;height: 100px;background-color: pink;overflow-x: hidden;overflow-y: scroll">
+		<!-- opacity: 设置透明度，取值范围：0~1 -->
+		<div style="width: 200px;height: 200px;background-color: #ccc;opacity: 0.5">overflow样式</div>
+	</div>
+
+	<!-- 块元素嵌套宽高问题： -->
+	<!-- 宽度：默认为父元素(即body)的宽度 (body本身也是一个块元素)
+		 高度：被子元素撑起（布局时，块元素作为容器，高度一般不设置，只能让子元素撑起来高度）
+	 -->
+	<hr>
+	<div style="border:5px solid black;">
+		<p>子元素</p>
+		<h1>子元素h</h1>
+	</div>
+
+</body>
+</html>

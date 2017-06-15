@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>边框样式</title>
+</head>
+<body>
+	<!-- border：复合写法，包括边框的粗细，样式，颜色 -->
+	<div style="border: 3px solid red;width:300px; ">
+		四边都有边框
+	</div>
+	<!-- 只有一个方向：border-bottom -->
+	<p style="border-bottom: 2px solid #ccc">底部边框</p>
+
+	<!-- 圆角边框设置： -->
+	<!-- 1.solid：实线
+		 2.dotted：点
+		 3.dashed：虚线 -->
+	<p style="border: 2px dotted #ccc;border-radius: 20px;height: 80px;text-align: center;line-height: 80px;">圆角边框</p>
+	<!-- 拆分边框样式 -->
+	<div style="border-width: 5px;border-color: black;border-style: dotted;">拆分边框样式</div>
+	<!-- 给出border-style，颜色和边框都会自动给出默认值 -->
+	<p style="border-style: dashed;">不同方向的边框样式</p>
+	<p style="border-left: 2px solid black;border-right: 3px dotted #ccc;border-top: 3px dashed yellow">不同方向的边框样式</p>
+
+</body>
+</html>
