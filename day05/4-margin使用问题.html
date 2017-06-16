@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>margin使用问题</title>
+	<style type="text/css">
+		#box{
+			border: 1px solid red;
+		}
+		#box span{
+			background-color: #ccc;
+			margin-left: 20px;
+			/*margin的上下表示：*/
+			margin-top: 100px;
+			margin-bottom: 30px;
+			/*解决方案：（在IE6,7,8中兼容性不好）*/
+			display: inline-block;
+			/*使用padding有效，但无法撑起父元素*/
+			padding: 50px;
+		}
+		#box2{
+			border: 1px solid red;
+		}
+		/*#box2 .in1,.in2：找到box2中的in1和in2，设置相同的样式*/
+		#box2 .in1,#box2 .in2{
+			background-color: lightblue;
+			width: 100px;
+			height: 100px;
+		}
+		#box2 .in1{
+			margin-bottom: 30px;			
+		}
+		#box2 .in2{
+			margin-top: 40px;
+			/*display：解决重叠问题*/
+			display: inline-block;
+		}
+		#box3{
+			/*解决方式<1>:添加border属性*/
+			/*border: 1px solid blue;*/
+
+			/*解决方式<2>:添加overflow属性*/
+			/*overflow: hidden;*/
+
+			/*解决方式<3>:*/
+			padding-top: 30px;
+			background-color: blue;
+		}
+		#box3 div{
+			width: 100px;
+			height: 100px;
+			background-color: lightblue;
+		}
+		#box3 .in2{
+			margin-top: 20px;			
+		}
+		#box3 .in1{
+			/*margin-top: 30px;*/
+		}
+	</style>
+</head>
+<body>
+	<!-- 使用中可能遇到的问题： -->
+	<!-- （1）内联元素上下的margin值可能无效，使用padding有效，但无法撑起父元素。 -->
+	<div id="box">
+		<span>span1</span>
+		<span>span2</span>
+	</div>
+	<h1>123</h1>
+	<!-- （2）块元素margin值的重叠（上一个标签的下margin值和下一个标签的上margin值会取一个较大的margin值显示）。 -->
+	<!-- 解决方案：任意一个元素添加display：inline-block -->
+	<div id="box2">
+		<div class="in1">inner1</div>
+		<div class="in2">inner2</div>
+	</div>
+	<!-- （3）嵌套布局中，最顶部的元素设置margin-top会作用到父元素上 -->
+	<!-- 解决方案： -->
+	<!-- <1>给父元素添加边框
+		 <2>给父元素添加overflow属性
+		 <3>父子间给父元素添加上padding值
+	 -->
+	<hr>
+	<div id="box3">
+		<div class="in1">inner1</div>
+		<div class="in2">inner2</div>
+	</div>
+</body>
+</html>

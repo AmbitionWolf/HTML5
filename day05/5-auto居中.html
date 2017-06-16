@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>auto居中</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		h1,p,body,ul,ol,dl{
+			padding: 0;
+			margin: 0;
+		}
+		a{
+			text-decoration: none;
+		}
+		#box{
+			background-color: pink;
+			width: 400px;
+			/*auto自动计算(前提：宽度必须给定)：（父元素宽度-box宽度）/ 2 */
+			margin: 10px auto 0;
+		}
+		#box .in1{
+			/*给定左右间距，让宽度自适应（宽度=父元素的宽度-margin左右）*/
+			margin: 0 100px;
+			width: auto;
+			background-color: lightblue;
+		}
+		#box .in2{
+			background-color: lightgreen;
+			
+			/*在分布宽度时，给定两个确定值，第三个值则可以设定为auto*/
+			width: 100px;
+			margin-left: auto;
+			margin-right: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		块元素固定宽度后居中
+		<ul>
+			<li>dfssd</li>
+		</ul>
+
+		<div class="in1">in1</div>
+
+		<div class="in2">in2</div>
+	</div>
+</body>
+</html>

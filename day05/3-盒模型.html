@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>盒模型</title>
+	<style type="text/css">
+		#box{
+			/*内容区：（即为宽高），指可以嵌套其他元素的地方*/
+			width: 100px;
+			height: 100px;
+			background-color: #ccc;
+
+			/*padding值：填充值（比喻为快递盒子里面的泡沫），该区域只有填充效果，但不显示文字内容*/
+			/*padding使用场景：*/
+			/*给父元素设置，以控制子元素的显示位置，控制父子元素之间调节位置时一般用padding。若标签不指定宽度，padding变大，盒子宽和高变小，即可显示文本内容的区域变小*/
+			/*显示效果：盒子整体变大，内容右移*/
+			/*padding-left: 20px;
+			padding-top: 20px;
+			padding-right: 20px;
+			padding-bottom: 20px;*/
+
+			/*padding复合写法（上右下左）*/
+			padding: 20px 30px 40px 50px;
+			/*上 （左=右） 下*/
+			padding: 20px 30px 40px;
+			/*（上=下） （左=右）*/
+			padding: 20px 30px;
+			/*（上=下=左=右）*/
+			padding: 33px;
+
+			/*边框设置：*/
+			border: 2px solid blue;
+			
+			/*margin值：外边距*/
+			/*使用场景：*/
+			/*一般用来设置兄弟元素之间的距离*/
+			margin-left: 30px;
+			margin-top: 30px;
+			margin-right: 30px;
+			margin-bottom: 30px;
+			/*margin简写形式与padding相同*/
+			margin: 50px;
+
+		}
+
+		/*导航实例：*/
+		html{
+			font-family: "宋体";
+			font-size: 16px;
+		}
+		/*组和选择器：用逗号隔开标签，找到body，ul，p标签相同的样式*/
+		body,ul,p,h1,h2,h3,h4,h4,h6{
+			/*样式重置：把系统原有的样式去掉*/
+			margin: 0;
+			padding: 0;
+		}
+		#nav{
+			background-color: rgba(0,0,0,0.7);
+			text-align: center;
+			padding: 10px 0 5px;
+		}
+		#nav img{
+			width: 136px;
+		}
+		#nav ul{
+			list-style-type: none;
+			/*background-color: red;*/
+			/*ul的padding样式重置：*/
+			padding: 0;
+			/*ul的margin样式重置：*/
+			/*padding-top: 10px;*/
+			margin-top: 10px;
+		}
+		#nav ul li{
+			display: inline-block;
+			margin: 0 30px;
+		}
+		#nav ul li a{
+			text-decoration: none;
+			color: gray;			
+		}
+		#nav ul li:hover a{
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<!-- 盒模型:每个标签的组成部分（包括宽，高，padding值，边框，margin值） -->
+	<!-- 盒模型大小（宽度）： -->
+	<!-- 内容宽度 + padding-left + padding-right + border-lef + border-right + margin-left + margin-right -->
+	<div id="box">box</div>
+	<br>
+	<br>
+	<hr>
+	
+	<div id="nav">
+		<img src="title2.png" alt="">
+		<!-- ul>li*4>a[href="###"]{HOME} -->
+		<ul>
+			<li><a href="###">HOME</a></li>
+			<li><a href="###">HOME</a></li>
+			<li><a href="###">HOME</a></li>
+			<li><a href="###">HOME</a></li>
+		</ul>
+	</div>
+</body>
+</html>

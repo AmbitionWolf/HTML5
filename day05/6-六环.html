@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>六环</title>
+	<style type="text/css">
+		
+		#six{
+			width: 100px;
+			height: 100px;
+			background-color: #9cff4a;
+			border: 5px solid yellow;
+		}
+		#five{
+			background-color: #ffa5de;
+			/*宽度=盒子six的宽度大小*/
+			width: 110px;
+			/*display: inline-block:由内容撑开大小*/
+			/*display: inline-block;*/
+			padding: 50px;
+			border: 1px dashed white;
+		}
+		#four{
+			background-color: #ffa5de;
+			/*display: inline-block;*/
+			width: 212px;
+			padding: 5px;
+			border: 1px dotted white;
+
+		}
+		#three{
+			background-color: #ffa5de;
+			width: 224px;
+			padding: 40px;
+		}
+		#two{
+			background-color: white;
+			width: 304px;
+			padding: 20px;
+		}
+		#one{
+			background-color: lightblue;
+			width: 344px;
+			padding: 5px;
+		}
+		#box{
+			background-color: white;
+			width: 354px;
+			border: 1px dashed black;
+			padding: 25px;
+		}
+	</style>
+</head>
+	<!-- div#box>div#one>div#two>div#three>div#four>div#five>div#six -->
+<body>
+	<div id="box">
+		<div id="one">
+			<div id="two">
+				<div id="three">
+					<div id="four">
+						<div id="five">
+							<div id="six"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

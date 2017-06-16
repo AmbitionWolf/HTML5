@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性选择器</title>
+	<style type="text/css">
+	/*属性选择器的格式：*/
+	/*a[属性名]：找到对应中括号中具有对应属性的a标签*/
+	#box a[href]{
+		/*color: red;*/
+	}
+	#box a[target]{
+		text-decoration: none;
+	}
+	#box{
+		/*text-decoration不可以被继承*/
+		text-decoration: none;
+		/*字体设置可以被子元素继承*/
+		font-size: 20px;
+		/*a标签有默认颜色样式，继承的优先性不够，会出现不能改变颜色的情况*/
+		color: blue;
+	}
+	/*修改div中标签a的方法：要找到对应的标签*/
+	#box a{
+		text-decoration: none;
+		color: black;
+	}
+	/*使用自定义属性（给标签设置新的属性）*/
+	#box a[nameValue]{
+		/*text-decoration: underline;*/
+	}
+	/*找到自定义属性为key，对应属性值为baiDu的a标签*/
+	#box a[key=baiDu]{
+		color: blue;
+	}
+	/* ^的含义：以制定字符开头的属性值*/
+	/* a[key^=ba]含义：找到属性为key，且其属性值为以ba开头的a标签*/
+	#box a[key^=ba]{
+		color: red;
+	}
+	/* $的含义：在字符串的结尾匹配相应的字符*/
+	#box a[key$=Du]{
+		color: pink;
+	}
+	/* *的含义:在任意位置包含某字符：*/
+	#box a[key*=b]{
+		color: green;
+	}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<a href="###" target="_self" key="baiDu">百度搜索</a>
+		<a href="1-属性选择器.html" nameValue="Google" key="google">谷歌搜索</a>
+		<a href="###" key="bac">360</a>
+	</div>
+</body>
+</html>

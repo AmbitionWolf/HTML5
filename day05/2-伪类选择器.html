@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>伪类选择器</title>
+	<style type="text/css">
+		#box ul{
+			text-align: center;
+			font-size: 16px;
+			word-spacing: 20px;
+			border :1px solid gray;
+		}
+		#box ul li{
+			list-style-type: none;
+			display: inline-block;
+			/*cursor：鼠标放在上面就可以出现小手的样式*/
+			cursor: pointer;
+			background-color: red;
+			line-height: 25px;
+			width: 130px;
+		}
+		#box ul li span{
+			color: blue;
+			/*display:none(隐藏)*/
+			display: none;
+		}
+		/*鼠标移入触发,光标变成手的样子，移除丢弃*/
+		#box ul li:hover{
+			color: blue;
+			font-size: 16px;
+			line-height: 49px;
+		}
+		/*#box ul:hover li：是把hover（触发）事件放在ul上触发，但样式的设置是在ul的子元素li标签上显示*/
+		#box ul:hover li {
+			background-color: #ccc;
+		}
+		/*控制li中span的显示隐藏*/
+		#box ul li:hover span{
+			display: inline;
+		}
+		/*未点击过的链接设置*/
+		#box2 a:link{
+			color: black;
+		}
+		/*点击过的状态链接颜色设置*/
+		#box2 a:visited{
+			color: green;
+		}
+		/*****（重点）鼠标移入状态设置*/
+		#box2 a:hover{
+			color: purple;
+		}
+		/*按下鼠标的状态设置*/
+		#box2 a:active{
+			color: yellow;
+		}
+		/*书写顺序必须是未点击>点击后>移入>按下*/
+	</style>
+</head>
+<body>
+	<div id="box">
+		<ul>
+			<!-- li{w$c}*4 -->
+			<li>w1c <span>显示/隐藏</span></li>
+			<li>w2c <span>显示/隐藏</span></li>
+			<li>w3c <span>显示/隐藏</span></li>
+			<li>w4c <span>显示/隐藏</span></li>
+		</ul>
+	</div>
+
+	<div id="box2">
+		<a href="###">空连接</a>
+		<a href="#box">锚点链接</a>
+		<a href="1-属性选择器.html" target="_blank">1-属性选择器.html</a>
+		<a href="###">空链接2</a>
+	</div>
+</body>
+</html>
