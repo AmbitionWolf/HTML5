@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>电影列表</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		li{
+			list-style-type: none;
+		}
+		a{
+			text-decoration: none;
+		}
+		#wrap{
+			width: 366px;
+			margin: 0 auto;
+			border: 1px solid red;
+			background-color: #f4fafb;
+		}
+		#top_bar{
+			height: 23px;
+			background: url(img/bar.png) no-repeat;
+			padding-left: 30px;
+		}
+		#top_bar h2{
+			font-size: 12px;
+			line-height: 23px;
+		}
+		#mv_list{
+			padding: 13px 8px 11px 5px;
+
+		}
+		#mv_list li{
+			/*子元素浮动时，父元素一定要加overflow: hidden;*/
+			overflow: hidden;
+		}
+		#mv_list li .mv_pic{
+			border: 1px solid #c8c4d3;
+			padding: 2px;
+			float: left;
+		}
+		#mv_list li .mv_detail{
+			padding-left: 13px;
+			/*被浮动图片遮挡的部分显示出来*/
+			overflow: hidden;
+			font-size: 12px;
+			line-height: 20px;
+		}
+		#mv_list li .mv_detail p{
+			color: #666;
+		}
+		#mv_list .mar{
+			margin-top: 22px;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="top_bar">
+			<h2>外媒评论精选</h2>
+		</div>
+		<ul id="mv_list">
+			<li>
+				<img src="img/1.png" class="mv_pic">
+
+				<div class="mv_detail">
+					<h4>《加勒比海盗4》--商业味道浓郁</h4>
+					<p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+				</div>
+			</li>
+			<li class="mar">
+				<img src="img/1.png" class="mv_pic">
+
+				<div class="mv_detail">
+					<h4>《加勒比海盗4》--商业味道浓郁</h4>
+					<p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+				</div>
+			</li>
+			<li class="mar">
+				<img src="img/1.png" class="mv_pic">
+
+				<div class="mv_detail">
+					<h4>《加勒比海盗4》--商业味道浓郁</h4>
+					<p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>验证文档流</title>
+	<style type="text/css">
+		#box{
+			border: 1px solid red;
+			height: 200px;
+		}
+		#box div{
+			width: 100px;
+			height: 100px;
+			background-color: lightblue;
+		}
+		div#div1{
+			background-color: lightgreen;
+			float: left;
+			/*display: none;*/
+		}
+		div#div2{
+			width: 150px;
+			height: 150px;
+			float: left;
+		}
+		/*脱离文档流：*/
+		/*div1浮动，div1会脱离文档流，下面的div2会占据div1的位置
+		  div1和div2都浮动，全部脱离文档，提升元素，正常层级上父元素的高度会变为0
+		*/
+
+		/*半层层级：语法上未定义半层关系，只是根据正常元素文本内容会被浮动元素挤到外面定义的（可以实现图文混排效果）*/
+		#box2,#box3{
+			border: 1px solid red;
+			width: 400px;
+			margin: auto;
+			height: 150px;
+		}
+		#box2 .left{
+			width: 100px;
+			height: 100px;
+			background-color: lightblue;
+			float: left;
+			/*opacity: 0.1;*/
+		}
+		#box2 .content{
+			background-color: orange;
+			/*width: 100px;*/
+			/*margin-left浮动后，margin不能再以left为参考了*/
+			margin-left: 30px;
+			padding-left: 100px;
+			/*overflow:hidden :超出隐藏，被浮动元素遮挡的部分隐藏掉*/
+			overflow: hidden;
+		}
+		#box3 .left{
+			width: 150px;
+			height: 150px;
+			background-color: lightblue;
+			float: left;
+		}
+		#box3 .content{
+			/*加上左浮动后就变成内容撑起大小*/
+			float: left;
+			width: 240px;
+			background-color: #ccc;
+			margin-left: 5px;
+			padding-left: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="div1">div1</div>
+		<div id="div2">div2</div>
+	</div>
+
+	<hr>
+	<div id="box2">
+		<div class="left">左边显示</div>
+		<div class="content">div1和div2都浮动，全部脱离文档，提升元素，正常层级上父元素的高度会变为0。div1和div2都浮动，全部脱离文档，提升元素，正常层级上父元素的高度会变为0。div1和div2都浮动，全部脱离文档，提升元素，正常层级上父元素的高度会变为0。</div>
+	</div>
+	<hr>
+
+	<div id="box3">
+		<div class="left">左边显示</div>
+		<div class="content">div1和div2都浮动，全部脱离文档，提升元素，正常层级上父元素的高度会变为0。div1和div2都浮动，全部脱离文档，提升元素，正常层级上父元素的高度会变为0。div1和div2都浮动，全部脱离文档，提升元素，正常层级上父元素的高度会变为0。</div>
+	</div>
+</body>
+</html>

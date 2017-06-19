@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>清除浮动造成的影响</title>
+	<style type="text/css">
+		#box{
+			border: 1px solid red;
+			width: 800px;
+			margin: auto;
+		}
+		#left,#right{
+			float:left;
+			width: 400px;
+			height: 300px;
+			background-color: lightblue;
+		}
+		#right{
+			background-color: lightgreen;
+			height: 400px;
+		}
+		#footer{
+			background-color: orange;
+			/*clear属性值及其对应含义：*/
+			/*left:清除前面元素左浮动对其造成的影响*/
+			/*right:清除右浮动对其造成的影响*/
+			/*both：清除前面元素左和右浮动对其造成的影响*/
+			clear: both;
+		}
+		#box2{
+			width: 251px;
+			border: 3px solid blue;
+			height: 300px;
+		}
+		#box2 div{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+		}
+		/*设置浮动后考虑问题：*/
+		/*1.自身大小
+		  2.父元素高度*/
+		#box2 .div1{
+			background-color: lightgreen;
+			float: left;
+			/*若高度太大不合理，则会造成浮动的偏移*/
+			height: 101px;			
+		}
+		#box2 .div2{
+			background-color: #ccc;
+			float: right;
+		}
+		#box2 .div3{
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="left">left</div>
+		<div id="right">right</div>
+		<div id="footer">footer</div>
+	</div>
+	<hr>
+	<div id="box2">
+		<!-- div.div1+div.div2+div.div3 -->	
+		<div class="div1"></div>
+		<div class="div2"></div>
+		<div class="div3"></div>
+	</div>
+</body>
+</html>

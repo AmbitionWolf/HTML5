@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浮动</title>
+	<style type="text/css">
+		#box,#box2{
+			border: 1px solid red;
+			height: 200px;
+		}
+		#div1,#div2{
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+			/*display: inline-block;*/
+			float: left;
+			float: right;
+		}
+		#div2{
+			/*加上float浮动后居中效果会失效*/
+			margin: 0 auto;
+			background-color: lightgreen;
+			/*设置浮动时，下面代码效果会覆盖上面的代码效果*/
+			float: left;
+		}
+		#s1,#s2{
+			background-color: #ccc;
+			width: 100px;
+			height: 100px;
+			float: left;
+		}
+		#s2{
+			background-color: yellow;
+			/*上下margin和padding值的问题*/
+			margin-top: 30px;
+			padding: 30px;
+		}
+		/*浮动标签：float特点：（效果类似display：inline-block）*/
+		/*1.可以让块元素同行显示（margin：auto效果会失效）
+		  2.元素同行显示后，换行不会被解析
+		  3.内联元素浮动后宽高可以设置，上下的margin和padding效果恢复正常
+		  4.添加浮动后元素变为内容撑起大小（要考虑是否要设置宽高）
+		  5.添加浮动后元素会脱离文档流（文档流：元素的页面布局，浮动元素会脱离文档，提升在文档流中提升半个层级）
+		*/
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="div1">div1</div>
+		<div id="div2">div2</div>
+	</div>
+	<hr>
+	<div id="box2">
+		<span id="s1">span1</span>
+		<span id="s2">span2</span>
+	</div>
+</body>
+</html>
