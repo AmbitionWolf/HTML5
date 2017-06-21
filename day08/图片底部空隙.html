@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片底部空隙问题</title>
+	<style type="text/css">
+		#box{
+			border: 1px solid red;
+		}
+
+		/*解决图片底部默认4px间距问题方案：*/
+		img{
+			vertical-align: middle;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<!-- 底部默认有4像素的间距 -->
+		<img src="img/20160109_2.jpg">
+	</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+
+/*此为首页样式 模板区分例如：*/
+.banner{margin-top:15px;}
+
+.hmain{margin-top:10px;overflow:hidden;}
+
+.hm_right{width:573px;}
+.hm_right h2{line-height:33px;padding-left:12px;color:#ffffff;background-color:#363636;font-size:14px;font-family:'宋体';}
+.hm_right .hm_rban{margin:1px 0px;}
+.hm_right .hm_rlist{border:#d4d4d4 solid 3px;*padding-bottom:20px;background:url(images/hm_rlbg.jpg) no-repeat center;}
+.hm_right .hm_rlist ul li{width:238px;height:70px;float:left;margin:20px;display:inline;}
+.hm_right .hm_rlist ul li p{text-indent:2em;line-height:18px;}
+.hm_imgb{border:#d4d4d4 solid 2px;float:left;margin-right:10px;}
+.hm_rred{color:#c00000;}
+.hm_right .hm_rtuli{margin-top:10px;}
+.hm_right .hm_rtuli img{}
+
+.hm_left{width:327px;}
+.hm_left .hm_lvcon{border-left:#d3d3d3 solid 1px;border-right:#d3d3d3 solid 1px;background:#fdfdfd url(images/hm_lvbg.jpg) repeat-x top;margin-top:1px;padding-left:15px;}
+.hm_left .hm_lvcon .hm_lvcmore{width:295px;background:url(images/hm_lmxian.jpg) no-repeat bottom;height:28px;padding-top:10px;}
+.hm_left .hm_lvcon .hm_lvcmore a{color:#fff;background-color:#363636;text-decoration:none;padding:2px 4px;}
+.hm_left .hm_lvcon ul{padding:5px 0px 10px 0px;}
+.hm_left .hm_lvcon ul li{width:144px;background-color:#4b4b4b;float:left;margin-right:7px;margin-top:5px;}
+.hm_left .hm_lvcon ul li p{line-height:17px;color:#fff;font-size:11px;}
+.hm_lvimgb{float:left;margin-right:4px;}
+.hm_left .hm_lvlibot{height:6px;background-image:url(images/hm_lvlibot.jpg);font-size:0px;margin-bottom:12px;}
+
+.hm_left h2{line-height:33px;padding-left:12px;color:#ffffff;background-color:#363636;font-size:14px;font-family:'宋体';}
+.hm_left .hm_lfrcon{border:#d2d2d2 solid 2px;}
+.hm_left .hm_lfrcon .hm_lfrc_l{width:130px;margin:20px 25px 0px 10px;}
+.hm_left .hm_lfrcon .hm_lfrc_l h4{color:#4c4c4c;border-left:#e90909 solid 4px;padding-left:5px;line-height:normal;}
+.hm_left .hm_lfrcon .hm_lfrc_l p{line-height:20px;color:#000;}
+.hm_lfcimgb{border:#e4e4e4 solid 1px;margin:5px 0px;}
+.hm_left .hm_lfrcon .hm_lfrc_r{margin-top:20px;}
+.hm_left .hm_lfrcon .hm_lfrc_r h4{color:#000;border-left:#e90909 solid 4px;padding-left:5px;line-height:normal;}
+.hm_left .hm_lfrcon .hm_lfrc_r ul{padding:10px 0px;}
+.hm_left .hm_lfrcon .hm_lfrc_r ul li{padding-bottom:3px;}
