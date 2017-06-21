@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>work</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		img{
+			vertical-align: top;
+		}
+		#top{
+			width: 912px;
+			height: 30px;
+			background-color: #e9e9e9;
+			margin: 0 auto;
+		}
+		#head{
+			width: 912px;
+			margin: 0 auto;
+		}
+		#left{
+			width: 250px;
+			float: left;
+		}
+		#right{
+			width: 328px;
+			float: right;
+		}
+		#aa{
+			width: 912px;
+			margin: 0 auto;
+		}
+		#bb{
+			width: 912px;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		#b1{
+			width: 330px;
+			margin-top: 5px;
+			float: left;
+			overflow: hidden;
+		}
+		#b11{
+			float: left;
+			width: 326px;
+			border: 2px solid #d3d3d3;
+			background-color: #ededeb;
+		}
+		#wfj{
+			margin-top: 10px;
+			margin-left: 15px;
+			margin-right: 2px;
+			margin-bottom: 5px;
+			overflow: hidden;
+			width: 143px;
+			float: left;
+		}
+		#wfjl{
+			float: left;
+		}
+		#wfjr{
+			width: 77px;
+			height: 65px;
+			background-color: #4b4b4b;
+			float: right;
+		}
+		#lj{
+			margin-top: 10px;
+			margin-left: 7px;
+			/*margin-right: 5px;*/
+			margin-bottom: 5px;
+			overflow: hidden;
+			width: 144px;
+			float: left;
+		}
+		#ljl{
+			float: left;
+		}
+		#ljr{
+			width: 77px;
+			height: 66px;
+			background-color: #4b4b4b;
+			float: right;
+		}
+		#bj{
+			margin-top: 10px;
+			margin-left: 15px;
+			margin-right: 2px;
+			margin-bottom: 5px;
+			overflow: hidden;
+			width: 143px;
+			float: left;
+		}
+		#bjl{
+			float: left;
+		}
+		#bjr{
+			width: 77px;
+			height: 66px;
+			background-color: #4b4b4b;
+			float: right;
+		}
+		#ydl{
+			margin-top: 10px;
+			margin-left: 7px;
+			/*margin-right: 5px;*/
+			margin-bottom: 5px;
+			overflow: hidden;
+			width: 144px;
+			float: left;
+		}
+		#yl{
+			float: left;
+		}
+		#yr{
+			width: 77px;
+			height: 66px;
+			background-color: #4b4b4b;
+			float: right;
+		}
+		#wo1{
+			background-color: #363636;
+			width: 60px;
+			height: 17px;
+			margin-top: 12px;
+			margin-left: 13px;
+			margin-bottom: 8px;
+		}
+		#b12{
+			border: solid 2px #d2d2d2;
+			width: 326px;
+			float: left;
+			margin-top: 15px;
+		}
+		#b12a{
+			height: 30px;
+			background-color: #363636;
+		}
+		#b2{
+			width: 572px;
+			margin-top: 5px;
+			margin-left: 10px;
+			float: left;
+			overflow: hidden;
+		}
+		#bowen{
+			display: inline-block;
+			background-color: #363636;
+			width: 572px;
+		}
+		#b21{
+			/*margin-top: 5px;*/
+			float: right;
+		}
+		#ba{
+			width: 570px;
+			border: 1px solid #d4d4d4;
+			float: right;
+			overflow: hidden;
+		}
+		.bor{
+			border: 2px solid #d4d4d4;
+			/*width: 567px;*/
+			height: 221px;
+		}
+		.li1{
+			float: left;
+		}
+		#xian{
+			border-bottom: 2px dotted black;
+			margin-top: 20px;
+			width: 235px;
+			margin-left: 27px;
+			float: left;
+			/*margin-left: 300px;*/
+		}
+		#xian2{
+			float: left;
+			margin-left: 20px;
+			border-bottom: 2px dotted black;
+			margin-top: 20px;
+			width: 235px;
+		}
+		#ba1{
+			margin-top: 20px;
+			float: left;
+			width: 155px;
+		}
+		.f1,.f2,.f3,.f4{
+			float: left;
+			border: 3px solid #d4d4d4;
+			margin-top: 20px;
+			margin-left: 27px;
+		}
+		#bbb{
+			width: 572px;
+			margin-top: 5px;
+			/*border: 5px solid #d4d4d4;*/
+			float: right;
+			overflow: hidden;
+		}
+		#bbb1{
+			width: 283px;
+			margin-right: 2px;
+			float: left;
+		}
+		#bbb2{
+			width: 283px;
+			margin-left:4px;
+			float: left;
+		}
+		#tail{
+			clear: both;
+			height: 55px;
+			background-color: #383838;
+			position: relative;
+			top: 21px;
+			color: white;
+			text-align: center;
+			font-size: 12px;
+			line-height: 28px;
+			width: 912px;
+			margin: 0 auto;
+		}
+		.today{
+			border-left: 4px solid red;
+			margin-left: 10px;
+			padding-left: 6px;
+			font-size: 13px;
+			margin-top: 20px;
+		}
+		.prize{
+			margin-top: 20px;
+			color: black;
+		}
+		.recent{
+			border-left: 4px solid red;
+			margin-left: 90px;
+			padding-left: 6px;
+			color: black;
+		}
+		.big{
+			border: 1px solid #d2d2d2;
+			margin-left: 10px;
+			margin-top: 6px;
+		}
+		.love,.city{
+			margin-left: 10px;
+			color: red;
+			line-height: 21px;
+			font-size: 13px;
+		}
+		#ll{
+			float: left;
+		}
+		#rr{
+			float: left;
+			margin-left: 25px;
+			margin-top: 8px;
+		}
+		#rr ul{
+			font-size: 11px;
+			line-height: 22px;
+		}
+		.red1{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="top"></div>
+	<div id="head">
+		<div id="left">
+			<img src="img/a.png">
+		</div> 
+		<div id="right">
+			<img src="img/b.png">
+		</div>
+	</div>
+	<div id="aa">
+		<img src="img/c.png">
+	</div>
+	<div id="bb">
+		<div id="b1">
+			<img src="img/vedio.png">
+			<div id="b11">
+				<div id="wo1">
+					<h5 style="font-weight: bold;color: white;">查看更多</h5>
+				</div>
+				<hr style="border: 1px solid #a3a3a3;width: 295px;margin: 0 auto;">
+				<div id="wfj">
+					<img id="wfjl" src="img/wfj.png">
+					<div id="wfjr">
+						<br>
+						<p style="color: white;font-size: 8px;font-weight: 10; ">王府井希尔顿酒店</p>
+					</div>	
+				</div>			
+				<div id="lj">
+					<img id="ljl" src="img/cha2.png">
+					<div id="ljr">
+						<br>
+						<p style="color: white;font-size: 8px;font-weight: 10; ">励骏酒店</p>
+					</div>
+				</div>
+				<div id="bj">
+					<img id="bjl" src="img/cha3.png">
+					<div id="bjr">
+						<br>
+						<p style="color: white;font-size: 8px;font-weight: 10; ">Arena Club 北京小巨蛋</p>
+					</div>
+				</div>
+				<div id="ydl">
+					<img id="yl" src="img/cha4.png">
+					<div id="yr">
+						<br>
+						<p style="color: white;font-size: 8px;font-weight: 10; ">Assaggi 尝试意大利餐厅</p>
+					</div>				
+				</div>									
+			</div>
+			<div id="b12">
+				<div id="b12a"><h4 style="color: white;margin-left: 12px;">免费体验</h4></div>
+				<img src="img/people.png">
+				<p class="today"><span class="prize">今日大奖</span><span class="recent">最近大奖得主</span></p>
+				<div id="ll">
+				<img src="img/today.png" class="big">
+				<p class="love">天台爱情电影票</p>
+				<p class="city">东都国际影城 提供</p></div>
+				<div id="rr">
+					<ul style="list-style-type: none;">
+						<li class="red1">Good白</li>
+						<li>抢到天台爱情电影票</li>
+						<li class="red1">于小坏</li>
+						<li>抢到天台爱情电影票</li>
+						<li class="red1">煊贝儿</li>
+						<li>抢到天台爱情电影票</li>
+						<li class="red1">思思</li>
+						<li>抢到天台爱情电影票</li>
+					</ul>
+			</div>
+			</div>
+		</div>
+		<div id="b2">
+			<div id="bowen">
+				<h4 style="color: white;display: inline-block;">HOT博文</h4>
+				<p style="color: white;display: inline-block;">查看更多>></p>
+			</div>
+			<img id="b21" src="img/bowen.png">
+			<div id="ba">
+				<ul class="bor" style="list-style-type: none;">
+					<li class="li1">
+						<img src="img/f1.png" class="f1">
+						<div id="ba1">
+							<p style="font-size: 12px;">好伦哥转型海鲜自助，赌一场华丽转型！</p>
+							<span style="color: red;font-size: 12px;">带你去最HOT的地方！</span>
+						</div>
+					</li>
+					<li class="li1">
+						<img src="img/f2.png" class="f2">
+						<div id="ba1">
+							<p style="font-size: 12px;">这是一个瞎吃的时代，也是一个吃虾的时代</p>
+							<span style="color: red;font-size: 12px;">带你去最HOT的地方！</span>
+						</div>
+					</li>
+					<p><span id="xian"></span><span id="xian2"></span></p>
+					<li class="li1">
+						<img src="img/f3.png" class="f3">
+						<div id="ba1">
+							<p style="font-size: 12px;">开门纳福·美美的甜品总是被称为“治愈系的食物”</p>
+							<span style="color: red;font-size: 12px;">带你去最HOT的地方！</span>
+						</div>
+					</li>
+					<li class="li1">
+						<img src="img/f4.png" class="f4">
+						<div id="ba1">
+							<p style="font-size: 12px;">朴素饱满的栗子甜品，浓滑甜蜜余味纯香，更是难以舍弃的味道！</p>
+							<span style="color: red;font-size: 12px;">带你去最HOT的地方！</span>
+						</div>
+					</li>
+				</ul>
+			</div>	
+			<div id="bbb">
+				<div id="bbb1">
+					<img src="img/hot.png">
+					<img src="img/pla.png">
+					<img src="img/music.png">
+					<img src="img/relax.png">
+				</div>
+				<div id="bbb2">
+					<img src="img/dream.png">
+					<img src="img/toasted.png">
+					<img src="img/shao.png">
+					<img src="img/lohao.png">
+				</div>				
+			</div>
+		</div>		
+	</div>
+	<div id="tail">
+		<p>网络视听许可证0108215号</p>
+		<p>Copyright@2013壹佰度100度du.com版权所有</p>
+	</div>
+</body>
+</html>
