@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>定位：相对定位</title>
+	<style type="text/css">
+		#box{
+			border: 3px solid yellow;
+		}
+		#box div{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+		}
+		#box .div2{
+			background-color: lightblue;
+			/*margin-left: 100px;
+			margin-top: 100px;*/
+
+			position: relative;
+			/*加上position: relative;上右下左样式就可以重新设置了(位置变换方式是一原来的布局为基准，相对位置发生变化而其他元素位置不变)*/
+
+			/*特点：*/
+			/*1.直接给对应元素重新定位，不给偏移量（上下左右）时对元素大小和位置没有任何影响。
+			  2.元素是相对于自身初始位置发生偏移（left:0,top:0，就是初始位置，不发生偏移）。
+			  3.偏移量可以设定正负值，正负值的方向相反。
+			  4.元素移动后文档的位置扔会被保留
+			  5.相对定位的元素层级也会随之提升，遮挡住正常元素(当元素都出现定位关系时，页面下面的元素会遮挡住上面的元素)。
+			*/
+			/*left: -100px;
+			top: -10px;*/
+			right: 10px;
+			bottom: 10px;
+			/*修改定位中的层级大小：默认值小于1,数值大小决定层级高低*/
+			z-index: 1;
+		}
+		#box .div3{
+			background-color: #ccc;
+			position: relative;
+			z-index: 2;
+		}
+	</style>
+</head>
+<body>
+	<!-- 定位布局：position -->
+	<!-- 1.static:默认方式布局（没有定位关系）
+		 2.relative:相对定位（相对于自身的初始位置移动）
+		 3.absolute:绝对定位
+		 4.fixed:固定定位
+	-->
+	<div id="box">
+		<!-- div.div${div$}*3 -->
+		<div class="div1">div1</div>
+		<div class="div2">div2</div>
+		<div class="div3">div3</div>
+	</div>
+</body>
+</html>

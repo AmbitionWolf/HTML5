@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>相对位置设置</title>
+	<style type="text/css">
+		#box{
+			height: 300px;
+			border: 5px solid red;
+			width: 300px;
+			/*加上相对定位时本身没有变化*/
+			position: relative;
+			/*position: absolute;*/
+		}
+		#in{
+			background-color: blue;
+			/*在设置绝对定位时，要找参考元素，给参考元素设置定位关系（一般用relative）*/
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			left: 0px;
+			bottom: 0;
+		}
+		#div1,#div2,#div3{
+			padding: 50px;
+		}
+		#div1{
+			background-color: yellow;
+			position: relative;
+		}
+		#div2{
+			background-color: pink; 
+			position: relative;
+		}
+		#div3{
+			background-color: #ccc;
+			/*当其祖先都有定位关系时，就参照距离他最近并且有定位关系的祖先*/
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="in"></div>
+	</div>
+	<hr>
+	<div id="div1">
+		<div id="div2">
+			<div id="div3"></div>
+		</div>
+	</div>
+</body>
+</html>

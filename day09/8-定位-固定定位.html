@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>固定定位</title>
+	<style type="text/css">
+	/*固定定位特点：*/
+	/*类似绝对定位，但是只会参照整个浏览器文档进行位置定位*/
+	/*固定定位使用场景：*/
+	/*元素被固定到某一位置，不会随着浏览器的滚动而滚动*/
+		#fix{
+			position: fixed;
+			background-color: red;
+			left: 0;
+			/*top: 0;*/
+			bottom: 0;
+		}
+		p{
+			background-color: #ccc;
+		}
+		#box{
+			border: 5px solid red;
+			position: relative;
+		}
+		body{
+			height: 2000px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="fix">固定定位</div>
+	</div>	
+	<p>参照</p>
+</body>
+</html>

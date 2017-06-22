@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>练习</title>
+	<style type="text/css">
+		a{
+			text-decoration: none;
+		}
+		#wrap{
+			width: 300px;
+			height: 300px;
+			border: 5px solid red;
+			margin: auto;
+
+			position: relative;
+		}
+		#wrap a{
+			width: 100px;
+			height: 100px;
+			background-color: #ccc;
+			text-align: center;
+			line-height: 100px;
+
+			position: absolute;
+		}
+		.a1{
+			left: 0;
+			top: 0;
+		}
+		.a2{
+			right: 0;
+			top: 0;
+		}
+		#wrap .a3{
+			/*居中：*/
+			/*left: 100px;
+			top: 100px;*/
+			background-color: red;
+
+			width: 33.33px;
+			height: 33.33px;
+			font-size: 10px;
+			line-height: 33.33px;
+
+			/*居中设置方法：(前提是宽高必须指定)*/
+			left: 0;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			margin: auto;
+		}
+		.a4{
+			bottom: 0;
+			right: 0;
+		}
+		.a5{
+			left: 0;
+			bottom: 0;
+		}
+
+
+
+
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<!-- a[href="###" class="a$"]{链接$}*5 -->
+		<a href="###" class="a1">链接1</a>
+		<a href="###" class="a2">链接2</a>
+		<a href="###" class="a3">链接3</a>
+		<a href="###" class="a4">链接4</a>
+		<a href="###" class="a5">链接5</a>
+	</div>
+</body>
+</html>

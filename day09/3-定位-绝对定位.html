@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定位-绝对定位</title>
+    <style type="text/css">
+    	#box{
+			border: 3px solid yellow;
+		}
+		#box div{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+		}
+		#box .div2{
+			background-color: red;
+			/*绝对定位：(与浮动的特点类似)*/
+			/*绝对定位特点：
+			  1.添加绝对定位后，若不指定宽高，默认内容撑起大小。
+			  2.元素会脱离文档流，div3会占据div2的位置。
+			  3.文本内容无法撑起父元素的大小，只能通过添加宽高和大小来解决该问题。
+			  4.内联元素添加绝对定位后可以修改宽高。
+			  5.默认情况下，是相对于浏览器的整个文档发生偏移。
+			  6.若不给left等位置设置，则默认在初始位置。
+			  *****7.通常情况下使用场景会配合相对定位relative一起使用。若父元素有了相对或绝对定位关系，子元素添加absolute后就会相对于该父元素发生偏移。
+			*/
+
+
+			/*opacity: 0.5;透明度*/
+			opacity: 0.5;
+			position: absolute;
+			left: 0px;
+			top: 0px;
+
+		}
+		#box .div3{
+			background-color: lightblue;
+		}
+		#box2{
+			border: 2px solid red;
+
+			/*以下三种方法都无效：*/
+			/*overflow: hidden;*/
+			/*display: inline-block;*/
+			/*position: absolute;*/
+
+			/*添加高度虽然有效，但必须提前知道所给盒子的高度。*/
+			height: 50px;
+		}
+		#inner{
+			position: absolute;
+			background-color: #ccc;
+			z-index: 1;
+		}
+		#box2 span{
+			background-color: lightgreen;
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			left: 30px;
+			z-index: 2;
+		}
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <!-- div.div${div$}*3 -->
+        <div class="div1">div1</div>
+        <div class="div2">div2</div>
+        <div class="div3">div3</div>
+    </div>
+	<hr>
+    <div id="box2">
+    	<div id="inner">inner</div>
+    	<span>内联元素加绝对定位</span>
+    </div>
+</body>
+
+</html>

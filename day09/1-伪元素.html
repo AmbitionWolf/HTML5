@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>伪元素</title>
+
+	<link rel="stylesheet" type="text/css" href="base.css">
+
+	<style type="text/css">
+		/*首字母设置样式：*/
+		#p1:first-letter{
+			color: red;
+			font-size: 20px;
+		}
+		#p2{
+			width: 200px;
+		}
+		#p2::first-line{
+			color: red;
+			font-size: 20px;
+		}
+
+		/*第一行：*/
+		#div1{
+			border: 1px solid red;
+		}
+		/*在#div1开始的位置添加新的元素*/
+		#div1:before{
+			content: "显示的文本内容";
+			/*display: inline-block;*/
+			display: block;
+			width: 300px;
+			color: blue;
+			text-align: center;
+		}
+		/*after:在文本内容后面添加内容：*/
+		#div1::after{
+			content: "after添加的文本";
+			display: block;
+			color: red;
+			padding: 20px;
+		}
+
+		/*通常用after的功能清除浮动的影响*/
+		#box{
+			border: 1px solid black;
+			/*overflow: hidden;
+			兼容IE678版本
+			zoom: 1;*/
+		}
+		#float{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			float: left;
+		}
+		#box:after{
+			content: "";
+			height: 0;
+			visibility: hidden;
+			display: block;
+			clear: both;
+		}
+		#box{
+			/*考虑兼容IE67浏览器*/
+			zoom: 1;
+		}
+
+		/*定义一个清除浮动的类：(可以是代码具有重用性)*/
+		/*.clearfix{
+			zoom: 1;
+		}
+		.clearfix:after{
+			content: "";
+			visibility: hidden;
+			height: 0;
+			font-size: 0;
+
+			display: block;
+			clear: both;
+		}*/
+		
+		div ul{
+			padding: 0;
+			margin: 0;
+			list-style-type: none;
+			border: 1px solid red;
+		}
+		div ul li{
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<!-- 伪元素定义：添加选择器的特殊效果，可以用一个冒号或者两个冒号 -->
+	<!-- a:hover,a:link...:属于伪类，选择器用一个冒号 -->
+	<p id="p1"> Hello World！找到第一个字first-letter</p>
+	<p id="p2">first-line 第一行 哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+	
+	<div id="div1">
+		今天是周四，距离周末还有两天。
+	</div>
+	<hr>
+	<div id="box">
+		<div id="float"></div>
+
+		<!-- 加空标签div,用于清除浮动造成的影响 -->
+		<!-- <div style="clear: both;"></div> -->
+	</div>
+
+	<div>
+		<ul class="clearfix">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</div>
+</body>
+</html>

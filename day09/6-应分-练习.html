@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>应分-练习</title>
+    <link rel="stylesheet" type="text/css" href="base.css">
+    <style type="text/css">
+    body {
+        height: 2000px;
+    }
+    
+    #head {
+        text-align: center;
+        /*background-color: rgba(0,0,0,0.8);*/
+        /*以下写法会影响到子元素*/
+        opacity: 0.7;
+        background: black;
+        /*IE8之前的写法*/
+        filter: alpha(opacity=50);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        padding-top: 20px;
+        /*修改head的层级，防止下面有标签遮挡head*/
+        z-index: 100;
+    }
+    
+    #head>img {
+        width: 20%;
+    }
+    
+    #nav {}
+    
+    #nav a {
+        color: white;
+        font-size: 16px;
+        /*margin: 0 50px;*/
+        margin: 0 8%;
+    }
+    
+    #box {
+        padding-top: 200px;
+    }
+    
+    #swiper {
+        width: 600px;
+        border: 1px solid red;
+        margin: auto;
+        text-align: center;
+        position: relative;
+    }
+    
+    #swiper a {
+        display: inline-block;
+    }
+    
+    #swiper img {
+        width: 100%;
+    }
+    /*选择使用定位情况：页面上右层级关系，不考虑子元素撑起大小*/
+    
+    #swiper p {
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        font-size: 20px;
+        color: white;
+        line-height: 25px;
+    }
+    /**/
+    
+    #swiper .left,
+    #swiper .right {
+        position: absolute;
+        width: 12px;
+        height: 45px;
+        opacity: 0.5;
+    }
+    
+    #swiper .left {
+        background: url(img/left.png) no-repeat 0 0;
+        left: 10px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    
+    #swiper .right {
+        background: url(img/right.png) no-repeat 0 0;
+        right: 10px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="head">
+        <img src="img/title2.png">
+        <div id="nav">
+            <a href="###">HOME</a>
+            <a href="###">HOME</a>
+            <a href="###">HOME</a>
+            <a href="###">HOME</a>
+        </div>
+    </div>
+    <div id="box">
+        <div id="swiper">
+            <a href="###">
+                <img src="img/swiper.jpg">
+            </a>
+            <p>今日头条</p>
+            <a href="###" class="left"></a>
+            <a href="###" class="right"></a>
+        </div>
+    </div>
+</body>
+
+</html>
