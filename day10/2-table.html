@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Table</title>
+    <style type="text/css">
+    	img{
+    		width: 100px;
+    	}
+    	p,h4{
+    		padding: 0;
+    		margin: 0;
+    	}
+    	#t1{
+    		/*合并表格边框：*/
+    		border-collapse: collapse;
+    	}
+    	#t1 tr td{
+    		padding: 20px;
+    		/*在表格中margin值设置无效*/
+    		/*margin: 20px;*/
+    	}
+    	#t2{
+    		text-align: center;
+    		/*width: 500px;*/
+    		border-collapse: collapse;
+    	}
+    	#t2 tbody td{
+			padding: 20px;
+			width: 300px;
+			height: 100px;
+			color: black;
+    	}
+    </style>
+</head>
+
+<body>
+    <!-- table作用： -->
+    <!-- 1.用来制作信息表格（课程表，简历）
+		 2.用来做网页布局（现在通常用浮动来代替）
+	 -->
+    <!-- table中两个重要的标签： -->
+    <!-- 1.td:一个单元格
+		 2.tr:一行
+	 -->
+    <table>
+        <!-- 第一行 -->
+        <tr>
+            <td>单元格</td>
+            <td>单元格</td>
+        </tr>
+        <!-- 第二行 -->
+        <tr>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+            <td>单元格</td>
+        </tr>
+		<tr>
+			<td>
+				<img src="img/1.jpg">
+			</td>
+			<td>
+				<h4>标题</h4>
+				<p>描述</p>
+			</td>
+			<td>
+				<img src="img/1.jpg">
+			</td>
+			<td>
+				<h4>标题</h4>
+				<p>描述</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="img/1.jpg">
+			</td>
+			<td>
+				<h4>标题</h4>
+				<p>描述</p>
+			</td>
+			<td>
+				<img src="img/1.jpg">
+			</td>
+			<td>
+				<h4>标题</h4>
+				<p>描述</p>
+			</td>
+		</tr>
+    </table>
+    <hr>
+
+    <!-- table中的属性及其属性值： -->
+    <!-- 1.border：显示边框
+		 2.cellpadding:单元格的内边距，但现在通常用css的padding代替
+		 3.cellspacing:单元格之间的间距，使用前提是单元格不能合并（即style中不能设置border-collapse: collapse;）
+     -->
+    <table border="1" style="border: 2px solid red;" id="t1" -cellspacing="20" -cellpadding="20">
+    	<tr>
+    		<td>强力去污</td>
+    		<td>碧浪洗衣液</td>
+    	</tr> 
+    	<tr>
+    		<td>强力去污</td>
+    		<td>碧浪洗衣液</td>
+    	</tr>   	
+    </table>
+    <hr>
+
+    <table border="1" id="t2">
+    	<!-- 标题： -->
+    	<caption>课程表</caption>
+    	<!-- 表头： -->
+    	<thead>
+    		<tr>
+    			<th>周一</th>
+    			<th>周二</th>
+    			<th>周三</th>
+    			<th>周四</th>
+    			<th>周五</th>
+    			<th>周六</th>
+    			<th>周日</th>
+    		</tr>
+    	</thead>
+    	<!-- 身体： -->
+    	<tbody>
+    		<tr>
+			<!-- td{HTML基础}*5 -->   		
+				<td colspan="2" rowspan="2">HTML基础</td>
+				<!-- <td>HTML基础</td> -->
+				<td>HTML基础</td>
+				<td>HTML基础</td>
+				<!-- 横向合并单元格：两行合并为一行，则需删除对应行下面的单元格 -->
+				<td rowspan="2">HTML基础</td>
+				<td></td>
+				<td></td>
+    		</tr>
+    		<tr>
+    			<!-- <td>英语</td> -->
+    			<!-- <td>英语</td> -->
+    			<td>英语</td>
+    			<td>英语</td>
+    			<!-- <td>英语</td> -->
+    			<td></td>
+    			<td></td>
+    		</tr>
+    	</tbody>
+    	<!-- 尾部：表格的统计信息，可以让浏览器解析展示 -->
+    	<tfoot>
+    		<tr>
+    			<td>总计：</td>
+    			<!-- colspan="6"：从该单元格起，向后合并两列，此时需要注释掉对应属性值个数的单元格 -->
+    			<td colspan="2"></td>
+    			<!-- <td>1</td> -->
+    			<td colspan="3">2</td>
+    			<td>3</td>
+    			<td>4</td>
+    			<td>5</td> 
+    			<td>6</td>
+    		</tr>
+    	</tfoot>
+    </table>
+</body>
+
+</html>

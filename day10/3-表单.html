@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单</title>
+	<style type="text/css">
+		#subImg{
+			width: 100px;
+		}
+		#subBtn{
+			width: 200px;
+			height: 100px;
+			background: red;
+			border: none;
+		}
+	</style>
+</head>
+<body>
+	<!-- 表单：所有表单控件必须要放到form标签中 -->
+	<!-- 表单属性及其属性值： -->
+	<!-- 1.action属性：表单提交地址（点击确定注册按钮后，会把写入表单中的信息提交到对应的地址中） -->
+	<div id="box">
+		<form action="http://baidu.com">
+			<!-- 2.type：(1)text:文本
+						（2）password:密码
+						（3）submit：提交
+				 3.name：点击submit时，name属性值会作为提交参数的key
+				 地址格式：
+				 http://地址路径？key=value&key2=value2
+
+				 4.value:通过value属性获取输入的内容
+				 地址格式：
+			 -->
+			 <div>
+			 	<!-- 5.lable:与表单结合使用，没有任何样式，for属性的属性值=input的id值，可以绑定点击文字获取焦点 -->
+			 	<label for="user">用户名：</label>
+			 	<input type="text" name="username" -value="哈哈" placeholder="请输入用户名" id="user">
+			 </div>
+			<div>
+				<label for="abc">密&nbsp;&nbsp;&nbsp;码：</label>
+				<input type="password" name="pass" placeholder="请输入密码" id="abc">
+			</div>
+			
+			<div>
+				<label>简&nbsp;&nbsp;&nbsp;介：</label>
+				<textarea name="content" cols="30" rows="5"></textarea>
+			</div>
+
+			<!-- value属性值:修改按钮上的文字 -->
+			<input type="submit" value="注册">
+		</form>
+		<!-- form外面没有效果 -->
+		<!-- <input type="submit" value="注册"> -->
+
+	</div>
+
+	<hr>
+
+	<div id="box2">
+		<form action="###">
+			<!-- 组： -->
+			<fieldset>
+				<!-- 标题 -->
+				<legend>单选框</legend>
+				<!-- radio：在单选框中name属性必须相同 -->
+				<div>
+					<label for="m">男：</label>
+					<input type="radio" name="gender" value="男" id="m" checked>
+				</div>
+				<div>
+					<label for="f">女：</label>
+					<input type="radio" name="gender" value="女" id="f">
+				</div>
+
+
+			</fieldset>
+
+			<fieldset>
+
+				<legend>多选框</legend>
+				<label>爱好：</label>
+
+				<input type="checkbox" name="hobby" value="1" id="singing">
+				<label for="singing">singing</label>
+
+				<!-- checked:默认选中 -->
+				<input type="checkbox" name="hobby" value="2" id="dancing" checked>
+				<label for="dancing">dancing</label>
+
+				<input type="checkbox" name="hobby" value="3" id="swimming">
+				<label for="swimming">swimming</label>
+
+			</fieldset>
+
+			<fieldset>
+
+				<legend>选择列表</legend>
+				<!-- name:位select设置 -->
+				<select name="age">
+					<optgroup label="90后">
+						<option value="28">1990</option>
+						<option value="27">1991</option>
+						<option value="26">1992</option>
+						<option value="25">1993</option>
+						<option value="24">1994</option>
+						<option value="23">1995</option>
+						<option value="22">1996</option>
+						<option value="21">1997</option>
+					</optgroup>
+					<optgroup label="80后">
+						<option value="29">1989</option>
+						<option>1988</option>
+					</optgroup>
+				</select>
+
+			</fieldset>
+
+			<fieldset>
+
+				<legend>按钮</legend>
+				<!-- 默认没有任何交互，通过js绑定时间 -->
+				<input type="button" value="普通按钮">
+				
+				<!-- 重置按钮：慎用！在清空时没有清空提示 -->
+				<input type="reset" name="" value="清空重置">
+
+				<!-- 文件选择： -->
+				<input type="file" name="file" value="选择文件">
+
+				<!-- 图片按钮： -->
+				<input type="image" name="" src="img/1.jpg" id="subImg">
+			</fieldset>
+
+			<input type="submit" value="注册" id="subBtn">
+		</form>
+	</div>
+</body>
+</html>
