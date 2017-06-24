@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>垂直居中</title>
+	<link rel="stylesheet" type="text/css" href="bass.css">
+	<style type="text/css">
+		p,h3{
+			padding: 0;
+			margin: 0;
+		}
+		#box{
+			height: 150px;
+			border: 3px solid red;
+			line-height: 150px;
+			/*水平居中：*/
+			text-align: center;
+		}
+
+		#box2{
+			height: 150px;
+			border: 3px solid red;
+		}
+		#box2 span{
+			background: blue;
+			/*以下两行代码没有任何效果，只有在表格中才有效*/
+			vertical-align: middle;	
+			vertical-align: text-top;		
+		}
+		#tb{
+			border-collapse: collapse;
+		}
+		#tb td{
+			vertical-align: middle;
+		}
+		/*给图片设置垂直居中：vertical-align: middle*/
+		/*解决图片底部空隙问题：vertical-align: bottom*/
+		#tb img{
+			vertical-align: middle;
+		}
+		#box3{
+			/*height: 150px;*/
+			border: 3px solid red;
+			/*修改元素性质为table表格：*/
+			display: table;
+			width: 255px;
+		}
+		#box3 .des{
+			vertical-align: bottom;
+			/*修改元素的性质为td*/
+			display: table-cell;
+			text-align: center;
+			padding-left: 20px
+		}
+		#box3 .pic{
+			float: left;
+		}
+		#box3 .pic img{
+			vertical-align: middle;
+		}
+
+		#box4{
+			border: 3px solid red;
+			/*padding: 30px 0;*/
+			height: 150px;
+		}
+		#box4 img{
+			vertical-align: middle;
+		}
+		#box4 a{
+			/*vertical-align: middle;*/
+		}
+		/*居中方法：设置一个空的元素，高度和父元素等同，作为极限参考，设置垂直居中，其他内联元素会自动居中显示(图片单独设置，图片对齐方式参照文本)*/
+		/*#box4:before{
+			content: "";
+			display: inline-block;
+			height: 100%;
+			visibility: hidden;
+			width: 0px;
+			background: gray;
+			vertical-align: middle;
+		}*/
+
+		#box5{
+			border: 3px solid blue;
+			height: 150px;
+		}
+		#box5>div{
+			display: inline-block;
+			vertical-align: middle;
+			background: red;
+			/*width: 100%;*/
+			/*text-align: center;*/
+		}
+		/*#box5 div p,#box5 div h3{
+			display: inline;
+		}*/
+		/*#box5 div h3{
+			margin-bottom: 30px;
+		}*/
+	</style>
+</head>
+<body>
+	<!-- 1.单行情况下的垂直居中：行高等于元素高度。 -->
+	<div id="box">
+		<p>今天终于周六了！</p>
+	</div>
+	<hr>
+
+	<!-- 2.vertical-align: 用来控制内联元素布局（a标签等），默认情况下只有在表格中才有效-->
+	<div id="box2" class="baseline">
+		<span>垂直居中问题</span>
+	</div>
+
+	<table -border="1" id="tb">
+		<tr>
+			<td>
+				<img src="img/3.jpg">
+			</td>
+			<td>
+				<div>
+					<h3>标题</h3>
+					<p>哈哈哈哈哈哈哈哈哈</p>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<img src="img/3.jpg">
+			</td>
+			<td>
+				<div>
+					<h3>标题</h3>
+					<p>哈哈哈哈哈哈哈哈哈</p>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<hr>
+
+	<!-- 3. 修改元素性质：display:table;display:table-cell-->
+	<div id="box3">
+		<div class="pic">
+			<img src="img/3.jpg">
+		</div>
+		<div>
+			<h3 class="des">标题</h3>
+			<p>详情哈哈哈哈哈哈哈哈哈哈</p>
+		</div>
+	</div>
+	<hr>
+
+	<!-- 4.结合图片，给图片设置middle，内联元素会居中显示，让图片撑起父元素高度 -->
+	<div id="box4" class="baseline">
+		<img src="img/3.jpg">
+		<span>中北烧饼</span>
+		<a href="###">鸡肉饼</a>
+		<a href="###">鸡蛋饼</a>
+	</div>
+
+	<!-- 5. -->
+	<div id="box5" class="baseline">
+		<div>
+			<h3>标题</h3>
+			<p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+		</div>
+	</div>
+</body>
+</html>

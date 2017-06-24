@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <style type="text/css">
+    html,
+    
+    div,
+    dl,
+    dt,
+    dd,
+    ul,
+    ol,
+    li,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    form,
+    ul,
+    em,
+    textarea,
+    p,
+    th,
+    td,
+    {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    /*li {
+        list-style-type: none;
+    }*/
+    
+    a {
+        text-decoration: none;
+    }
+    
+    body {
+        width: 300px;
+        margin: 0 auto;
+        border: 1px solid black;
+    }
+    
+    #head {
+        height: 50px;
+        overflow: hidden;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+    #h_l{
+    	float: left;
+    	width: 148px;
+    	height: 50px;
+    	background: #ebf2f9;
+    	border: 1px solid white;
+    	float: left;
+    	text-align: center;
+    	line-height: 50px;
+    }
+    #h_r{
+    	float: right;
+    	width: 148px;
+    	height: 50px;
+    	border: 1px solid #ccc;
+    	background: #ebf2f9;
+    	float: right;
+    	text-align: center;
+    	line-height: 50px;
+
+    }
+    #body {
+        margin: 30px 20px 15px 20px;
+        overflow: hidden;
+    }
+    
+    #yx {
+        border: 1px solid black;
+        width: 80px;
+    }
+    
+    #body .info {
+    	float: left;
+        width: 210px;
+        height: 40px;
+        position: relative;
+        border-radius: 5px;
+        /*display: inline-block;*/
+        padding-left: 30px;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+    #body .email{
+    	position: absolute;
+    	width: 20px;
+    	height: 30px;
+		background: url(img/bg_v3.png) no-repeat -150px -50px;
+    }
+
+    #body .pass{
+    	position: absolute;
+    	width: 20px;
+    	height: 30px;
+    	bottom: 403px;
+		background: url(img/bg_v3.png) no-repeat -175px -50px;
+		
+    }
+
+    #op {
+        border: 1 solid red;
+        /*height: 300px;*/
+    }
+    #op .font,#foot .font{
+        font-size: 10px;
+        color: #959595;
+    }
+    .box{
+    	width: 110px;
+    	height: 40px;
+    	background: #1f74cb;
+    	font-size: 15px;
+    	border-radius: 5px;
+    	margin: 10px 15px 15px;
+    }
+    #foot{
+    	/*float: left;*/
+    	/*width: 100%;*/
+    	height: 50px;
+    	background: #f6f6f7;
+    	margin-top: 15px;
+    	padding: 15px 0 0px 25px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="box1">
+        <div id="head">
+        	<div id="h_l">
+        		<span>二维码登录</span>
+        	</div>
+        	<div id="h_r">
+        		<span>邮箱账号登录</span>
+        	</div>
+        </div>
+    </div>
+        <div id="body">
+            <input type="text" name="user" placeholder="邮箱账号或手机号" class="info">
+            <p class="email"></p>
+            <p class="user"></p>
+            <br>
+            <input type="password" name="pass" placeholder="密码" class="info" >
+            <p class="pass"></p>
+        </div>
+        <div id="op">
+            <input type="checkbox" name="free" id="free_login" value="1" style="margin-left: 25px;">
+            <label for="free_login" class="font">十天内免费登录</label>
+            <a href="###">
+                <label class="font" style="text-decoration: none; float: right; font-size: 10px; margin-right: 35px; margin-top: 5px;">忘记密码</label>
+            </a>
+        </div>
+        <div>
+        	<input type="submit" name="login" class="box" value="登录">
+        	<input type="submit" name="register" class="box" value="去注册" style="background: #ebf2f9;"> 
+        </div>
+        <div id="op" style="overflow: hidden; margin-bottom: 30px;">
+        	<span class="font" style="margin-left: 20px; float: left;">版本：</span>
+        	<select name="version" class="font" style="float: left;width: 72px;">
+        		<option>默认版本</option>
+        		<option>网易邮箱6.0版</option>
+        		<option>网易邮箱6.0简约版</option>
+        	</select>
+        	<!-- <a href="###" class="font" style="float: left;">默认版本</a> -->
+        	<span style="float: right;margin-right: 15px;" class="font">正在使用SSL登录</span>
+        </div>
+        <div id="tail">
+        	<img src="img/mailvip_logo_170407.png" style="margin: 0 auto;">
+        </div>
+        <div id="foot">
+        	<ul class="font" style="margin: 0;padding: 0;">
+        		<li style="list-style-position: inside;">
+        			<span style="color: red;">拒绝裸奔 网易邮箱支持多种登录二次验证</span>
+        		</li >
+        		<li style="list-style-position: inside;">
+        			<span>1.5小时充满iPhone7</span>
+        		</li>
+        	</ul>
+        </div>
+    
+</body>
+
+</html>

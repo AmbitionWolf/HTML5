@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="bass.css">
+
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		html{
+			background: #f2f2f2;
+		}
+
+		img{
+			vertical-align: middle;
+		}
+
+		.box{
+			width: 30%;
+			/*border: 2px solid red;*/
+			text-align: center;
+			/*margin:80px auto;*/
+
+			background: white;
+
+			border-radius: 10px;
+			overflow: hidden;
+			box-shadow: 1px 1px 10px black;
+
+		}
+		.box a{
+			text-decoration: none;
+			display: inline-block;
+			width: 100%;
+			color: black;
+		}
+		/*高：图片决定*/
+		.box a .m_pic{
+			position: relative;
+		}
+
+		.box a .m_pic img{
+			width: 100%;
+		}
+
+		.box .mask{
+			position: absolute;
+			/*拉伸*/
+			left: 0;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			background-color: rgba(0,0,0,0.4);
+			color: white;
+
+			display: none;
+
+			/*display: table;*/
+
+		}
+
+		.box:hover .mask{
+			display: block;
+		}
+		/*hover左边是鼠标已入触发时机，右边是最终样式设置元素*/
+		.box:hover a>p{
+			color: black;
+			font-weight: bolder;
+		}
+
+
+		/*居中效果*/
+		.box .center{
+			/*position: absolute;*/
+			/*background: red;*/
+			width: 100%;
+			/*高度不确定*/
+			/*height: 66px;
+
+			left: 0;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			margin: auto;*/
+
+			vertical-align: middle;
+			display: inline-block;
+		}
+
+		.box .center h3{
+			font-size: 25px;
+			padding-bottom: 10px;
+		}
+
+		.box a>p{
+			padding: 5px 0;
+			color: gray;
+			font-size: 14px;
+		}
+		ul{
+			overflow: hidden;
+		}
+		ul li{
+			float: left;
+			margin:0 10px;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li class ="box">
+			<a href="###">
+				<div class ="m_pic">
+					<img src="img/al.jpg">
+					<!-- 蒙板 -->
+					<div class="mask baseline"><div class="center">
+							<h3>阿里巴巴</h3>
+							<p>聚星台汇源通</p>
+						</div>
+					</div>
+				</div>
+				<p>今天就看今日头条</p>
+			</a>
+		</li>
+		<li class ="box">
+			<a href="###">
+				<div class ="m_pic">
+					<img src="img/al.jpg">
+					<!-- 蒙板 -->
+					<div class="mask baseline"><div class="center">
+							<h3>阿里巴巴</h3>
+							<p>聚星台汇源通</p>
+						</div>
+					</div>
+				</div>
+				<p>今天就看今日头条</p>
+			</a>
+		</li>
+		<li class ="box">
+			<a href="###">
+				<div class ="m_pic">
+					<img src="img/al.jpg">
+					<!-- 蒙板 -->
+					<div class="mask baseline"><div class="center">
+							<h3>阿里巴巴</h3>
+							<p>聚星台汇源通</p>
+						</div>
+					</div>
+				</div>
+				<p>今天就看今日头条</p>
+			</a>
+		</li>
+
+	</ul>
+</body>
+</html>

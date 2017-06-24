@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>作业讲解</title>
+	<link rel="stylesheet" type="text/css" href="bass.css">
+	<link rel="stylesheet" type="text/css" href="base.css">
+	<style type="text/css">
+	 body {
+        height: 2000px;
+    }
+    
+    #head {
+        text-align: center;
+        /*background-color: rgba(0,0,0,0.8);*/
+        /*以下写法会影响到子元素*/
+        opacity: 0.7;
+        background: black;
+        /*IE8之前的写法*/
+        filter: alpha(opacity=50);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        padding-top: 20px;
+        /*修改head的层级，防止下面有标签遮挡head*/
+        z-index: 100;
+    }
+    
+    #head>img {
+        width: 20%;
+    }
+    
+    #nav {}
+    
+    #nav a {
+        color: white;
+        font-size: 16px;
+        /*margin: 0 50px;*/
+        margin: 0 8%;
+    }
+    
+    #box {
+        padding-top: 160px;
+    }
+    
+    #swiper {
+        width: 70%;
+        /*border: 1px solid red;*/
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+    }
+    
+    #swiper a {
+        display: inline-block;
+    }
+    
+    #swiper img {
+        width: 100%;
+    }
+    /*选择使用定位情况：页面上右层级关系，不考虑子元素撑起大小*/
+    
+    #swiper p {
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        font-size: 20px;
+        color: white;
+        line-height: 25px;
+    }
+    /**/
+    
+    #swiper .left,
+    #swiper .right {
+        position: absolute;
+        width: 12px;
+        height: 45px;
+        opacity: 0.5;
+    }
+    
+    #swiper .left {
+        background: url(img/left.png) no-repeat 0 0;
+        left: 10px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    
+    #swiper .right {
+        background: url(img/right.png) no-repeat 0 0;
+        right: 10px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    
+    div .img {
+        width: 200px;
+        position: relative;
+        /*float: left;*/
+        border: 1px solid lightgrey;
+        text-align: center;
+        border-radius: 10px;
+        margin: 0px auto;
+    }
+    
+    div .img img {
+        width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    
+    div .desc {
+        padding: 3px;
+        text-align: center;
+        color: grey;
+    }
+    
+    .box p {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 30px;
+        margin: auto;
+        background-color: rgba(0, 0, 0, 0.3);
+        width: 100%;
+        font-size: 10px;
+        color: white;
+        line-height: 25px;
+        height: auto;
+        display: none;
+        padding-top: 30px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        margin-top: 50px;
+    }
+    
+    .box:hover p {
+        display: inline;
+    }
+    
+    span {
+        font-size: 14px;
+    }
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		html{
+			background: #f2f2f2;
+		}
+
+		img{
+			vertical-align: middle;
+		}
+
+		.box{
+			margin-top: 50px;
+			margin-left: 6%;
+			width: 25%;
+			/*border: 2px solid red;*/
+			text-align: center;
+			/*margin:80px auto;*/
+
+			background: white;
+
+			border-radius: 10px;
+			overflow: hidden;
+			box-shadow: 1px 1px 10px black;
+
+		}
+		.box a{
+			text-decoration: none;
+			display: inline-block;
+			width: 100%;
+			color: black;
+		}
+		/*高：图片决定*/
+		.box a .m_pic{
+			position: relative;
+		}
+
+		.box a .m_pic img{
+			width: 100%;
+		}
+
+		.box .mask{
+			position: absolute;
+			/*拉伸*/
+			left: 0;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			background-color: rgba(0,0,0,0.4);
+			color: white;
+
+			display: none;
+
+			/*display: table;*/
+
+		}
+
+		.box:hover .mask{
+			display: block;
+		}
+		/*hover左边是鼠标已入触发时机，右边是最终样式设置元素*/
+		.box:hover a>p{
+			color: black;
+			font-weight: bolder;
+		}
+
+
+		/*居中效果*/
+		.box .center{
+			/*position: absolute;*/
+			/*background: red;*/
+			width: 100%;
+			/*高度不确定*/
+			/*height: 66px;
+
+			left: 0;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			margin: auto;*/
+
+			vertical-align: middle;
+			display: inline-block;
+		}
+
+		.box .center h3{
+			font-size: 25px;
+			padding-bottom: 10px;
+		}
+
+		.box a>p{
+			padding: 5px 0;
+			color: gray;
+			font-size: 14px;
+		}
+		ul{
+			overflow: hidden;
+		}
+		ul li{
+			float: left;
+			margin:0 10px;
+		}
+	</style>
+</head>
+<body>
+<div id="head">
+        <img src="img/title2.png">
+        <div id="nav">
+            <a href="###">HOME</a>
+            <a href="###">WORK</a>
+            <a href="###">CONTACT</a>
+            <a href="###">JOIN US</a>
+        </div>
+    </div>
+    <div id="box">
+        <div id="swiper">
+            <a href="###">
+                <img src="img/swiper.jpg">
+            </a>
+            <p>清新绿实验室大揭秘H5</p>
+            <a href="###" class="left"></a>
+            <a href="###" class="right"></a>
+        </div>
+    </div>
+    
+	<ul>
+		<li class ="box">
+			<a href="###">
+				<div class ="m_pic">
+					<img src="img/al.jpg">
+					<!-- 蒙板 -->
+					<div class="mask baseline"><div class="center">
+							<h3>阿里巴巴</h3>
+							<p>聚星台汇源通</p>
+						</div>
+					</div>
+				</div>
+				<span>今天就看今日头条</span>
+			</a>
+		</li>
+		<li class ="box">
+			<a href="###">
+				<div class ="m_pic">
+					<img src="img/al.jpg">
+					<!-- 蒙板 -->
+					<div class="mask baseline"><div class="center">
+							<h3>阿里巴巴</h3>
+							<p>聚星台汇源通</p>
+						</div>
+					</div>
+				</div>
+				<span>今天就看今日头条</span>
+			</a>
+		</li>
+		<li class ="box">
+			<a href="###">
+				<div class ="m_pic">
+					<img src="img/al.jpg">
+					<!-- 蒙板 -->
+					<div class="mask baseline"><div class="center">
+							<h3>阿里巴巴</h3>
+							<p>聚星台汇源通</p>
+						</div>
+					</div>
+				</div>
+				<span>今天就看今日头条</span>
+			</a>
+		</li>
+		<li class ="box">
+			<a href="###">
+				<div class ="m_pic">
+					<img src="img/al.jpg">
+					<!-- 蒙板 -->
+					<div class="mask baseline"><div class="center">
+							<h3>阿里巴巴</h3>
+							<p>聚星台汇源通</p>
+						</div>
+					</div>
+				</div>
+				<span>今天就看今日头条</span>
+			</a>
+		</li>
+		<li class ="box">
+			<a href="###">
+				<div class ="m_pic">
+					<img src="img/al.jpg">
+					<!-- 蒙板 -->
+					<div class="mask baseline"><div class="center">
+							<h3>阿里巴巴</h3>
+							<p>聚星台汇源通</p>
+						</div>
+					</div>
+				</div>
+				<span>今天就看今日头条</span>
+			</a>
+		</li>
+		<li class ="box">
+			<a href="###">
+				<div class ="m_pic">
+					<img src="img/al.jpg">
+					<!-- 蒙板 -->
+					<div class="mask baseline"><div class="center">
+							<h3>阿里巴巴</h3>
+							<p>聚星台汇源通</p>
+						</div>
+					</div>
+				</div>
+				<span>今天就看今日头条</span>
+			</a>
+		</li>
+		<li class ="box">
+			<a href="###">
+				<div class ="m_pic">
+					<img src="img/al.jpg">
+					<!-- 蒙板 -->
+					<div class="mask baseline"><div class="center">
+							<h3>阿里巴巴</h3>
+							<p>聚星台汇源通</p>
+						</div>
+					</div>
+				</div>
+				<span>今天就看今日头条</span>
+			</a>
+		</li>
+		<li class ="box">
+			<a href="###">
+				<div class ="m_pic">
+					<img src="img/al.jpg">
+					<!-- 蒙板 -->
+					<div class="mask baseline"><div class="center">
+							<h3>阿里巴巴</h3>
+							<p>聚星台汇源通</p>
+						</div>
+					</div>
+				</div>
+				<span>今天就看今日头条</span>
+			</a>
+		</li>
+		<li class ="box">
+			<a href="###">
+				<div class ="m_pic">
+					<img src="img/al.jpg">
+					<!-- 蒙板 -->
+					<div class="mask baseline"><div class="center">
+							<h3>阿里巴巴</h3>
+							<p>聚星台汇源通</p>
+						</div>
+					</div>
+				</div>
+				<span>今天就看今日头条</span>
+			</a>
+		</li>
+
+	</ul>
+</body>
+</html>
