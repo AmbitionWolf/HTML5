@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>映纷创意</title>
+	<link rel="stylesheet" type="text/css" href="base.css">
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		html{
+			background-color: #f2f2f2;
+		}
+		img{
+			vertical-align: middle;
+		}
+		/*header*/
+		#header{
+			width: 100%;
+			text-align: center;
+			background-color: #3c3c3c;
+			opacity: 0.9;
+			padding-top: 15px;
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 100;
+		}
+		#header img{
+			width: 9%;
+		}
+		#nav a{
+			text-decoration: none;
+			color: #a3a3a3;
+			font-size: 10px;
+			font-weight: thin;
+			margin: 0 70px;
+			display: inline-block;
+			margin-top: 23px;
+		}
+		#nav a:hover{
+			color: white;
+		}
+
+		/*mv*/
+		#box{
+			width: 76%;
+			margin: 130px auto;
+		}
+		#mv{
+			width: 100%;
+			position: relative;
+			text-align: center;
+		}
+		#mv img{
+			width: 100%;
+		}
+		#mv p{
+			position: absolute;
+			bottom: 0;
+			background-color: #797771;
+			/*background-color: rgba(0,0,0,0.5);*/
+			opacity: 0.9;
+			width: 100%;
+			font-size: 15px;
+			color: white;
+			/*line-height: 25px;*/
+			padding: 10px 0 7px 0;
+		}
+		/*小三角*/
+		#mv .tri-left,#mv .tri-right{
+			position: absolute;
+			width: 18px;
+			height: 54px;
+			opacity: 0.8;
+		}
+		#mv .tri-left{
+			background: url(img/tri-left.png) no-repeat;
+			left: 10px;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+		}
+		#mv .tri-right{
+			background: url(img/tri-right.png) no-repeat;
+			right: 10px;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+		}
+		
+		/*文字*/
+		#text{
+			border: 1px solid #e8e8e8;
+			margin-top: 50px;
+			font-family: "STKaiti";
+			color: #666666;
+			text-indent: 2em;
+			border-left: none;
+			border-right: none;
+			padding: 20px 0;
+			font-size: 17px;
+			line-height: 1.5em;
+		}
+		
+		/*小图片*/
+		#mark{
+			width: 100%;
+			margin-top: 28px;
+		}
+		#mark span img{
+			width: 5%;
+			margin: 0 10px;
+		}
+
+		/*广告图片*/
+		ul{
+			width: 100%;
+			margin: 53px auto;
+			overflow: hidden;
+		}
+		ul li{
+			float: left;
+			margin:0 5% 5% 0;
+			width: 30%;
+			text-align: center;
+			background-color: white;
+			border-radius: 10px;
+			overflow: hidden;
+			box-shadow: 2px 2px 10px #e5e5e5;
+		}
+		.no{
+			margin-right: 0;
+		}
+		.mar{
+			margin-bottom: 0;
+		}
+		.pic a{
+			text-decoration: none;
+			display: inline-block;
+			width: 100%;
+		}
+		.pic a .ad-pic{
+			position: relative;
+		}
+		.pic a .ad-pic img{
+			width: 100%;
+		}
+		.pic .mask{
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			color: white;
+			background-color: rgba(0,0,0,0.4);
+			display: none;
+		}
+		
+		.pic:hover .mask{
+			display: block;
+		}
+		.pic .center{
+			width: 100%;
+			vertical-align: middle;
+			display: inline-block;
+		}
+		h3{
+			font-size: 28px;
+			font-weight: normal;
+		}
+		.pic .center p{
+			font-size: 13px;
+		}
+		.pic a>p{
+			padding: 10px 0;
+			color: #666666;
+			font-size: 15px;
+		}
+
+		#footer{
+			width: 100%;
+			margin-top: -50px;
+			/*background-color: #e0e0e0;*/
+			background-color: pink;
+			height: 221px;
+		}
+		#footer .footer-left img{
+			width: 10%;
+		}
+		#footer .footer-right img{
+			width: 60%;
+		}
+		#fl{
+			padding-left: 674px;
+			padding-top: 12px;
+			overflow: hidden;
+		}
+		#fl,#fr{
+			float: left;
+		}
+		#fr{
+			margin-left: -140px;
+			border-left: 1px solid #bcbcbc;
+			padding-left: 30px;
+			margin-top: 12px;
+			color: #666666;
+		}
+	</style>
+</head>
+<body>
+	<div id="header">
+		<img src="img/title2.png">
+		<div id="nav">
+			<a href="#">HOME</a>
+			<a href="#">WORK</a>
+			<a href="#">CONTACT</a>
+			<a href="#">JOIN US</a>
+		</div>
+	</div>
+
+	<div id="box">
+		<div id="mv">
+			<a href="###">
+				<img src="img/mv1.jpg">
+			</a>
+			<p>清新绿实验室大揭秘H5</p>
+			<a href="###" class="tri-left"></a>
+			<a href="###" class="tri-right"></a>
+		</div>
+
+		<div id="text">
+			<p>Infini Studio (映纷创意)是一家创意机构，专注于品质型动画影像的创意与设计。我们使用设计、绘画、动画、特效及多种创新形式，以动态视觉语言对品牌与内容进行创意呈现。并由动画导演、设计师、插画师、三维艺术家等共同协作完成。服务的领域包括广告、创意H5、新媒体等。</p>
+		</div>
+		
+		<div id="mark">
+			<span><img src="img/1.jpg"></span>
+			<span><img src="img/2.jpg"></span>
+			<span><img src="img/3.jpg"></span>
+			<span><img src="img/4.jpg"></span>
+			<span><img src="img/5.jpg"></span>
+			<span><img src="img/6.jpg"></span>
+			<span><img src="img/7.jpg"></span>
+			<span><img src="img/8.jpg"></span>
+			<span><img src="img/9.jpg"></span>
+			<span><img src="img/10.jpg"></span>
+			<span><img src="img/11.jpg"></span>
+			<span><img src="img/12.jpg"></span>
+			<span><img src="img/13.jpg"></span>
+			<span><img src="img/14.jpg"></span>
+		</div>
+
+		<ul>
+			<li class="pic">
+				<a href="###">
+					<div class="ad-pic">
+						<img src="img/p1.jpg">
+							<div class="mask baseline"><div class="center">
+								<h3>小米MAX2</h3>
+								<p>小米max2创意海报</p>
+							</div>
+							</div>
+					</div>
+					<p>小米max2创意海报</p>
+				</a>
+			</li>
+
+			<li class="pic">
+				<a href="###">
+					<div class="ad-pic">
+						<img src="img/p2.jpg">
+							<div class="mask baseline"><div class="center">
+								<h3>阿里巴巴</h3>
+								<p>聚星台会员通</p>
+							</div>
+							</div>
+					</div>
+					<p>聚星台会员通</p>
+				</a>
+			</li>
+
+			<li class="pic no">
+				<a href="###">
+					<div class="ad-pic">
+						<img src="img/p3.jpg">
+							<div class="mask baseline"><div class="center">
+								<h3>OPPO</h3>
+								<p>清新绿实验室大揭秘H5</p>
+							</div>
+							</div>
+					</div>
+					<p>清新绿实验室大揭秘H5</p>
+				</a>
+			</li>
+
+			<li class="pic">
+				<a href="###">
+					<div class="ad-pic">
+						<img src="img/p4.jpg">
+							<div class="mask baseline"><div class="center">
+								<h3>今日头条</h3>
+								<p>今日头条功能片第二弹</p>
+							</div>
+							</div>
+					</div>
+					<p>今日头条功能片第二弹</p>
+				</a>
+			</li>
+
+			<li class="pic">
+				<a href="###">
+					<div class="ad-pic">
+						<img src="img/p5.jpg">
+							<div class="mask baseline"><div class="center">
+								<h3>百度</h3>
+								<p>百度情人节首页Doodle</p>
+							</div>
+							</div>
+					</div>
+					<p>百度情人节首页Doodle</p>
+				</a>
+			</li>
+
+			<li class="pic no">
+				<a href="###">
+					<div class="ad-pic">
+						<img src="img/p6.jpg">
+							<div class="mask baseline"><div class="center">
+								<h3>腾讯</h3>
+								<p>微众银行品牌宣传</p>
+							</div>
+							</div>
+					</div>
+					<p>微众银行品牌宣传</p>
+				</a>
+			</li>
+
+			<li class="pic mar">
+				<a href="###">
+					<div class="ad-pic">
+						<img src="img/p7.jpg">
+							<div class="mask baseline"><div class="center">
+								<h3>网易新闻</h3>
+								<p>动画片《旅行者大意了》</p>
+							</div>
+							</div>
+					</div>
+					<p>动画片《旅行者大意了》</p>
+				</a>
+			</li>
+
+			<li class="pic mar">
+				<a href="###">
+					<div class="ad-pic">
+						<img src="img/p8.jpg">
+							<div class="mask baseline"><div class="center">
+								<h3>扇贝</h3>
+								<p>扇贝雅思课程</p>
+							</div>
+							</div>
+					</div>
+					<p>扇贝雅思课程</p>
+				</a>
+			</li>
+
+			<li class="pic no mar">
+				<a href="###">
+					<div class="ad-pic">
+						<img src="img/p9.jpg">
+							<div class="mask baseline"><div class="center">
+								<h3>链家/h3>
+								<p>链家大数据</p>
+							</div>
+							</div>
+					</div>
+					<p>链家大数据</p>
+				</a>
+			</li>
+		</ul>	
+	</div>
+
+	<div id="footer">
+	<div id="fl">
+		<div class="footer-left">
+			<span><img src="img/contact1.jpg"></span>
+			<span><img src="img/contact2.jpg"></span>
+			<span><img src="img/contact3.jpg"></span>
+		</div>
+	</div>
+		<div id="fr">
+			<div class="footer-right">
+				<p><img src="img/footer_logo.jpg"></p>
+				<br>
+				<p>INfini Studio | 映纷创意</p>
+				<p>北京市朝阳区常营未来时大厦706</p>
+				<p>TEL：010-85394331</p>
+				<p>QQ：7585917</p>
+				<p>Email：infinistudio@foxmail.com</p>
+				<p>weibo：@InfiniStudio</p>
+			</div>
+		</div>
+		
+
+	</div>
+</body>
+</html>
