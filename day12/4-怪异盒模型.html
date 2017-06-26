@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>怪异盒模型</title>
+	<style type="text/css">
+		/*css3:怪异盒模型*/
+		#box{
+			width: 250px;
+			height: 250px;
+			background: red;
+			padding: 30px;
+			border: 50px solid black;
+			margin: 10px;
+			/*盒子宽度=250+10*2+10*2*/
+			/*box-sizing: content-box;默认标准盒子*/
+			/*box-sizing: content-box;*/
+
+			/*怪异盒子：*/
+			box-sizing: border-box;
+			/*box-sizing: border-box; width 250px;包含了内容大小，padding大小，边框大小，padding和边框变大，内容就变小*/
+			/*怪异模型盒子大小：盒子宽度=margin左右+设置的width*/
+		}
+		#box2{
+			overflow: hidden;
+		}
+		#box2 div{
+			float: left;
+			width: 50%;
+			height: 100px;
+		}
+		#left{
+			/*background: gray;*/
+		}
+		#right{
+			/*background: blue;*/
+			border-left: 1px solid red;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">123</div>
+
+	<div id="box2">
+		<div id="left">left</div>
+		<div id="right">right</div>
+	</div>
+</body>
+</html>

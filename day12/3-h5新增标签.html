@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>h5新增标签</title>
+	<style type="text/css">
+		#p1{
+			width: 200px;
+			background: red;
+		}
+		#p2{
+			width: 200px;
+			background: blue;
+			overflow: hidden;
+			/*强制换行*/
+			word-break: break-all;
+
+			/*下面这三个搭配要记住：*/
+			overflow: hidden;
+			/*超出用省略号代替*/
+			text-overflow: ellipsis;
+			/*文本换行，nowrap：不去换行，一行显示*/
+			white-space: nowrap;
+		}
+		meter{
+			width: 200px;
+			height: 50px;
+			background:red;
+		}
+	</style>
+</head>
+<body>
+	<!-- html5新增语义化标签：canvas，svg，header，footer 
+		 注意：在使用时需要注意这些标签在浏览器中的兼容性，只能使用chrome，火狐，ie，欧朋，safari高版本进行测试（IE6,7,8为低版本）
+	-->
+	<!-- mark标记标签：突出关键字 ，与strong标签相似-->
+	<p>新标签：<mark>标记</mark></p>
+
+	<!-- ruby:定义字符 -->
+	<ruby>
+		hello <rt>你好</rt>&nbsp;&nbsp;
+		你好  <rt>nihao</rt>
+	</ruby>
+	<ruby>
+		你好<rt>nihao</rt>
+	</ruby>
+	<hr>
+
+	<!-- time:没有任何样式，只有语义 -->
+	<time>6:00</time>
+	<p>发行日期： <time>2017年6月6日12:00</time></p>
+
+	<!-- wbr等同于br,单词换行，用来拆分单词 -->
+	<p id="p1">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈aaaaa <wbr> aaaaaaaaaa</p>
+	<p id="p2">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈aaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+
+	<!-- meter进度条：默认范围0到1，内容区的文字只有浏览器不支持该标签的时候才显示
+	属性值：
+	value：当前值
+	max：最大值
+	min：最小值
+	low：最小预警
+	high：最大预警
+	-->
+	<meter value="90" max="100" min="0" low="20" high="80">浏览器版本不支持</meter>
+	<meter value="90" max="100" min="0" low="20" high="80">浏览器版本不支持</meter>
+	<!-- progress进度条：没有min属性设置，只能设置最大值 -->
+	<progress value="8" max="100"></progress>
+
+	<fieldset>
+		<legend>details</legend>
+		<!-- details:下拉标签
+			 open:打开状态
+		 -->
+		<details open="">
+			<summary style="outline: none;background: red;display: inline-block;cursor: pointer;">选择</summary>
+			<p>1.aaaaaaa</p>
+			<p>2.bbbbbbb</p>
+			<ul>
+				<li>3.ccccccc</li>
+			</ul>
+		</details>
+	</fieldset>
+
+	<!-- figure:图片注释 -->
+	<figure style="background: red;margin: 0;display: inline-block;">
+		<img src="img/getUrlQrcode.jpg" >
+	<figcaption>二维码</figcaption>
+	<hr>
+	<br>
+	<br>
+
+	<fieldset>
+		<legend>details</legend>
+
+		<input type="text" list="idName">
+		<datalist id="idName">
+			<option>男</option>
+			<option>女</option>
+		</datalist>
+	</fieldset>
+
+	<fieldset>
+		<legend>audio</legend>
+		<!-- 
+		  autoplay:自动播放
+		  controls:显示播放界面
+		  loop:循环播放
+		  muted:静音
+		  preload:提前加载音频文件
+		 -->
+		<audio src="img/情非得已.mp3" -autoplay muted></audio>
+		<!-- 兼容所以浏览器： -->
+		<source src="img/情非得已.mp3" controls loop muted preload="metadata" type="audio/mpeg">
+		<source src="img/情非得已.ogg" controls loop muted preload="metadata" type="audio/ogg"></audio>
+		<source src="img/情非得已.wav" controls loop muted preload="metadata" type="audio/wav"></audio>
+	</fieldset>
+
+	<fieldset>
+		<legend>video</legend>
+		<video controls width="">
+			<source src="img/1.mp4" type="video/mp4">
+			<source src="img/1.mp4" type="video/webn">
+			<source src="img/1.mp4" type="video/ogg">
+		</video>
+	</fieldset>
+</body>
+</html>

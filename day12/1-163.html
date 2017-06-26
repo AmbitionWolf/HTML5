@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>163.com</title>
+	<link rel="stylesheet" type="text/css" href="base.css">
+	<style type="text/css">
+		#log_box{
+			width: 295px;
+			height: 460px;
+			padding: 13px 14px 15px;
+			background: url(img/login_v5.png) 0 0 no-repeat;
+			position: absolute;
+			right: 100px;
+			top: 150px;
+		}
+		#log_box:hover{
+			background-position: -323px 0;
+		}
+		#log_bar{
+			height: 47px;
+		}
+		#log_bar>div{
+			float: left;
+			width: 50%;
+			height: 100%;
+			line-height: 47px;
+			text-align: center;
+			font-size: 14px;
+		}
+		#log_bar>div>span{
+			display: inline-block;
+			background: url(img/icon_code.png) no-repeat;
+			width: 13px;
+			height: 13px;
+			/*vertical-align: middle;
+			margin-top: -2px;*/
+			position: relative;
+			top: 2px;
+		}
+		#left{
+			text-align: center;
+			padding-top: 30px;
+			display: none;
+		}
+		#left h4{
+			font-weight: normal;
+			font-size: 16px;
+			line-height: 36px;
+		}
+		#left>p{
+			font-size: 14px;
+			line-height: 30px;
+		}
+		#left>div{
+			position: relative;
+			width: 100%;
+			height: 170px;
+		}
+		#left>div img{
+			position: absolute;
+		}
+		#left>div .pic_code{
+			width: 130px;
+			height: 130px;
+			/*left: 0;
+			right: 0;
+			margin: 0 auto;*/
+			left: 80px;
+			top: 20px;
+			z-index: 1;
+			box-shadow: 0 0 10px black;
+		}
+		#left>div .pic_hi{
+			top: 5px;
+			right: 20px;
+			display: none;
+		}
+		#left>div .pic_code:hover{
+			margin: none;
+			left: 40px;
+		}
+		/*+:找到pic_code的下面兄弟元素pic_hi*/
+		/*hover具有局限性：可以找到后代或者兄弟元素，但没有办法找到祖先元素*/
+		#left>div .pic_code:hover+.pic{
+			display: block;
+		}
+		#right{
+			/*(295-245)/2=25px*/
+			padding: 45px 25px 0 25px;
+			/*display: none;*/
+		}
+		#log_form{
+
+		}
+		#log_form .account_box{
+			background: url(img/bg_v3.png) 0 -352px no-repeat;
+			height: 43px;
+			line-height: 43px;
+			font-size: 14px;
+			margin-bottom: 20px;
+		}
+		#log_form .account_box>div{
+			float: left;
+		}
+		#log_form .account_box .acc_left{
+			background: url(img/bg_v3.png) no-repeat -154px -64px;
+			width: 14px;
+			height: 16px;
+			position: relative;
+			top: 13.5px;
+			margin-left: 8px;
+			margin-right: 8px;
+		}
+		#log_form #pass_box .acc_left{
+			background-position: -178px -64px;
+		}
+		#btn_box{
+			/*background: red;
+			overflow: hidden;*/
+		}
+		#btn_box input{
+			float: left;
+			background: url(img/bg_v3.png) no-repeat 0 -208px;
+			width: 110px;
+			height: 38px;
+			text-align: center;
+			font-size: 14px;
+			color: #fff;
+			font-weight: bolder;
+			cursor: pointer;
+		}
+		#btn_box .btn_right{
+			float: right;
+			color: black;
+			background-position: -117px -256px;
+		}
+		#btn_box .btn_left:hover{
+			background-position: 0 -256px;
+		}
+		#log_box:hover #left{
+			display: none;
+		}
+		#log_box:hover #right{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<!-- 登录box -->
+	<div id="log_box">
+		<div id="log_bar" class="clearfix">
+			<div id="code">
+				<span></span>
+				二维码登录
+			</div>
+			<div id="account">
+				邮箱账号登录
+			</div>
+		</div>
+		<!-- log_bar-end -->
+		<div id="left">
+		<!-- 左边 -->
+			<h4>
+				<b>网易邮箱大师</b>
+				手机版扫码登录
+			</h4>
+			<p>
+				官方APP更安全
+				<a href="###">立即下载</a>
+			</p>
+			<div>
+				<img src="img/getUrlQrcode.jpg" class="pic_code">
+				<img src="img/applogin_example.png" class="pic_hi">
+			</div>		
+		</div>
+		<!-- left-end -->
+		<div id="right">
+		<!-- 右边 -->
+			<form id="log_form">
+				<div class="account_box" id="acc_box">
+					<div class="acc_left"></div>
+					<div class="acc_center">
+						<input type="text" name="acc" placeholder="邮箱账号或手机号">
+					</div>
+					<div class="acc_right">@163.com</div>
+				</div>
+				<!-- 密码 -->
+				<div class="account_box" id="pass_box">
+					<div class="acc_left"></div>
+					<div class="acc_center">
+						<input type="text" name="pass" placeholder="密码">
+					</div>
+				</div>
+				<!-- 按钮 -->
+				<div id="btn_box" class="clearfix">
+					<input type="submit" value="登录" class="btn_left">
+					<input type="submit" value="注册" class="btn_right">
+				</div>
+			</form>
+		</div>
+		<!-- right-end -->
+	</div>
+	<!-- log_box-end -->
+</body>
+</html>
