@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>rem单位</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			html{
+				font-size: 12px;
+			}
+			body{
+				font-size: 15px;
+			}
+			#box{
+				font-size: 2em;
+			}
+			#div1{
+				background: paleturquoise;
+				/* css3的响应式新单位rem(r:root)*/
+				/* font-size:参照html的字体大小
+				 * width/height:参照html字体大小，html字体最小为12px(谷歌浏览器中)
+				 */
+				font-size: 2rem;
+				line-height: 2em;
+				width: 10rem;
+				height: 10rem;	
+				margin-left: 2rem;
+				padding-left: 2rem;			
+			}
+		</style>
+	</head>
+	<body>
+		body下的文字
+		<div id="box">
+			<div id="div1">
+				div1下的文字
+			</div>
+		</div>
+		
+	</body>
+</html>

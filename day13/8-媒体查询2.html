@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>媒体查询2</title>
+		<style type="text/css">
+			/*界面用rem为单位（多数字体） html制定字体大小通过媒体查询修改html字体大小*/
+			html{
+				font-size: 16px;
+			}
+			.div1,.div2,.div3{
+				/*border: 2px solid royalblue;*/
+				font-size: 1rem;
+			}
+			/*建议将以下代码写下面，在代码块优先级相同的情况下可以覆盖上面的样式*/
+			@media only screen and (min-width: 980px) {
+				/*在该区域写入css样式，但需要考虑优先级*/
+				.div1{
+					background: papayawhip;
+					/*font-size: 25px;*/
+				}
+				html{
+					font-size: 25px;
+				}
+			}
+			@media only screen and (max-width: 480px) {
+				.div1{
+					/*font-size: 12px;*/
+				}
+				html{
+					font-size: 12px;
+				}
+			}
+			@media only screen and (min-width: 600px) and (max-width: 800px) {
+				.div1{
+					/*font-size: 30px;*/					
+				}
+				html{
+					font-size: 36px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1">
+			媒体查询修改样式
+		</div>
+		<div class="div2">
+			媒体查询修改样式
+		</div>
+		<div class="div3">
+			媒体查询修改样式
+		</div>
+	</body>
+</html>

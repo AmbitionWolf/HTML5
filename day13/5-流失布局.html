@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>流失布局</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			/*html{
+				border: 2px solid blue;
+				height: 100%;
+			}
+			body{
+				border: 2px solid gainsboro;
+				height: 100%;
+			}*/
+			html,body{
+				height: 100%;
+			}
+			header{
+				/*在给出高度时，必须保证父元素有宽度和高度，子元素才有参照值*/
+				width: 80%;
+				/*body的高度默认为0，其高度由子元素撑起，所以给出百分比也没有效果*/
+				height: 80%;
+				
+				border: 2px solid cornflowerblue;
+				margin: auto;
+				text-align: center;
+				
+				/*宽度最大不会大于max-width*/
+				max-width: 900px;
+				/*宽度最小不会小于min-width*/
+				min-width: 480px;
+			}
+			header img{
+				width: 25%;
+			}
+			nav{
+				border: 3px solid peachpuff;
+				width: 90%;
+				height: 30%;
+				/*参照于父元素的宽度*/
+				margin-left: 10%;
+				padding-left: 10%;
+				
+				/*上下margin和padding值参照父元素的宽度*/
+				margin-top: 10%;
+				padding-top: 10%;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<img src="../day02/img/1.jpg"/>
+			<nav>
+				<a href="###">HOME</a>
+				<a href="###">HOME</a>
+				<a href="###">HOME</a>
+								
+			</nav>
+		</header>
+		
+	</body>
+</html>

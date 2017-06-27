@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>em单位</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			html{
+				font-size: 12px;
+			}
+			body{
+				font-size: 14px;
+			}
+			/*em*/
+			/* 1.font-size:2em;参照父元素字体大小设置。2em等于两倍的父元素字体大小
+			 * 2.text-indent:参照的时自身字体大小
+			 * 3.line-height：参照自身字体大小
+			 * 4.width/height:参照自身字体大小
+			 * 5.padding/margin:参照自身字体大小
+			  */
+			#div1{
+				background: red;
+				/*段落开头空两格：*/
+				text-indent: 2em;
+				
+				font-size: 2em;
+				/*行高=字体大小*/
+				line-height: 1em;
+				
+				height: 2em;
+				width: 10em;
+				
+				margin-left: 2em;
+				padding-left: 2em;
+			}
+			#div2{
+				background: cornflowerblue;
+				/*段落开头空两格：*/
+				text-indent: 2em;
+				
+				font-size: 2em;
+				/*行高=字体大小*/
+				line-height: 1em;
+				
+				height: 2em;
+				width: 10em;
+				
+				margin-left: 2em;
+				padding-left: 2em;
+			}
+		</style>
+	</head>
+	<body>
+		body下的文字
+		<div id="div1">div下的文字</div>
+		<div id="div2">div下的文字</div>
+		
+	</body>
+</html>

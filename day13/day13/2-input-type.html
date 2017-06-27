@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>input-type</title>
+	</head>
+	<body>
+		<form action="###" method="get" id="formID">
+			<!--type=number属性:-->
+			<!--1.step:每次增加的值
+				2.max：最大值
+				3.min：最小值
+			-->
+			<div>
+				<label for="num">数字</label>
+				<input type="number" name="num" id="num" step="10" max="100" min="10" autofocus="autofocus"/>				
+			</div>
+			
+			<!--email邮箱：-->
+			<div>
+				<label for="email">邮箱</label>
+				<input -type="email" name="email" id="email" value=""  required="required"/>
+			</div>
+			
+			<!--url:以http:开头-->
+			<div id="">
+				<label for="url">网址：</label>
+				<input type="url" name="url" id="url" value="" />
+			</div>
+			
+			<!--tel:暂时不支持-->
+			<div id="">
+				<label for="tel">手机号：</label>
+				<input type="tel" name="tel" id="tel" value="" />
+			</div>
+		
+			<!--range:value=0(默认值)-->
+			<div id="">
+				<label for="range">slider范围</label>
+				<input type="range" name="range" id="range" value="0" max="200" min="0"/>
+			</div>
+		
+			<!--color:-->
+			<div id="">
+				<label for="color">颜色</label>
+				<input type="color" name="color" id="color" value="" />
+			</div>
+			
+			<!--search:搜索(输入文本后文本框后面有一个清除按钮)-->
+			<div id="">
+				<label for="search">搜索</label>
+				<input type="search" name="search" id="search" value="" />
+			</div>
+			
+			<!--时间：包括年月日，不包括时间-->
+			<div>
+				<label for="date">date:</label>
+				<input type="date" name="month" id="month" value="" />
+			</div>
+			
+			<!--month：包括年月-->
+			<div>
+				<label for="month">month:</label>
+				<input type="month" name="month" id="month" value="" />
+			</div>
+			
+			<!--week:包括年和第几周-->
+			<div id="">
+				<label for="week">week</label>
+				<input type="week" name="week" id="week" value="2017-W02" />				
+			</div>
+			
+			<!--time:包括时和分-->
+			<div>
+				<label for="time">time</label>
+				<input type="time" name="time" id="time" value="" />
+			</div>
+			
+			<!--datetime:包括年月日时分-->
+			<div id="">
+				<label for="time">datetime</label>
+				<input type="datetime-local" name="datetime" id="datetime" value="" />
+			</div>
+			
+			<!--新增属性：-->
+			<!--1.required:属性值不能为空
+				2.自动获取焦点autofocus:只能用一次
+				3.禁用disabled：填写内容必须符合要求
+				4.readonly:只读属性
+				5.novalidate="novalidate":将校验功能去掉
+			-->
+			
+			<hr/>
+			<input type="submit" value="确定"/>
+			
+			<br />
+			<!--form属性值必须和上面form标签的id值一样才能关联到一起-->
+			<input type="text" name="user" id="user" value="" form="formID"/>
+		</form>
+	</body>
+</html>
