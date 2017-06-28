@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>圆角设置</title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				background: #AFEEEE;
+			}
+			#div1{
+				/*border-radius: 10px;*/
+				/*border-radius: 100px;*/
+				
+				/*画出一个圆的方法：角度大小为宽高的一半*/
+				/*border-radius: 50%;*/
+				
+				/*border-top-left-radius: 50px;
+				border-top-right-radius: 50px;
+				border-bottom-left-radius: 50px;
+				border-bottom-right-radius: 50px;*/
+				
+				/*左上  右上  右下  左下*/
+				/*border-radius: 10px 20px 30px 40px;*/
+				
+				/*左上  对角  右下*/
+				/*border-radius: 10px 30px 50px;*/
+				
+				/*左上对角  右下对角*/
+				/*border-radius: 30px 50px;*/
+				
+				/*border-top-left-radius: 10px 60px：				 
+				 * 10px:x轴方向
+				 * 60px:y轴方向 */
+				/*border-top-left-radius: 10px 60px;
+				border-top-right-radius: 10px 60px;
+				border-bottom-left-radius: 50px 10px;*/
+				/*x轴和y轴方向弧度相同*/
+				/*border-bottom-right-radius: 100px;*/
+				
+				/*八个值：				 
+				 * 前四个值：水平方向：左上 右上 右下 左下
+				 * 后四个值：垂直方向：左上 右上 右下 左下*/
+				border-radius: 10px 20px 30px 40px/10px 20px 30px 40px;
+				
+			}
+			
+			#div2{
+				border-radius: 100px 0;				
+			}
+			
+			#div3{
+				border-radius: 100px 0 100px 100px;
+			}
+			
+			#div4{
+				height: 100px;
+				border-radius: 100px 100px 0 0;
+			}
+			#div5{
+				height: 100px;
+				/*border-radius: 100px 100px 100px 100px/50px 50px 50px 50px;*/
+				border-radius: 100px/50px;
+				
+			}
+			#div6{
+				height: 0;
+				width: 0;
+				background: transparent;
+				border: 100px solid transparent;
+				
+				border-top-color: black;
+				border-right-color: transparent;
+				border-left-color: red;
+				border-radius: 100px;
+				border-right-color: yellow;
+				border-bottom-color: white;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<hr />
+		<div id="div2"></div>
+		<hr />
+		<div id="div3"></div>
+		<hr />
+		<div id="div4"></div>
+		<hr />
+		<div id="div5"></div>
+		<hr />
+		<div id="div6"></div>
+		<hr />
+	</body>
+</html>

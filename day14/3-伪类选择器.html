@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>伪类选择器</title>
+		<style type="text/css">
+			/*锚点被点击跳转后设置*/
+			#top:target{
+				background: peachpuff;
+				font-size: 20px;
+			}
+			#top2:target{
+				background: paleturquoise;
+				font-size: 20px;
+			}
+			
+			/*empty:找出没有子元素的空元素*/
+			.em:empty{
+				height: 100px;
+				width: 100px;
+				background: gainsboro;
+			}
+			/*.em后面必须有：：，双击或者拉取选择触发*/
+			.em::selection{
+				background: red;
+				color: blue;
+			}
+			/*禁用*/
+			#box1 input:disabled{
+				background: black;
+			}
+			/*正常*/
+			#box1 input:enabled{
+				background: lightblue;
+			}
+			/*只读*/
+			#box1 input:read-only{
+				background: cornflowerblue;
+			}
+			/*在范围内触发*/
+			#box2 input:in-range{
+				border-color: blue;	
+			}		
+			/*超出范围触发*/
+			#box2 input:out-of-range{
+				border-color: red;
+			}
+			.warning,.alter{
+				color: red;
+				display: none;
+			}
+			/*+:找相邻兄弟
+			  ~：找后面所以兄弟*/
+			#box2 input:out-of-range +.warning{
+				display: inline;
+			}
+			#box2 input:focus{
+				background: bisque;
+			}
+			#box2 input:focus ~.alter{
+				display: inline;
+			}
+			/*只能在单选框或复选框中结合checked使用after*/
+			#box3 input:checked:after{
+				content: "已选择";
+				display: inline-block;
+				width: 100px;
+				margin-left: 20px;
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="top">
+			点击后设置样式
+		</div>
+		<div id="top2">
+			点击后设置样式
+		</div>
+		<p -style="margin-top: 1000px;">
+			<a href="#top">回到top的位置</a>
+			<a href="#top2">回到top2的位置</a>			
+		</p>
+		
+		<fieldset id="">
+			<legend>empty</legend>
+			<p class="em"></p>
+			<p class="em"><span>1</span></p>
+			<p class="em"></p>
+			<p class="em">22</p>
+		</fieldset>
+		
+		<form action="###" method="get">
+			<fieldset id="">
+				<legend>disabled/readonly</legend>
+				<div id="box1">
+					<input type="text" name="" id="" value="" />
+					<input type="text" name="" id="" value="" disabled=""/>
+					<input type="text" name="" id="" value="" readonly="" />
+				</div>				
+			</fieldset>
+			
+			<fieldset id="">
+				<legend>in-range</legend>
+				
+				<div id="box2">
+					<input type="number" max="10" min="5" value="7" autofocus="" />
+					<span class="warning">
+						超出范围						
+					</span>
+					<span class="alter">
+						正在输入...
+					</span>
+				</div>
+			</fieldset>
+			
+			<fieldset id="box3">
+				<legend>checked</legend>
+				<div id="">
+				男：<input type="radio" name="gender" id="gender" value="" -checked="" />
+					
+				</div>
+
+				<br />
+				女：<input type="radio" name="gender" id="gender" value="" />
+			</fieldset>
+			
+			<input type="submit" value="提交"/>
+		</form>
+	</body>
+</html>
