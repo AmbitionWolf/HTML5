@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>正方体</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<style type="text/css">
+			html{
+				perspective: 1000px;
+			}
+			html,body{
+				height: 100%;
+			}
+			body{
+				background: url(img/bg.jpg) no-repeat 0 0/100% 100%;
+				overflow: hidden;
+			}
+			li{
+				list-style-type: none;
+			}
+			#box{
+				border: 1px solid royalblue;
+				width: 200px;
+				height: 200px;
+				margin: 200px auto;
+				
+				transform: rotateY(60deg) rotateX(-30deg);
+				/*开启3d效果：*/
+				transform-style: preserve-3d;
+				animation: shake 5s infinite alternate;
+			}
+			#box ul{
+				width: 100%;
+				height: 100%;
+				
+				position: relative;
+			}
+			#box ul li{
+				width: 100%;
+				height: 100%;
+				background: rgba(0,0,0,0.5);
+				/*opacity: 0.3;*/
+				
+				
+				position: absolute;
+				font-size: 80px;
+				color: white;
+				text-align: center;
+				line-height: 200px;
+			}
+			/*第一个div放在最前面*/
+			#box ul li:nth-child(1){
+				transform: translateZ(100px);
+			}
+			
+			#box ul li:nth-child(2){
+				transform: rotateY(90deg) translateZ(100px);
+			}
+			
+			#box ul li:nth-child(3){
+				transform: rotateY(180deg) translateZ(100px);
+			}
+			
+			/*上：*/
+			#box ul li:nth-child(4){
+				transform: rotateX(90deg) translateZ(100px);
+			}
+			
+			/*下：*/
+			#box ul li:nth-child(5){
+				transform: rotateX(-90deg) translateZ(100px);
+			}
+			
+			#box ul li:nth-child(6){
+				transform: rotateY(-90deg) translateZ(100px);
+			}
+			
+			@keyframes shake{
+				from{
+					transform: rotateX(0) rotateY(0) rotateZ(0);
+				}
+				to{
+					transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+				}
+			}
+			
+			#box:hover{
+			
+			}
+			#box ul:hover li:nth-child(1){
+				transform: scale(1.5,1.5) translateZ(200px);
+			}
+			
+			#box ul:hover li:nth-child(2){
+				transform: rotateY(90deg) scale(1.5,1.5) translateZ(200px);
+			}
+			
+			#box ul:hover li:nth-child(3){
+				transform: rotateY(180deg) scale(1.5,1.5) translateZ(200px);
+			}
+			
+			/*上：*/
+			#box ul:hover li:nth-child(4){
+				transform: rotateX(90deg) scale(1.5,1.5) translateZ(200px);
+			}
+			
+			/*下：*/
+			#box ul:hover li:nth-child(5){
+				transform: rotateX(-90deg) scale(1.5,1.5) translateZ(200px);
+			}
+			
+			#box ul:hover li:nth-child(6){
+				transform: rotateY(-90deg) scale(1.5,1.5) translateZ(200px);
+			}
+			
+			#box ol{
+				position: absolute;	
+				width: 100px;
+				height: 100px;
+				/*background: red;*/
+				
+				left: 50px;
+				top: 50px;
+				
+				transform-style: preserve-3d;
+			}
+			
+			#box ol li{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			
+			#box ol li:nth-child(1){
+				background: url(img/01.png) no-repeat 0 0/cover;
+				transform: translateZ(50px);
+			}
+			#box ol li:nth-child(2){
+				background: url(img/02.png) no-repeat 0 0/cover;
+				transform: translateZ(-50px);
+			}
+			#box ol li:nth-child(3){
+				background: url(img/03.png) no-repeat 0 0/cover;
+				transform: rotateX(90deg) translateZ(50px);
+			}
+			#box ol li:nth-child(4){
+				background: url(img/04.png) no-repeat 0 0/cover;
+				transform: rotateX(-90deg) translateZ(50px);
+			}
+			#box ol li:nth-child(5){
+				background: url(img/05.png) no-repeat 0 0/cover;
+				transform: rotateY(90deg) translateZ(50px);
+			}
+			#box ol li:nth-child(6){
+				background: url(img/06.png) no-repeat 0 0/cover;
+				transform: rotateY(-90deg) translateZ(50px);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box" class="shake">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+			</ul>
+			
+			<ol>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+			</ol>
+			
+		</div>
+		
+		
+		
+		
+	</body>
+</html>

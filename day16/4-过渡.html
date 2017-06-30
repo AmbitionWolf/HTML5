@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>过渡</title>
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				
+				/* 过渡动画设置步骤：
+				 * transition-property：设置哪些动画有效，默认值为all：所有动画有效
+				 */
+				transition-property: background-color,transform;
+				transition-property: all;
+				
+				/* 动画持续时间：必要条件，不可省略，其他条件都可以省略
+				 *
+				 */
+				transition-duration: 5s;
+				
+				/*transition: 2s;*/
+				
+				/*动画延时：鼠标触发两秒后动画才开始，默认值为0/
+				transition-delay: 2s;
+				
+				/*复合写法：*/
+				transition: all 2s 0s;
+				
+				/*最简单的写法：只给出动画时间*/
+				transition: 5s;
+			}
+			#box:hover{
+				/*width: 200px;*/
+				/*height: 200px;*/
+				transform: scale(2,2) translateX(100px);
+				background: blue;
+			}
+			
+			#box2{
+				width: 100px;
+				height: 100px;
+				background: green;
+				
+				/*动画修改left或top等属性时，必须添加初始值*/
+				position: absolute;
+				left: 8px;
+				
+				transition-property: all;
+				transition-duration: 5s;
+				/*动画函数：默认值为加速开始，减速结束
+				  linear：匀速*/
+				 
+				 /*函数有四个值-1~1的四个值：（x1,y1） (x2,y2)*/
+				transition-timing-function: cubic-bezier(0,0,1,1);
+			}
+			
+			#box2:hover{
+				left: 500px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<hr />
+		
+		<div id="box2"></div>
+		
+	</body>
+</html>

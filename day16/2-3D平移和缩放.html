@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>3D旋转</title>
+		<style type="text/css">
+			html{
+				perspective: 500px;
+			}
+			#box{
+				width: 400px;
+				height: 400px;
+				margin: auto;
+				border: 2px solid blue;
+				background: url(img/bg-grid.jpg) no-repeat 0 0/100% 100%;
+				
+				position: relative;
+				
+				/* perspective透视距离，为父元素设置（舞台元素）的标签
+				 * 设置肉眼到屏幕的距离
+				 * 必须设置给容器元素，也可以设置到舞台元素（html或者body）
+				 */
+				/*perspective: 500px;*/
+				
+				/* 开启3D视角：
+				 * 给舞台元素设置，当子元素和舞台元素都有3d样式，需要给舞台元素开启3d视角
+				 */
+				transform-style: preserve-3d;
+				
+				transform: rotateY(40deg);
+			}
+			#box img{
+				position: absolute;	
+				width: 100px;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				margin: auto;				
+			}
+			#box img:first-child{
+				opacity: 0.5;
+			}
+			#box img:nth-child(2){
+				/* translateZ:为该属性设置属性值的前提：必须设置舞台透视距离该透视距离才有效。
+				 * 值越大，距离眼睛越近，距离等于或大于透视距离是图片就看不到了
+				 */
+				/*transform: translateX(100px) translateY(50px) translateZ(100px);*/
+				
+				/*复合写法：*/
+				/*transform: translate3d(50px,50px,200px);*/
+				
+				/*Z轴的缩放：旋转后看到的z轴的空间会变大*/
+				/*transform: scaleZ(10) rotateY(60deg) translateX(30px);*/
+				
+				transform: translateZ(200px);
+			
+			}
+		</style>
+	</head>
+	<body>		
+		<div id="box">
+			<img src="img/cardKingClub.png"/>
+			<img src="img/cardKingClub.png"/>
+			
+		</div>
+	</body>
+</html>

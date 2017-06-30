@@ -1,0 +1,62 @@
+.vertical_shake {
+	animation: vertical_shake 0.8s linear;
+}
+
+.vertical_shake_hover:hover {
+	animation: vertical_shake 0.8s linear;
+}
+
+@keyframes vertical_shake {
+	from {
+		transform: translateY(0);
+	}
+	25% {
+		transform: translateY(-35px);
+	}
+	50% {
+		transform: translateY(0);
+	}
+	75% {
+		transform: translateY(-15px);
+	}
+	90% {
+		transform: translateY(0);
+	}
+	95% {
+		transform: translateY(-5px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+	to {}
+}
+
+/*直接触发*/
+.horizontal_shake {
+	animation: horizontal_shake 0.7s linear;
+}
+
+/*hover动画*/
+.horizontal_shake_hover:hover {
+	animation: horizontal_shake 0.7s linear;
+}
+
+/*无限动画*/
+.infinite{
+	animation-iteration-count: infinite;
+}
+
+@keyframes horizontal_shake {
+	from,50% {
+		transform: translateX(20px);
+	}
+	10%,35%,100%{
+		transform: translateX(0);
+	}
+	25% {
+		transform: translateX(-20px);
+	}
+	75% {
+		transform: translateX(10px);
+	}
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>3D旋转</title>
+		<style type="text/css">
+			#box{
+				width: 400px;
+				height: 400px;
+				margin: auto;
+				border: 2px solid blue;
+				background: url(img/bg-grid.jpg) no-repeat 0 0/100% 100%;
+				
+				position: relative;
+				
+				/* perspective透视距离，为父元素设置（舞台元素）的标签
+				 * 设置肉眼到屏幕的距离
+				 * 必须设置给容器元素，也可以设置到舞台元素（html或者body）
+				 */
+				/*perspective: 500px;*/
+			}
+			#box img{
+				position: absolute;	
+				width: 100px;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				margin: auto;				
+			}
+			#box img:first-child{
+				opacity: 0.5;
+			}
+			#box img:nth-child(2){
+				/* 3D旋转：
+				 * Z轴：垂直方向，屏幕向外的方向为z轴正方向
+				 * 正数：顺时针旋转
+				 * 负数：逆时针旋转
+				 * 
+				 */
+				transform: rotateZ(-30deg);
+				
+				/* X轴：水平方向
+				 * 判断顺时针的方法：从x轴的正方向向里面看，
+				 */
+				transform: rotateX(50deg);
+				
+				/*Y轴：垂直方向*/
+				transform: rotateY(30deg);
+				
+				/*通常用以下写法：*/
+				transform: rotateX(30deg) rotateY(30deg) rotateZ(30deg);
+				
+				/*以下写法具有局限性，不推荐使用，前三个属性值只能取0，1或-1，0代表不旋转，1代表顺时针旋转，-1代表逆时针旋转*/
+				transform: rotate3d(0,1,1,50deg);
+			}
+		</style>
+	</head>
+	<body>		
+		<div id="box">
+			<img src="img/cardKingClub.png"/>
+			<img src="img/cardKingClub.png"/>
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>帧动画</title>
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				
+				/*触发动画的名字*/
+				animation-name: animationName;
+				/*动画持续时间(参数必须要赋值)*/
+				animation-duration: 2s;
+				/*动画函数*/
+				animation-timing-function: ease-in-out;
+				/*延迟执行*/
+				animation-delay: 0s;
+				/*动画播放次数:infinite(无限次)*/
+				animation-iteration-count: 3;
+				/* 动画方向:alternate：效果是来回交替；
+				 * 默认值为normal
+				 * reverse：反转，动画从结束位置开始*/
+				animation-direction: alternate;
+				
+				/*动画停止时的位置:（动画次数给奇数）
+				 *backwards:默认值，回到开始的位置
+				 */
+				animation-fill-mode: forwards;
+				
+				/* 暂停动画：*/
+				/*animation-play-state: paused;*/
+				
+				/*复合写法：动画名称  持续时间 函数  延迟时间  次数  动画方向*/
+				animation: animationName 2s linear 0s 4 alternate paused;
+			}
+			#box:hover{
+				animation-play-state: paused;
+			}
+			
+			/*创建一个关键帧动画*/
+			@-webkit-keyframes animationName{
+				from{}
+				to{}
+			}
+			@keyframes animationName{
+				/*初始样式*/
+				from{
+					width: 100px;
+					background: red;
+				}
+				/*结束样式*/
+				to{
+					width: 300px;
+					background: green;
+				}
+			}
+			
+			#box2{
+				height: 100px;
+				width: 100px;
+				background: blue;
+				
+				/*animation: animat2 4s 2 alternate;*/
+				/*animation: animat2 1s;*/
+				
+			}
+			
+			@keyframes animat2{
+				/*从初始位置到结束位置一次完整的动画*/
+				0%{
+					width: 100px;
+					height: 100px;
+				}
+				25%{
+					width: 150px;
+				}
+				50%{
+					height: 200px;
+				}
+				75%{
+					background: yellow;
+				}
+				90%{
+					width: 300px;
+					height: 300px;
+					background: red;
+				}
+				100%{
+					width: 100px;
+					height: 100px;
+				}
+			}
+			
+			#box2:hover{
+				/*鼠标移入后触发动画*/
+				animation: move 2s;
+			}
+			
+			@keyframes move{
+				from{
+					transform: translateX(0);
+				}
+				to{
+					transform: translateX(500px);
+				}
+			}
+
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<div id="box2"></div>
+		
+	</body>
+</html>
