@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>work</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			#box ul li img{
+				list-style-type: none;
+				border-radius: 10px;
+			}
+			
+			html,body{
+				background: black;
+				perspective: 1000px;
+				overflow: hidden;
+				
+			}
+			#box{
+				width: 133px;
+				height: 200px;
+				margin: 200px auto;
+				transform: rotateY(60px) rotateZ(-15px);
+				transform-style: preserve-3d;
+				animation: animat 6s linear infinite;
+			}
+			#box ul{
+				width: 100%;
+				height: 100%;
+				position: relative;
+				transform-style: preserve-3d;
+			}
+			#box ul li{
+				width: 100%;
+				height: 100%;				
+				position: absolute;
+			}
+			#box ul{
+				width: 133px;
+				height: 200px;
+			}
+			#box ul li:nth-child(n){
+				-webkit-box-reflect: below 5px linear-gradient(180deg,transparent,70%,lightblue);
+			}
+			
+			#box ul li:nth-child(1){
+				transform: rotateY(0deg) translateZ(300px);
+			}
+			#box ul li:nth-child(2){
+				transform: rotateY(40deg) translateZ(300px);
+			}
+			#box ul li:nth-child(3){
+				transform: rotateY(80deg) translateZ(300px);
+			}
+			#box ul li:nth-child(4){				
+				transform: rotateY(120deg) translateZ(300px);
+			}
+			#box ul li:nth-child(5){				
+				transform: rotateY(160deg) translateZ(300px);
+			}
+			#box ul li:nth-child(6){			
+				transform: rotateY(200deg) translateZ(300px);
+			}
+			#box ul li:nth-child(7){				
+				transform: rotateY(240deg) translateZ(300px);
+			}
+			#box ul li:nth-child(8){			
+				transform: rotateY(280deg) translateZ(300px);
+			}
+			#box ul li:nth-child(9){
+				transform: rotateY(320deg) translateZ(300px);
+			}
+			
+			@keyframes animat{
+				from{
+					transform: rotateY(60deg) rotateX(-15deg);
+				}
+				25%{
+					transform: rotateY(150deg) rotateX(15deg);
+				}
+				50%{
+					transform: rotateY(240deg) rotateX(-15deg);
+				}
+				75%{
+					transform: rotateY(330px) rotateX(15deg);
+				}
+				to{
+					transform: rotateY(420deg) rotateX(-15deg);
+				}
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul>				
+				<li><img src="img/1.jpg"/></li>
+				<li><img src="img/2.jpg"/></li>
+				<li><img src="img/3.jpg"/></li>
+				<li><img src="img/4.jpg"/></li>
+				<li><img src="img/5.jpg"/></li>
+				<li><img src="img/6.jpg"/></li>
+				<li><img src="img/7.jpg"/></li>
+				<li><img src="img/8.jpg"/></li>
+				<li><img src="img/9.jpg"/></li>
+			</ul>
+		</div>
+	</body>
+</html>

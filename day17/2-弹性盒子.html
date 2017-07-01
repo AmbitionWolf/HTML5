@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>弹性盒子</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			li{
+				list-style-type: none;
+			}
+			#box ul{
+				width: 400px;
+				height: 300px;
+				border: 2px solid red;
+				font-size: 40px;
+				color: white;
+				
+				/* 1.设置一个弹性盒子为容器：
+				 * 子元素会默认从左到右一行显示（主轴）
+				 * 子元素内容撑起大小，类似浮动，但是不会脱离文档
+				 */
+				display: -webkit-flex;
+				display: flex;
+				
+				/* 2.设置子元素流动方向（即主轴的方向：默认方向为左->右）
+				 * row:默认值，从左到右
+				 * column:从上到下
+				 * 子元素反转显示：
+				 * row-reverse：行反转
+				 * olumn-reverse：列反转
+				 */
+				flex-direction: column-reverse;
+				
+				/* 3.控制水平方向的排列方式：
+				 * center:居中
+				 * flex-end:效果如同右浮动
+				 * flex=start:默认
+				 * space-between:
+				 */
+				justify-content: space-around;
+				
+				/* 4.控制子元素宽高，超出父元素换行问题
+				 * wrap:超出换行
+				 * nowrap:默认值
+				 * wrap-reverse：反转换行
+				 */
+				flex-wrap: wrap;
+				
+				/* 5.垂直方向的布局：
+				 * center:垂直居中
+				 * flex-end:最下方
+				 * flex-start:默认值，最上方
+				 * stretch:拉伸（不能给高度）
+				 */
+				align-items: center;
+				
+				/* 6.处理flex-wrap:wrap换行后，多行情况下的垂直居中问题，属性值=align-items*/
+				/*align-content: center;*/
+				
+				
+				/*以上代码是为父元素设置的属性*/
+				
+				
+				/* 7.子元素排列顺序:
+				 * 属性值越大排列顺序越靠后
+				 */
+				
+				/* 8.单独设置每个子元素在侧轴排列方式：
+				 * 和align-items类似
+				 */
+				
+				/* 9.设置每个盒子如何分配空间：*/
+			}
+			
+			#box ul li{
+				background: green;
+				width: 100px;
+				height: 100px;
+			}
+			#box ul li:first-child{
+				order: 1;
+				align-self: flex-end;
+				flex: 1;
+			}
+			#box ul li:nth-child(2){
+				order: 2;
+				
+				flex:1;
+			}
+			#box ul li:nth-child(3){
+				order: 3;
+				align-self: flex-start;
+				flex: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</div>
+	</body>
+</html>

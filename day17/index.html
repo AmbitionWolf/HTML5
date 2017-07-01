@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			/* IE9+,Firefox,Chrome,Safari和Opera支持WOFF（Web Open Font Format）字体
+			 * ttf：除了ie都支持
+			 * oet：只有ie支持
+			 * Internet Explorer 8以及更早的版本不支持新的  @font-face规则
+			 * css3之前，font-family只能是电脑安装的字体才有效
+			 */
+			
+			/*使用的时阿里妈妈在线图标字体：*/
+			@font-face {
+				font-family: 'webfont';
+				src: url('//at.alicdn.com/t/jjlbp5o8qy4d9529.eot');
+				/* IE9*/
+				src: url('//at.alicdn.com/t/jjlbp5o8qy4d9529.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+				url('//at.alicdn.com/t/jjlbp5o8qy4d9529.woff') format('woff'), /* chrome、firefox */
+				url('//at.alicdn.com/t/jjlbp5o8qy4d9529.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+				url('//at.alicdn.com/t/jjlbp5o8qy4d9529.svg#思源黑体-极细') format('svg');
+				/* iOS 4.1- */
+			}
+			
+			@font-face {
+				font-family: 'webfont2';
+				src: url('font/webfont.eot');
+				/* IE9*/
+				src: url('font/webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+				url('font/webfont.woff') format('woff'), /* chrome、firefox */
+				url('font/webfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+				url('font/webfont.svg#webfont') format('svg');
+				/* iOS 4.1- */
+			}
+			
+			#p1 {
+				font-family: songti;
+				font-size: 80px;
+				font-weight: bolder;
+			}
+			
+			#p2 {
+				font-family: webfont2;
+			}
+			
+			textarea{
+				border: none;
+				border: 100px solid red;
+				/*去除点亮状态，外边框不占据文档流，不属于盒模型的组成部分*/
+				/*outline: 10px solid black;*/
+				
+				/*禁止文本框拉伸*/
+				resize: none;
+			}
+			#p2{
+				background: yellow;
+				
+				/* 让元素具有拉伸效果，需要与overfolow:hidden配合使用
+				 * auto:两个方向
+				 * vertical:垂直方向拉伸
+				 * horizontal:水平方向拉伸
+				 */
+				resize: auto;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+
+	<body>
+		<p id="p1">today is sunny.</p>
+		<p id="p2">还没来得及去沾花惹草，就被人拔光了。</p>
+		
+		<textarea name="" rows="" cols=""></textarea>
+	</body>
+
+</html>

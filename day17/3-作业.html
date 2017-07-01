@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<title></title>
+		<style type="text/css">
+			html{
+				font-size: 20px;
+			}
+			header{
+				height: 4.2rem;
+				background:#48382b;
+				color: white;	
+				display: flex;
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;	
+				justify-content: space-between;	
+				align-items: center;
+				
+				padding: 0 1rem;	
+			}
+			#city{
+				font-size: 1.7rem;
+				font-family: "宋体";
+				background: red;
+				/*flex: 2;*/
+				padding-right: 1.5rem;
+				background: url(img/arrown.png) no-repeat right center/1.3rem .6rem;
+			}
+			#search{
+				width: 22rem;
+				height: 2.5rem;
+				/*前面的背景会遮挡后面的背景*/
+				background:url(img/search.png) no-repeat 1rem center/1.7rem 1.7rem ,url(img/s_bg.png) no-repeat center/100% 100%;
+				line-height: 2.5rem;
+				position: relative;
+			}
+			#search input{
+				/*display: none;*/
+				position: absolute;
+				left: 3rem;
+				top: 0;
+				bottom: 0;
+				/*margin: auto;*/
+				width: 80%;
+				/*height: 80%;*/
+				background: transparent;
+				font-size: 1.1rem;
+				color: #C3AD88;
+			}
+			#search input::-ms-input-placeholder{
+				color: #C3AD88;
+			}
+			#bell{
+				width: 1.65rem;
+				height: 2.2rem;
+				background: url(img/bell.png) no-repeat 0 0/100% 100%;
+			}
+			footer{
+				position:fixed;
+				background:#48382b;
+				bottom:0;
+				left:0;
+				right: 0;
+				display: flex;
+				justify-content: space-around;
+				
+				height: 4.2rem;
+				align-items: center;
+				color: #c3ad88;
+				text-align: center;
+				font-size: 1rem;
+			}
+			footer img{
+				width: 2rem;
+				margin-bottom: .3rem;
+			}
+			@media only screen and (max-width:450px ) {
+				html{
+					font-size: 12px;
+				}
+			}
+			@media only screen and (max-width:380px ) {
+				html{
+					font-size: 10px;
+				}
+				/*#city{
+					font-size: 1rem;
+				}
+				#search{
+					width: 15rem;
+				}*/
+				/*小屏幕手机*/
+				@media only screen and (max-width: 330px) {
+					#city{
+						font-size: 1rem;
+					}
+					#search{
+						width: 15rem;
+					}
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<header>
+				<div id="city">北京</div>
+				<div id="search">
+					<input type="search" placeholder="搜索食材菜品" />
+				</div>
+				<div id="bell"></div>
+			</header>
+			<section style="1000px">身体</section>
+			<footer>
+				<div>
+					<img src="img/home.png"/>
+					<p>主页</p>
+				</div>
+				<div>
+					<img src="img/home.png"/>
+					<p>主页</p>
+				</div>
+				<div>
+					<img src="img/home.png"/>
+					<p>主页</p>
+				</div>
+				<div>
+					<img src="img/home.png"/>
+					<p>主页</p>
+				</div>
+				<div>
+					<img src="img/home.png"/>
+					<p>主页</p>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>
