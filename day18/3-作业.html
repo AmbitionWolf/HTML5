@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<title></title>
+		<style type="text/css">
+			html {
+				font-size: 20px;
+			}
+			img{
+			vertical-align: middle;
+		}
+			header {
+				height: 4.2rem;
+				background: #48382b;
+				color: white;
+				display: flex;
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				justify-content: space-between;
+				align-items: center;
+				padding: 0 1rem;
+			}
+			
+			#city {
+				font-size: 1.7rem;
+				font-family: "宋体";
+				background: red;
+				/*flex: 2;*/
+				padding-right: 1.5rem;
+				background: url(img/arrown.png) no-repeat right center/1.3rem .6rem;
+			}
+			
+			#search {
+				width: 22rem;
+				height: 2.5rem;
+				/*前面的背景会遮挡后面的背景*/
+				background: url(img/search.png) no-repeat 1rem center/1.7rem 1.7rem, url(img/s_bg.png) no-repeat center/100% 100%;
+				line-height: 2.5rem;
+				position: relative;
+			}
+			
+			#search input {
+				/*display: none;*/
+				position: absolute;
+				left: 3rem;
+				top: 0;
+				bottom: 0;
+				/*margin: auto;*/
+				width: 80%;
+				/*height: 80%;*/
+				background: transparent;
+				font-size: 1.1rem;
+				color: #C3AD88;
+			}
+			
+			#search input::-ms-input-placeholder {
+				color: #C3AD88;
+			}
+			
+			#bell {
+				width: 1.65rem;
+				height: 2.2rem;
+				background: url(img/bell.png) no-repeat 0 0/100% 100%;
+			}
+			
+			section {
+				margin-top: 3.21rem;				
+				overflow: hidden;
+				display: flex;
+				flex-wrap: wrap;
+				/*width: 100%;*/
+			}
+			
+			#box1 {
+				background-color: #ebeae4;
+				position: relative;
+				width: 100%;
+			}
+			
+			#box1 img {
+				width: 100%;
+				margin-bottom: 2.1rem;
+				display: flex;
+				
+				/*display: inline-block;*/
+			}
+			#mask{
+				position: absolute;
+				top: 27%;
+				left: 26%;
+			}
+			
+			.mask1{
+				font-size: 2rem;
+				color: white;
+				margin: 5% auto;	
+				font-weight: bolder;	
+			}
+			
+			.mask2{
+				width: 55%;
+				border: 1px solid white; 
+				border-radius: 7px;
+				font-size: 1.2rem;
+				color: white;
+				margin: 8% auto;
+				text-align: center;
+			}
+			
+			#buy{
+				margin-left: 5%;
+				margin-right: 5%;
+				width: 90%;
+			}
+			
+			.font1 {
+				font-size: 1.2rem;
+				font-weight: bolder;
+				color: #6ab439;
+				margin-top: 1.5rem;
+				margin-bottom: 1rem;
+				/*float: left;*/
+			}
+			
+			.font2 {
+				font-size: 1rem;
+				color: #b8b8b8;
+				margin-bottom: 1rem;
+				width: 106%;
+			}
+			
+			.time {
+				width: 2rem;
+				height: 2.2rem;
+				background: #292929;
+				border-radius: 0.5rem;
+				margin-bottom: 0.5rem;
+				float: left;
+			}
+			
+			.font3 {
+				color: white;
+				font-size: 1rem;
+				font-weight: bolder;
+				text-align: center;
+				line-height: 2.2rem;
+			}
+			
+			.font4 {
+				color: #292929;
+				font-size: 2.2rem;
+				line-height: 1.8rem;
+				margin-left: 0.25rem;
+				margin-right: 0.25rem;
+				float: left;
+			}
+			
+			.money{
+				color: #ff0000;
+				font-size: 1.5rem;
+				float: right;
+				line-height: 2.3rem;
+			}
+			
+			.box2 {
+				float: left;
+				/*margin-left: 1.5rem;*/
+				width: 45%;
+				margin-right: 5%;
+				margin-bottom: 0.9rem;
+				/*width: 43%;*/
+			}
+			.box3 {
+				float: left;
+				/*margin-left: 1.5rem;*/
+				width: 45%;
+				margin-left: 5%;
+				margin-bottom: 0.9rem;
+				/*width: 43%;*/
+			}
+			.img{
+				width: 100%;
+				height: 100%;
+			}
+			
+			#box3{
+				width: 100%;
+				height: 1rem;
+				background: #ebeae4;
+			}
+			
+			#cook{
+				
+			}
+			
+			#title{
+				overflow: hidden;
+				width: 100%;
+			}
+			
+			.font5{
+				font-size: 1.2rem;
+				color: #a1a1a1;
+				margin-top: 1.5rem;
+				margin-right: 4%;
+				margin-bottom: 1rem;
+				float: right;
+			}
+			
+			#menu{
+				overflow: hidden;
+				width: 100%;
+				/*height: 13.4rem;*/
+				margin-bottom: 4.16rem;
+				/*background: red;*/
+				display: flex;
+			}
+			#steak{
+				float: left;
+				width: 38.7%;
+				position: relative;
+			}
+			.font6{
+				color: white;
+				font-size: 1.5rem;
+				position: absolute;
+				top: 1rem;
+				left: 1rem;
+				bottom: 1rem;				
+				display: block;
+			}
+			.font7{
+				color: white;
+				font-size: 1.5rem;
+				position: absolute;
+				top: 3rem;
+				left: 1rem;
+				bottom: 1rem;				
+				display: block;
+			}
+			
+			#shop{
+				position: fixed;
+				width: 13%;
+				height: 19%;
+				background: url(img/shop.png) no-repeat 0 0/100%;
+				bottom: 7rem;
+				right: 0.7rem;
+				opacity: 0.7;
+			}
+			
+			.font8{
+				color: white;
+				font-size: 1.5rem;
+				position: absolute;
+				top: 55%;
+				left: 3%;
+				/*bottom: 1rem;*/				
+				display: block;
+			}
+			.font9{
+				color: white;
+				font-size: 1.5rem;
+				position: absolute;
+				top: 67%;
+				left: 2%;
+				/*bottom: 1rem;*/				
+				display: block;
+			}
+			.font10{
+				color: white;
+				font-size: 1.5rem;
+				position: absolute;
+				top: 55%;
+				left: 53%;			
+				display: block;
+			}
+			.font11{
+				color: white;
+				font-size: 1.5rem;
+				position: absolute;
+				top: 67%;
+				left: 53%;				
+				display: block;
+			}
+			#mul{
+				float: left;
+				width: 61.3%;
+				display: flex;
+				flex-wrap: wrap;
+				position: relative;
+			}
+			
+			
+			footer {
+				position: fixed;
+				background: #48382b;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				display: flex;
+				justify-content: space-around;
+				height: 4.2rem;
+				align-items: center;
+				color: #c3ad88;
+				text-align: center;
+				font-size: 1rem;
+			}
+			
+			footer img {
+				width: 2rem;
+				margin-bottom: .3rem;
+			}
+			
+			@media only screen and (max-width:450px) {
+				html {
+					font-size: 12px;
+				}
+			}
+			
+			@media only screen and (max-width:380px) {
+				html {
+					font-size: 10px;
+				}
+				/*#city{
+					font-size: 1rem;
+				}
+				#search{
+					width: 15rem;
+				}*/
+			}
+			/*小屏幕手机*/
+			
+			@media only screen and (max-width: 330px) {
+				#city {
+					font-size: 1rem;
+				}
+				#search {
+					width: 15rem;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<header>
+				<div id="city">北京</div>
+				<div id="search">
+					<input type="search" placeholder="搜索食材菜品" />
+				</div>
+				<div id="bell"></div>
+			</header>
+
+			<section>
+				<div id="box1">
+					<img src="img/fish.png" />
+					<div id="mask">
+						<p class="mask1">吃三文鱼的正确姿势</p>
+						<p class="mask2" style="">早餐来点儿啥？？</p>
+					</div>
+					
+				</div>
+				<div id="buy">
+					<p class="font1">兔抢购</p>
+					<div class="box2">
+						<p class="font2">精选延庆生态胡萝卜600g</p>
+						<div id="timing">
+							<div class="time">
+								<p class="font3">01</p>
+							</div>
+							<p class="font4">:</p>
+							<div class="time">
+								<p class="font3">36</p>
+							</div>
+							<p class="font4">:</p>
+							<div class="time">
+								<p class="font3">56</p>
+							</div>
+							<p class="money">￥4.20</p>
+						</div>
+						<img src="img/lb.png" class="img"/>
+					</div>
+					<div class="box3">
+						<p class="font2">精选延庆生态黄瓜500g</p>
+						<div id="timing">
+							<div class="time">
+								<p class="font3">01</p>
+							</div>
+							<p class="font4">:</p>
+							<div class="time">
+								<p class="font3">45</p>
+							</div>
+							<p class="font4">:</p>
+							<div class="time">
+								<p class="font3">20</p>
+							</div>
+							<p class="money">￥9.90</p>
+						</div>
+						<img src="img/hg.png" class="img"/>
+					</div>					
+				</div>
+				<div id="box3"></div>
+				<div id="cook">
+					<div id="title">
+						<p class="font1" style="float: left;margin-left: 5%;">菜品精选</p>
+						<p class="font5">查看更多</p>
+					</div>					
+				
+				<div id="menu">
+					<div id="steak">
+						<img src="img/steak.png" class="img"/>
+						<p class="font6">麻辣牛排</p><br />
+						<p class="font7">￥35</p>
+					</div>
+					<div id="mul">
+						<img src="img/cheese.png" style="float: right;width: 100%;height: 50%;"/>
+						<p class="font6">香嫩樱桃派</p><br />
+						<p class="font7">￥23</p>
+						<div id="shop">
+						</div>
+						<img src="img/nod.png" style="width: 50%;height:50%;float: right;"/>
+						<p class="font8">白菜牛肉面</p><br />
+						<p class="font9">￥30</p>
+						<img src="img/beaf.png" style="width: 50%;height:50%;float: right;"/>
+						<p class="font10">牛肉芝士丸</p><br />
+						<p class="font11">￥23</p>
+					</div>
+				</div>
+				</div>
+			</section>
+			<footer>
+				<div>
+					<img src="img/home.png" />
+					<p>主页</p>
+				</div>
+				<div>
+					<img src="img/market.png" />
+					<p>商城</p>
+				</div>
+				<div>
+					<img src="img/opt.png" />
+					<p>选菜</p>
+				</div>
+				<div>
+					<img src="img/find.png" />
+					<p>发现</p>
+				</div>
+				<div>
+					<img src="img/mine.png" />
+					<p>我的</p>
+				</div>
+			</footer>
+		</div>
+	</body>
+
+</html>
