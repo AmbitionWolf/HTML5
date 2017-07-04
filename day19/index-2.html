@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			<input type="text" id="num1" value="" />
+			+
+			<input type="number" id="num2" value="" />
+			=
+			<input type="text" id="rel" readonly="readonly" />
+			<!--点解button时会调用fn方法-->
+			<input type="button" value="结果" onclick="fn()"/>
+		</div>
+		
+		<hr />
+		
+		<div id="box2">
+			<input type="text" id="col"/>
+			<div style="width: 100px;height: 100px;"></div>
+			<!--点解button时会调用fn方法-->
+		<input type="button" value="结果" onclick="fn()"/>
+		</div>
+		<hr />
+		
+		<div id="box3">
+			<input type="text" id=""/>
+			<div style="width: 100px;height: 100px;"></div>
+			<!--点解button时会调用fn方法-->
+			<input type="button" value="结果" onclick="fn()"/>
+		</div>
+		
+		
+		
+		
+		<script type="text/javascript">
+			/*
+			 * 操作符：
+			 * 赋值运算
+			 * 自增自减
+			 * 算数操作
+			 * 复合操作符
+			 */
+			
+			//算数运算符： + - * / %:取余 a++ a--
+			var a = 10, b = 20, c = 30;
+			var d = ((a + b) *2) + (a + c) * 2;
+			console.log(d);
+			
+			var e = b % 15;//余数
+			console.log(e);
+			
+			//除法计算，不是取整计算
+			var e = b / 15;
+			console.log(e);
+			
+			//加号运算符在字符串中进行字符串的拼接
+			var str1 = "a";
+			var str2 = "b";
+			var nStr = str1 + str2;
+			console.log(nStr);
+			
+			//number + string :也会吧number类型的字符转化为字符串并与字符串进行拼接
+			nStr = a + str1;
+			console.log(nStr,typeof nStr);
+			
+			
+				
+			//-：string - string / string - number :会先把字符串转化为number类型，然后相减
+			//若str = 'abc' :则该str无法转换为number，相减结果为NaN
+			str1 = "20";
+			str2 = "10";
+			nStr = str1 - str2;//返回值为NaN，不是数字类型
+			console.log(nStr,typeof nStr);//返回值：number
+			
+			//隐式类型转换：
+			
+			//（1）-str1:转换为number，并未数值添加-号
+			console.log(-str1,typeof -str1);
+			//（2）+str1:转换为number
+			console.log(+str1,typeof +str1);
+			
+			//声明一个函数
+			function fn(){
+				//alert(123);
+				console.log(num1.value, typeof num1.value);
+				console.log(num2.value, typeof num2.value);
+				
+				//类型转换
+				var n1 = +num1.value;
+				var n2 = +num2.value;
+				var sum = n1 + n2;
+				//赋值
+				rel.value = sum;
+			}
+			
+			//自增自减
+			/*
+			 * --： a--/--a 等价于a = a - 1;
+			 * ++： a++/++a 等价于a = a + 1
+			 */
+			var a = 10;
+			//++a:先执行a+1操作，然后返回新的结果
+			//a++：先返回a的值，再执行a+1操作
+			var rel2 = a++;
+			console.log(rel2,a);
+			
+			var b = 1;
+			//++无论在前还是在后，b的值一定会发生变化
+			//2 + 3 - 3 + 2
+			var m = ++b + ++b - b-- + b;
+			console.log(m);
+			
+			//复合运算：
+			a=10;
+			a+=10;//a=a+10
+			console.log(a);
+			
+			a-=10;
+			a*=10;
+			a/=10;
+			console.log(a);
+			a%=3//a = a % 3
+			console.log(a);
+			
+		</script>
+	</body>
+</html>

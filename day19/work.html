@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			<input type="text" id="col"/>
+			<div style="width: 100px;height: 100px;border: 2px solid red;" id="box2"></div>
+			<!--点解button时会调用fn方法-->
+		<input type="button" value="颜色" onclick="fn1()"/>
+		</div>
+		<hr />
+		
+		<div id="box3">
+			<input type="text" id="pos"/>
+			<div style="width: 100px;height: 100px; border: 2px solid red;" id="box4"></div>
+			<!--点解button时会调用fn方法-->
+			<input type="button" value="位置" onclick="fn2()"/>
+		</div>
+		<script type="text/javascript">
+			function fn1(){
+				var n1 = col.value;
+				console.log(n1,typeof n1);
+				box2.style.borderColor = n1;
+			}
+			function fn2(){
+				var n = pos.value;
+				var str = "translateX(" + n + "px" +")";
+				box4.style.transform = str;
+			}
+		</script>
+	</body>
+</html>

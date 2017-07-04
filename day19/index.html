@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#bell{
+				border: 3px solid green;
+				align-items: center;
+				background-color: greenyellow;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 id="bell" class="animated" style="color: red;font-size: 20px; border: 3px solid green;">111111111</h1>
+		<input id="txt" type="text" value="123" name="user" />
+		<!--代码解析的方向：-->
+		<!--引入外部文件-->		
+		<script src="js/index.js" type="text/javascript" charset="utf-8">
+			alert(12345);
+		</script>
+				
+		<!--script文件位置:body最下面-->
+		<script type="text/javascript">			
+			/* JS特点：
+			 * 弱类型语言，不是完全的面相对象
+			 */
+			//单行注释，弹出窗
+			//alert(1234);//....
+			//控制台输出
+			
+			//若没有定义过变量abc，且直接使用abc，浏览器会认为abc是一个变量，服务器会报错			
+			//变量：可以在程序运行期间进行修改，变量在使用之前需要声明
+			//变量声明的关键字：var
+			//声明变量a并为其赋值为10，变量a的类型是number类型（int）
+			var a = 10;
+			//访问变量a
+			console.log(a);
+			
+			//声明变量b
+			var b;
+			//为变量b赋值为字符串abc，此时变量b的类型变为string类型
+			b = "abc";
+			console.log(b);
+
+			//弱类型：变量的类型是由变量被赋的值决定
+			
+			//若变量c第一次使用，会默认先创建一个变量c，省去var声明变量一步，该变量会保存在全局对象上
+			c = 100;
+			console.log(c);
+			
+			//前面虽然已经给出a变量，但也可以重新为其赋值,变量允许声明两次
+			var a =200;
+			console.log(a);
+			
+			/* 
+			 * 变量命名的规范：
+			 * 1.命名只能是数字，字母，下划线或者$符号，且不能以数字开头
+			 * 2.尽量不用系统关键字或保留字（目前不是关键字，但新的语法中可能会作为关键字）
+			 * 3.命名规则：见名知意，多个单词用下划线隔开，或者驼峰命名
+			 */
+			
+			var a_b = 100;
+			var $ =200;
+			var a1 =300;
+			//多个变量用逗号隔开
+			console.log(a_b,$,a1);
+			
+			
+			/*
+			 * 变量的五种基本类型：
+			 * 1.number:正数，小数
+			 * 2.string:字符串类型，用单引号或双引号引起来
+			 * 3.Boolean:true/false	
+			 * 4.undefined:未定义类型
+			 * 5.null:空类型
+			 * 
+			 * object对象类型：不属于基本类型
+			 * 
+			 * typeof 变量名：查看该变量的类型，返回结果为变量的类型
+			 */
+			
+			
+			var f =100.10;
+			//查看变量类型（可以是一个表达式：一个变量和关键字的组合，可以返回一个结果）
+			//1.typeof f;
+			
+			var rel = a+f;
+			console.log(rel,a+f);
+			rel = typeof f; //范围值：number
+			console.log(rel,typeof f);
+			
+			//not a number:不是一个数字的数字类型，NaN是一种特殊的number类型
+			var f =NaN;
+			console.log(f,typeof f);//返回值：number
+			
+			//+:类型转换
+			console.log(+"a");
+			console.log(+"10");//+会把a转换成number类型，若转换失败，则返回结果就是NaN
+			
+			//2.string类型
+			
+			var str = "字符串1";
+			var str2 = '字符串2';
+			console.log(str,str2,typeof str);
+			
+			//引号之间可以相互嵌套，引号也会被解析为普通字符
+			var str3 = "111'2222'";
+			//错误写法：相同引号互相嵌套
+			//str3 = "111"2222"";
+			//正确写法：
+			str3 = '111"2222"';
+			
+			console.log(str3);
+			
+			/*
+			 * 转义字符：
+			 * 
+			 * \"  :表明"是一个普通的转义字符
+			 * \'  :表明'是一个普通的转义字符
+			 * \\  :表明第二个\是一个普通的转义字符
+			 * \t  :一个tab间距
+			 * \n  ：回车换行
+			 */
+			str3 = "1\t1\n1\"22\\22\"";
+			console.log(str3);
+			
+			//3.布尔类型：boolean
+			var bol = true;
+			bol = false;
+			console.log(bol,typeof bol);
+			
+			//4.undefined:未定义类型,undefined的的typeof也是undefined类型
+			//声明一个变量但不赋值，默认就是undefined类型
+			var b2;
+			console.log(b2,typeof b2);//返回值也是undefined
+			
+			var b3 = undefined;
+			
+			//5.null类型（不占据内存空间）
+			var obj = null;
+			console.log(obj,typeof null);//返回值为空对象“object”
+			
+			//6.object对象类型：
+			/*
+			 * 创建对象自变量方式：{}
+			 * 对象：保护属性和方法
+			 * 多个属性或者方法之间需要用逗号隔开，否则会报错
+			 * 访问对象的一个属性：对象名.属性名
+			 */
+			var obj = {
+				name:"Sweety_Dr",
+				age:"20",
+				elegant:true,
+				hobby:{
+					h1:"listen to music",
+					h2:"singing",
+					h3:"watching TV",
+					h4:"playing"
+				}
+				
+			};
+			console.log(obj,typeof obj);
+			console.log(obj.name,"is",obj.age,"old",obj.elegant);
+			//对象嵌套的属性值查找方法：
+			console.log(obj.hobby,obj.hobby.h2,typeof obj.hobby);
+			
+			//修改已存在属性的属性值
+			obj.age = 18;
+			obj.name = "sweety_Dr";
+			console.log(obj);
+			//若要访问已定义对象下未定义的属性，则返回值为undefined
+			console.log(obj.name,obj.gender)
+			
+			//自定义属性:
+			obj.gender = "female";
+			console.log(obj,obj.gender);
+			
+			//undefined:访问基本类型的属性
+			var u = undefined;
+			var n = null;
+			//不能从undefined,null中读取属性，否则报错
+			//console.log(u.gender);
+			//console.log(n.gender);
+			
+			//基本类型读取未定义的属性值，返回值为undefined
+			var a = 100;
+			console.log(a.gender);//返回值:undefined
+			
+			//bell和text是ID的name属性值，可以直接获取标签的对象，如果html没有
+			console.log(bell,typeof bell);
+			console.log(txt);
+			//bell:就是h1标签对象，可以通过bell访问其属性值
+			//bell.class:不能获取对应的class属性值,需要用className代替class
+			console.log(bell.id,bell.className,bell.style,typeof bell.style);
+			console.log(txt.id,txt.name,txt.value,txt.type);
+			
+			//bell.style
+			/*
+			 * 可以获取对象的通过行间样式设置的所有样式集合，只能在获取在行间设置的样式，通过选择器设置的就无法获取了
+			 * font-size这样的命名方式获取属性值时，写法要用驼峰命名的形式：fontSize
+			 */
+			console.log(bell.style.color);
+			console.log(bell.style.fontSize,bell.style.borderTopColor);
+			//选择器内部设置的样式获取的属性值为空
+			console.log(bell.style.backgroundColor);
+			
+			//修改或设置行间样式：设置的属性值都是字符串类型
+			bell.style.backgroundColor = "yellow";
+			bell.style.fontSize = "30px";
+			bell.style.textAlign = "center";
+			bell.style.border = "10px dashed red";
+			
+			bell.style.transform = "translateX(50px) translateY(30px) rotateZ(10deg)";
+			
+			//修改输入框的内容：
+			txt.value = "Sweety_Dr";
+			
+			var user = {
+				name: "Sweety_Dr"
+			};
+			user.age = 18;
+			console.log(user.name,user.age);
+
+			console.log(num);
+			console.log(num);			
+			num = true;
+			
+			//自定义属性值为undefined或null时控制台会报错
+			//num = undefined;
+			//num = null;
+			
+			num.age = 20;
+			//属性值为undefined
+			console.log(num.age);
+			
+			//通过.给元素自定义的属性不会在行间显示
+			bell.age = 30;
+			console.log(bell.age);
+			
+			console.log(bell);
+			
+			
+		</script>
+		
+	</body>
+	<!--浏览器会默认把他放在body里面的最下方位置-->
+	<script type="text/javascript">
+//		console.log("body后面的一个script");
+	</script>
+	
+</html>
