@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		
+	<script type="text/javascript">
+		/*
+		 * 1.关系运算符：> < >= <= != ==
+		 * ===  :类型和值都相等
+		 * ！==  ：都不相等
+		 * 
+		 * 表达式：会返回一个结果（正确或者错误）
+		 */
+		//一个等号是赋值运算，优先级最低，最后一步进行
+		var rel = 100 > 20;
+		rel = 100 != 200;
+		rel = 100 == 200;
+		console.log(rel);
+		
+		var a = 10;
+		var b = 20;
+		
+		//一个等号是赋值运算，条件会成立
+		if(a == b){
+			console.log("a = " + a,"b = " + b);
+		}else{
+			console.log("不成立");
+		}
+		
+		//判断两个值是否相等
+		rel = 10 == "10";
+		console.log(rel);
+		
+		10 === "10";
+		rel = 10 === "10";
+		console.log(rel);
+		
+		a = 10;
+		b = 10;
+		if (a === b) {
+			console.log("成立");
+		} else{
+			console.log("不成立");
+		}
+		
+		/*
+		 * 2.逻辑运算符
+		 * && :与运算（多个条件都必须同时成立结果为true）
+		 * ！    ：非运算（取反）
+		 */
+		var a = 100;
+		
+		// &&运算：
+		var rel = a > 50 && a < 200;
+		console.log(rel);
+		if (rel) {
+			
+		}
+		// ||运算：
+		rel = a > 500 || a < 0;
+		console.log(rel);
+		
+		// !:取反
+		rel = true;
+		rel = -1;//非零数字都成立
+		rel = "a";//非空字符串都成立
+		rel = {};//除了空对象都成立
+		
+		//不成立的情况
+		rel = false;
+		rel = 0;
+		rel = "";
+		rel = null;
+		rel = undefined;
+		rel = NaN;
+		if (!rel) {
+			console.log("成立:"+rel);
+		}else{
+			console.log("不成立:"+rel);
+		}
+		
+		/*
+		 * 逻辑运算符短路现象：
+		 * ||  : 表达式1 || 表达式2 ，若表达式1为true，表达式2则被短路，不再参与运算
+		 * &&  : 表达式1 && 表达式2 ，若表达式1为false，表达式2则被短路，不再参与运算
+		 * 
+		 */
+		
+		var a = 10;
+		var b = 1;
+		var rel = a > 100 || ++b; 
+		//rel = ?   b = ?
+		console.log(rel,b);
+		
+		// ||短路
+		var c = 10;
+		var d = 1;
+		//c>0位true，++d被短路，没有被解析
+		var rel = c > 0 || d++; 
+		//rel = ?   d = ?
+		console.log(rel,d);
+		
+		// &&短路
+		var e = 10;
+		//++e 被短路
+		var rel = false && ++e;
+		//rel = ? e = ?
+		console.log(rel,e);
+		
+		/*
+		 * 三目运算符
+		 * rel = 表达式1 ？ true : false
+		 * ? 询问表达式1是否为真，若是真，则返回：前面的值；若为假，则返回：后面的值
+		 */
+		var rel = 100 > 10 ? "成立" : "不成立";
+		console.log(rel);
+		
+		var a = 10, b = 20;
+		//true:b++被短路
+		//false：a++被短路
+		var rel = false ? a++ : b++;
+		console.log(rel,a,b);
+		
+		//比较两个数的最大值
+		var a = 10, b = 20;
+		if (a > b) {
+			max = a;
+		} else{
+			max = b;
+		}
+		console.log("最大值是：" + max);
+		
+		max = a > b ? a : b;
+		console.log(max);
+		
+		//三个数的最大值
+		var a = 10, b = 100, c = 50;
+		var max = a;
+		//若if中只有一行，则{}可省略
+		if(max < b) max = b;
+		console.log(max);
+		if(max < c) max = c;
+		console.log(max);
+		
+		//三目判断
+		max = a > b ? a : b;
+		max = max > c ? max : c;
+		console.log(max);
+		
+		//一句表达式表示陈述
+		max = (a > b ? a : b) > c ? (a > b ? a : b) : c;
+		console.log(max);
+		
+		//条件判断
+		var score = 59;
+		if(score < 50){
+			console.log("留级查看");
+		}else if(score < 60){
+			console.log("有待提升");
+		}else if(score < 90){
+			console.log("良好");
+		}else if(score <= 100){
+			console.log("奖励一朵小红花");
+		}else{
+			console.log("有问题");
+		}
+		
+		/*
+		 * switch case
+		 * switch (变量)
+		 * case 具体值
+		 */
+		var person = 1;
+		switch (person){
+			case 1:
+				console.log("写代码");
+				break;//终止并跳出循环，不再执行下面代码
+			case 2:
+				console.log("一起写代码");
+				break;//终止
+			default:
+				console.log("上面条件都不满足");
+				break;//终止
+		}
+		
+		
+		
+		
+	</script>
+		
+	</body>
+</html>

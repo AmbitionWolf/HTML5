@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 520px;
+				border: 2px solid blue;
+				margin: auto;
+				position: relative;
+				overflow: hidden;
+				
+			}
+			#content{
+				width: calc(520px * 5);
+				/*overflow: hidden;*/
+				/*动画效果*/
+				transition: all 1s linear;
+				
+				position: relative;
+				/*定位+动画：要设置初始值，否则动画会丢失*/
+			}
+			#content img{
+				float: left;
+			}
+			#btnBox{
+				position: absolute;
+				bottom: 10px;
+				left: 0;
+				right: 0;
+				/*text-align: center;*/
+				display: flex;
+				justify-content: space-around;
+			}
+			#btnBox input{
+				font-size: 18px;
+				border-radius: 10px;
+				background-image: linear-gradient(90deg,white,pink);
+				padding: 5px;
+				color: white;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<div id="box">
+			<div id="content" class="clearfix"> 
+				<!--img[src="img/$.jpg"]*5-->
+				<img src="img/1.jpg" alt="" />
+				<img src="img/2.jpg" alt="" />
+				<img src="img/3.jpg" alt="" />
+				<img src="img/4.jpg" alt="" />
+				<img src="img/5.jpg" alt="" />
+			</div>
+			
+			<div id="btnBox">
+				<input type="button" value="显示图片1" />
+				<input type="button" value="显示图片2" />
+				<input type="button" value="显示图片3" />
+				<input type="button" value="显示图片4" />
+				<input type="button" value="显示图片5" />
+			</div>
+			
+			
+			
+		</div>
+		
+		<script type="text/javascript">
+			var btnBox =document.getElementById("btnBox");
+			//按钮数组
+			var btns = btnBox.getElementsByTagName("input");
+			var content = document.getElementById("content");
+			
+			//content.style.transform = "translateX(-520px)";
+			btns[0].onclick = function(){
+				content.style.transform = "translateX(0px)";	
+			}
+			btns[1].onclick = function(){
+				content.style.transform = "translateX(-520px)";	
+				console.log(btns,content)
+			}
+			btns[2].onclick = function(){
+				var l = -520 *2
+				content.style.transform = "translateX("+l+"px)";					
+			}
+			btns[3].onclick = function(){
+				content.style.transform = "translateX(calc(-520px * 3))";					
+				
+			}
+			btns[4].onclick = function(){
+				content.style.transform = "translateX(calc(-520px * 4))";									
+			}
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

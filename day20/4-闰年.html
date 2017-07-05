@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			<fieldset>
+				<legend>闰年计算方法：</legend>
+				<div>
+					<label for="">年份：</label>
+					<input type="text" id="y" placeholder="请输入年份"/>
+				</div>
+				<p>显示结果：
+					<input type="text" id="rel" disabled="disabled"/>
+				</p>
+				<div >
+					<input type="button" value="显示结果" />
+				</div>
+			</fieldset>
+		</div>
+		
+		
+		<script type="text/javascript">
+			//获取年份输入框
+			var yEle = document.getElementById("y");
+			var relEle = document.getElementById("rel");
+			var boxEle = document.getElementById("box");
+			var arr = boxEle.getElementsByTagName("input");
+			console.log(arr);
+			var btn = arr[2];
+			btn.style.backgroundColor = "red";
+			
+			//绑定事件
+			console.log(btn.onclick);//null
+			
+			//点击事件触发后系统默认调用对应方法
+			btn.onclick = function(){
+				//console.log("被执行了");
+				var year = +yEle.value;
+				console.log(year);
+				//判断是否为闰年
+				//1.被400整除
+				var r1 = year % 400 == 0;			
+				//2.被4整除但不能被100整除
+				var r2 = year % 4 == 0 && year % 100 != 0;
+				console.log(r1,r2);
+				if(r1 || r2){
+					//闰年
+					relEle.value = year + "是闰年";
+				}else{
+					//不是闰年
+					relEle.value = year + "不是闰年";
+				}
+				
+			};
+			//调用
+			btn.onclick();
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

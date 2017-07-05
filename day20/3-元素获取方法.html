@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p id="p1">哈哈哈哈哈哈哈哈哈哈</p>
+		
+		<div id="box">
+			<p class="active">p3</p>
+			<p class="active">p4</p>
+			<p class="active">p5</p>	
+			<p class="active2">p6</p>			
+			
+		</div>
+		
+		<div id="box2">
+			<p class="active2">p7</p>			
+		</div>
+		
+		
+		
+		<script type="text/javascript">
+			//获取p标签的方法：直接通过ID获取(不是标准写法，但浏览器支持)
+			console.log(p1,typeof p1);
+			p1.style.backgroundColor = "red";
+			//document:文档对象，打印整个文档
+			console.log(document,typeof document);
+			
+			//直接通过body获取对象
+			console.log(document.body);
+			document.body.style.border = "2px solid red";
+			//html对象
+			console.log(document.documentElement);
+			document.documentElement.style.height = "100%";
+			document.documentElement.style.border = "2px solid black";
+			
+			//获取页面元素：
+			//1.通过ID值获取
+			var elementObj = document.getElementById("p1");
+			console.log(elementObj,typeof elementObj);
+			elementObj.style.backgroundColor = "yellow";
+			
+			//2.通过class获取，返回值是一个集合数组，集合中保存的是所以相同class属性值的元素对象
+			var elementsP = document.getElementsByClassName("active");
+			console.log(elementsP,typeof elementsP);
+			//报错写法：
+			//undefined.backgroundColor = "blue";
+			//elementsP.style.backgroundColor = "blue";
+			
+			//若访问一个元素未定义的属性，则返回值为undefined
+			//自定义属性
+			elementsP.aaa = "aaa";
+			console.log(elementsP.aaa);
+			//通过class获取的elementsP中有三个元素对象
+			console.log(elementsP.style);//undefined
+			console.log(elementObj.style);
+			
+			//数组:下标从0开始
+			var arr = ["a","b","c"];
+			console.log(arr,typeof arr);
+			console.log(arr[0],arr[1],arr[2]);
+			
+			elementsP[0].style.backgroundColor = "paleturquoise";
+			elementsP[2].style.backgroundColor = "palegreen";
+			
+			//注意：通过ByclassName方法获取的元素值，返回结果是一个数组，即使该class只有一个标签，该元素也属于数组
+			var p4Arr = document.getElementsByClassName("active2");
+			console.log(p4Arr);
+			p4Arr[0].style.backgroundColor = "pink";
+			
+			//ByClassName:也可以通过元素对象调用，获取的是与该元素的class属性值相同的所有元素
+			var box2Ele = document.getElementById("box2");
+			var coll = box2Ele.getElementsByClassName("active2");
+			console.log(coll);
+			coll[0].style.backgroundColor = "darkgray";
+			
+			//3.通过标签名获取：使用方法和返回结果同class类似
+			var arr = document.getElementsByTagName("p");
+			console.log(arr);
+			
+			//获取box2下所有的标签
+			arr = box2Ele.getElementsByTagName("p");
+			console.log(arr);
+						
+		</script>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			//定义函数function name(参数){函数体}
+			function fName(){
+				console.log("函数体");
+				console.log("哈哈哈哈哈哈哈哈哈哈");
+				var a = 100;
+				a++;
+				console.log(a);
+			}
+			//函数的调用:函数名（）
+			fName();
+			
+			//对象内部的方法：方法名（），即eat（）
+			var person ={
+				name:"Sweety_Dr",
+				age:18,
+				eat:function(food){
+					console.log("my favorite food is yogurt "+food);
+				}
+			}
+			
+			person.name;
+			person.eat("鸡肉饼");
+			
+			/*
+			 * 声明方法基本类型方式2
+			 * 
+			 */
+			//内置函数：执行完后会返回一个结果，结果就是新的字符串
+			var str = String("abc");
+			console.log(str,typeof str);
+			//显式类型转换
+			var num = 100;
+			var str = String(num);
+			console.log(str,typeof str);
+			
+			var str = "123";
+			var num = Number(str);
+			console.log(num);
+			
+			var rel = Boolean(1);
+			console.log(rel);
+			
+		</script>
+	</body>
+</html>
