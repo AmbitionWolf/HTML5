@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 200px;
+				height: 200px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="box">
+			
+		</div>
+		
+		
+		<script type="text/javascript">
+			/*
+			 * Math:
+			 * floor:取整函数，小数部分直接省略
+			 * round:四舍五入
+			 * ceil:只要有小数部分，就会进位取整
+			 */
+			console.log(Math);
+			var pi = Math.floor(3.141592653);
+			console.log(pi);//取整，小数部分直接省略
+			
+			pi = Math.round(3.55)
+			console.log(pi);
+			
+			pi = Math.ceil(3.01)
+			console.log(pi);
+			
+			//随机数:取值范围：[0，1)
+			var num = Math.random();
+			console.log(num);
+			
+			for (var i = 0; i < 100; i++) {
+				var num = Math.random();
+				console.log(num);
+			}
+			
+			//[0,100)
+			/*var rand = Math.random()*100;
+			rand = Math.floor(rand);
+			console.log(rand);*/
+			
+			//[n,m]
+			//公式：Math.floor(Math.random()*(m-n+1))+n;
+			
+			var newNum = parseInt(10.123);
+			var newNum = parseInt("100.10abc");
+			
+			console.log(newNum);
+			
+			//parseFloat()
+			//[10,50]
+			var randNum = parseInt(Math.random()*(50 - 10 + 1) + 10);
+			console.log(randNum);
+			
+			var box = document.getElementById("box");
+			box.onclick = function(){
+				var r = parseInt(Math.random()*256);
+				var g = parseInt(Math.random()*256);
+				var b = parseInt(Math.random()*256);
+				var a = Math.random();
+				box.style.backgroundColor = "rgba("+r+","+ g +","+ b +","+ a +")";
+			};
+			
+		</script>
+	</body>
+</html>

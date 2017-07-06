@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//定义一个数组（数组的类型是对象类型）
+			var arr = [1,"abc","Sweety_Dr",{},true];
+			console.log(arr,typeof arr);
+			console.log(arr.length);
+			//自定义属性(对象类型才可以自定义属性)
+			arr.name = "数组集合";
+			console.log(arr.name);
+			
+			//基本类型不能自定义熟悉
+			var num = 10;
+			num.name = "数字";
+			console.log(num.name);//undefined
+			
+			//通过下标访问数组,数组下标从0开始,若访问数组的下标超过数组个数，则返回值为undefined
+			console.log(arr[2],arr[0],arr[5]);
+			arr[2] = "sweety_Dr";
+			arr[5] = "Sweety";//为数组添加内容
+			console.log(arr[5]);
+			
+			//遍历数组
+			for (var i = 0; i < arr.length; i++) {
+				console.log(arr[i]);
+			}
+			
+			//创建一个5个随机数的数组[10,100]
+			var arr = [];
+			for (var i = 0; i < 5; i++) {
+				var rand = parseInt(Math.random()*(100-10+1)+10);
+				arr[i] = rand;
+			}
+			console.log(arr);
+			
+			//找到数组中的最大值
+			var max = arr[0];
+			var max_index = 0;
+			var min = arr[0];
+			var min_index =0;
+			for (var i = 1; i < arr.length; i++) {
+				if (arr[i] > max) {
+					max = arr[i];
+					max_index = i;
+				} 
+				//三目运算找到数组最小值,找最小下标时，该语句必须写在找最小值语句的前面
+				min_index = arr[i] < min ? i : min_index; 
+				min = arr[i] < min ? arr[i] : min; 
+			}
+			console.log("数组最大值为： "+ max + "最大值下标为： " + max_index);
+			console.log("数组最小值为： "+ min + "最小值下标为： " + min_index);
+				
+		</script>
+	</body>
+</html>

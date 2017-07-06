@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		<script type="text/javascript">
+			var a;//变量声明的前置
+			//for循环
+			/*
+			 * 1.定义变量（变量初始化 ）
+			 * 2.定义条件
+			 * 3.变量累加，满足条件执行循环体，不满足则跳出循环
+			 */
+			//for循环写法一：
+			for (var i = 0; i <= 10; i++) {
+				//循环体
+				console.log("i="+i);
+			}
+			//for循环完全结束后才会继续向下执行
+			console.log("循环结束：i = "+i);
+			
+			//变量声明前置
+			console.log(a)//undefined
+			var a = 10;
+			console.log(a);
+			
+			//for循环的第二种写法：
+			var i = 0;
+			//i可能在循环之前被修改
+			i = 5;
+			for (; i < 10; i++) {
+				console.log("2-i="+i);
+			}
+			
+			//for循环写法三：
+			var i = 0;
+			for (;; i++) {
+				console.log("3-i="+i);
+				//条件如果省略，需要有break跳出循环
+				if (i > 10){
+					break;//结束循环
+				}
+			}
+			//for循环写法四：
+			for (;;) {
+				if (i > 5) {
+					break;
+				}
+				i++;
+				console.log("4-i="+i);
+			}
+			
+			//i++  ==  i=i+1
+			//i+=2 ==  i=i+2
+			for (var i = 0; i < 10; i+=2) {
+				console.log("i+=2:  "+i);				
+			}
+			
+			for (var i = 1; i < 100; i++) {
+				if (i % 2 == 0) {
+					console.log("100以内的偶数：  "+i);
+				}
+			}
+			console.log("---------------------------------")
+			for (var i = 100; i > 0; i--) {
+				console.log("递减： "+i);
+			}
+		
+			//0~100的和
+			var sum = 0;
+			var even = 0;
+			for (var i = 0; i <= 100; i++) {
+				//sum = sum + i;
+				sum+=i;
+				if(i % 2 == 0) even+=i;
+			}
+			console.log("sum="+sum);
+			console.log("even="+even);
+			
+			//按照先后顺序在body中写入内容
+			document.write("直接在浏览器里写内容");
+			document.write("哈哈哈哈哈哈哈哈哈哈");
+			document.write("<p>直接在 <a href='###'>浏览器</a> 里写内容</p>");
+			
+			var box = document.getElementById("box");
+			box.innerHTML = "解析html内容";
+			//再次向浏览器中写入内容就会覆盖旧的内容
+			box.innerHTML = "新内容";
+			
+			box.innerHTML = box.innerHTML + "第三次设置";
+			box.innerHTML+="<a href='###'>第四次设置</a>";
+			
+			//写入普通文本，但不会解析标签
+			box.innerText = "写入普通文本，不会解析标签<p>123</p>";
+			
+			document.write("<hr />");
+			
+			//双层循环:外层循环控制外部循环执行的次数，内层循环控制外部循环每次执行的次数
+			for (var i = 0; i < 5; i++) {
+				console.log("***********i="+i);
+				for (var j = 0; j < 10; j++) {
+					console.log("j="+j);
+					document.write("❤");
+				}
+				document.write("<br />");
+			}
+			
+			document.write("<hr />");
+			
+			for (var i = 0; i < 5; i++) {
+				for (var j = 0; j <= 4-i; j++) {
+					document.write("❤");
+				}
+				document.write("<br />");
+			}
+			
+			document.write("<h1>乘法表</h1>");
+			for (var i = 1; i < 10; i++) {
+				for (var j = 1; j <= i; j++) {
+					var rel = i * j
+					document.write(j + "*"+ i + "=" + rel);
+					if (rel < 10) {//一位数
+						document.write("&nbsp;&nbsp;&nbsp;");
+					} else{//两位数
+						document.write("&nbsp;&nbsp;");
+					}
+				}
+				document.write("<br />");
+			}
+			
+			//100~999之间的水仙花数（例如：1^3 + 5^3 +3^3 = 153）
+			for (var i = 1; i < 10; i++) {
+				for (var j = 0; j < 10; j++) {
+					for (var n = 0; n < 10; n++) {
+						var rel = i*i*i + j*j*j + n*n*n == i*100 + j*10 +n;
+						if(rel)document.write(i*100 + j*10 +n+"是水仙花数"+"<br />");
+					}
+				}
+			}
+			
+			//求水仙花数的方式二：
+			for (var i = 100; i < 1000; i++) {
+				//Math.floor:省略小数
+				//百位
+				var num = Math.floor(i/100);
+				console.log(num);
+				//十位
+				var num2 = Math.floor(i%100/10);
+				console.log(num2);
+				//个位
+				var num3 = i % 10;
+				console.log(num3);
+				
+				if (num*num*num  + num2*num2*num2 + num3*num3*num3 === i) {
+					document.write("<h5>"+i+"是水仙花数</h5>");
+				}
+				
+				
+			}
+			document.write("<hr />")
+			
+			var rel = 1;
+			for (var i = 1; i <= 20; i++) {
+				rel = rel * i;
+			}
+			document.write("1*2*3*......*20 = " + rel);
+			document.write("<hr />")
+			
+			for (var a = 0; a <= 9; a++) {
+				for (var b = 0; b <= 9; b++) {
+					for (var c = 0; c <= 9; c++) {
+						if ( a * 100 + b *10 + c + c * 100 + b * 10 + a ===1333) {
+							document.write("a = "+ a + "&nbsp;&nbsp;&nbsp;" +"b = " +b + "&nbsp;&nbsp;&nbsp;" + "c= " + c);
+							document.write("<br />")
+						}
+					}
+				}
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+		
+		
+		
+		
+	</body>
+</html>

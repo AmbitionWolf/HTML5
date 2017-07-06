@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var rel = 1;
+			for (var i = 1; i <= 20; i++) {
+				rel = rel * i;
+			}
+			document.write("1*2*3*......*20 = " + rel);
+			document.write("<hr />")
+			
+			for (var a = 0; a <= 9; a++) {
+				for (var b = 0; b <= 9; b++) {
+					for (var c = 0; c <= 9; c++) {
+						if ( a * 100 + b *10 + c + c * 100 + b * 10 + a ===1333) {
+							document.write("a = "+ a + "&nbsp;&nbsp;&nbsp;" +"b = " +b + "&nbsp;&nbsp;&nbsp;" + "c= " + c);
+							document.write("<br />")
+						}
+					}
+				}
+			}
+			
+    		var day_tab = ["0", "31", "28", "31", "30", "31", "30", "31", "31", "30", "31", "30", "31"];
+			//1990~2020年
+		    var year = parseInt(Math.random()*(2020-1990+1)+1990);
+		    console.log("年：" + year);
+		    var month = parseInt(Math.random()*(12-1+1)+1);
+		    console.log("月：" + month);
+		    var day = parseInt(Math.random()*(31-1+1)+1);
+		    console.log("日：" + day);
+		    var days = 0;
+		    for (var i=0; i < month; i++){
+		    	//console.log(day_tab[i]);
+        		days = +((+days) + (+day_tab[i]));
+		    	//console.log(days);
+    		}
+		    //console.log(days);
+    		days += day;
+   			if ((year%4==0 && year%100!=0 || year%400==0) && month>=3)days+=1;
+    		console.log(year + "年" + month + "月" + day +"日" + "是这一年的第" + days + "天");
+    		document.write(year + "年" + month + "月" + day +"日" + "是这一年的第" + days + "天");
+		</script>
+	</body>
+</html>

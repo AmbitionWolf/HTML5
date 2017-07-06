@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * break: 跳出循环，switch case中使用，防止贯穿整个循环
+			 * continue:终止本次循环，当还满足循环条件时，还会有下一次循环
+			 */
+			for (var i = 0; i < 10; i++) {
+				//if (i === 5)break;//跳出循环
+				if (i === 5)continue;
+				console.log("i = " +i);
+			}
+			
+			/*
+			 * while(循环条件){
+			 * 		循环体
+			 * }
+			 * 
+			 * while循环使用场景：
+			 * 循环次数不确定时使用
+			 */
+			var a = 10;
+			while (a < 20){
+				console.log("a = " + a);
+				a++;
+			}
+			var a = 10, b = 20;
+			while (a+b < 50){
+				a+=2;
+				b+=3;
+				console.log("a + b ="+ (a + b));
+			}
+			
+			//求最大公约数：a = 10, b = 20,最大公约数是10
+			//辗转相除法：1.大数除小数  2.小数/余数  3.直到余数为0
+			/*
+			 * 20/12=1......8
+			 * 12/8=1......4
+			 * 8/4=2 ,4即为最大公约数
+			 */
+			var a = 12, b = 20;
+			while (a != 0){
+				var yuShu = b % a;
+				b = a;
+				a = yuShu;
+			}
+			console.log("最大公约数"+b);
+			
+			var a = 12, b = 20;
+			while (true){
+				var yuShu = b % a;
+				b = a;
+				a = yuShu;
+				
+				if(yuShu === 0)break;
+			}
+			console.log("最大公约数"+b);
+			
+			/*
+			 * do{
+			 * 	
+			 * }while(条件)
+			 * 无论条件是否成立，循环体都至少被执行一次
+			 */
+			var i = 0;
+			do{
+				i++;
+				console.log(i);
+			}while( i < 5 )
+			
+		</script>
+	</body>
+</html>
