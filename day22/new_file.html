@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function randomNumber(min,max){
+				return parseInt(Math.random()*(max-min+1)+min);
+			}
+		    
+		    var num1 = randomNumber(0,10);
+		    var arr = [num1];
+		    while(1){
+		    	var a = false;
+		    	var num = randomNumber(0,10);
+		    	for (i = 0; i < arr.length; i++){
+		    		if (num == arr[i]) {
+		    			a = true;
+		    			break;
+		    		}
+		    	}
+		    	if(a!=true){
+		    		arr.push(num);
+		    	}
+		    	if(arr.length == 6){
+		    		break;
+		    	}
+		    }
+		    console.log(arr);
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="div1">
+			<input type="text" id="in1"/>
+		</div>	
+		<div id="div2">
+			<input type="text" id="in2"/>
+		</div>
+		<input type="button" id="btn" value="提交" />
+		
+		<script type="text/javascript">
+			/*
+			 * function name(参数1，参数2，...){
+			 * 	函数体
+			 * }
+			 * 
+			 * 函数调用：
+			 * 调用函数时传递参数（实参）
+			 * 
+			 * 函数的作用：封装功能函数，让函数可重复使用
+			 */
+			//name :函数的形参，形参的取值与类型由函数的实参决定
+			function hello(name){
+				console.log("hello   " + name);
+			}
+			hello("Sweety_Dr");
+			hello(123);
+			hello([1,2,3]);
+			
+			/*
+			 * 函数分类：
+			 * 1.无参函数：没有参数，没有返回值
+			 * 2.有参数，没有返回值
+			 * 3.没有参数，但由返回值
+			 * 4.有参数，有返回值
+			 */
+			var num = parseInt(10.10);
+			var ele = document.getElementById("idN");
+			var val = hello(123);
+			//函数的返回值默认为undefined,可以通过return设置
+			console.log(val);//返回值：undefined
+			
+			function hello_Sweety (gender) {
+				if (gender == "female") {
+					return "Of course";
+				}else if (gender == "male") {
+					return "No";
+				}
+				//设置返回值
+				return "fighting";
+			}
+			var val = hello_Sweety("female");
+			console.log(val);
+			
+			function getEleById (eleID) {
+				console.log(eleID + "*****************");
+				var ele = document.getElementById(eleID);
+				return ele;
+			}
+			
+			//使用者：给出一个ID，便可以返回相应的元素
+			var div1 = getEleById("div1");
+			console.log(div1);
+			div1.innerHTML = "div1";
+			
+			var div2 = getEleById("div2");
+			console.log(div2);
+			div2.innerHTML = "div2";
+			
+			// 1.作业：封装一个获取input输入内容的函数
+			// 参数：input的id，返回值：input输入框的内容
+			
+			function getConByID (conID) {
+				console.log(conID + "***************");
+				var rel = document.getElementById(conID);
+				return conID.value;
+			}
+			//var con1 = getConByID("in1");
+			
+			/*
+			 * 作用域：
+			 * 1.全局变量：指直接在script标签内部声明的变量，作用于全局，任何地方都可以使用
+			 * 2.局部变量：指在函数内部声明的变量，作用域仅限于所在函数的内部,函数外部变量即会被释放
+			 */
+			var a = 10;
+			var c = 30;
+			var d = 40;
+			function fn () {
+				//若函数内部也声明与函数外部相同的变量，则函数内部声明的变量优先使用
+				var c = 300;
+				console.log("函数内部访问全局变量  a = " + a);
+				//fn内部由var声明的变量都是局部变量
+				var b = 20;
+				console.log("函数内部访问内部定义的局部变量  b = " + b);
+				
+				console.log("变量  c = " + c);
+				
+				//变量声明的前置，会在变量使用前先声明该变量
+				console.log("变量 d = " + d);//返回值为undefined
+				var d = 400;
+			}
+			console.log("函数外部访问全局变量  a = " + a);
+			fn();
+			
+			//函数外部无法访问函数内部定义的局部变量
+			//console.log("函数外部访问函数内部定义的局部变量  b = " + b);//控制台报错
+			
+			//求和函数
+			//形参的作用域在只在函数内部
+			function sum (num1,num2) {
+				return num1 + num2;
+			}
+			
+			var rel = sum(10,20);
+			console.log("num1 + num2 = " + rel);
+			
+			//交换两个数
+			//形参数值交换，实参数值未交换
+			var a = 10, b = 20;
+			function exchange (num1,num2) {
+				var temp = num1;
+				num1 = num2;
+				num2 = temp;
+				console.log("num1 = " + num1, " num2 = " + num2);
+			}
+			exchange(a,b);
+			console.log("实参： " , "a =" + a," b = " + b);
+			
+			//基本类型赋值问题：拷贝赋值（制作了一个副本，不会影响之前的值）
+			var c = 100;
+			var d = c;
+			
+			c = 200;
+			console.log(d);
+			
+			//对象类型（引用类型）{} [] function
+			//若是对象类型，person变量保存的时该对象的地址，即结果也访问的是地址
+			var person ={
+				name:"Sweety",
+				age:18
+			};
+			
+			var person2 = person;//是指地址的传送，即两者会访问同一块地址
+			
+			console.log(person2.name+"  "+person2.age);
+			
+			person.name = "小丸子";
+			console.log(person2.name);
+			
+			//若参数是对象类型，则对形参和实参的操作保持一致，即同一地址，同一对象
+			function exchangeObj (obj) {
+				var temp = obj.a;
+				obj.a = obj.b;
+				obj.b = temp;
+			}
+			var obj ={
+				a:100,
+				b:200
+			};
+			exchangeObj(obj);
+			console.log(obj);
+			
+			//数组也是对象，操作形参时，实参也会随之改变
+			var arr = [];
+			function push (sourArr) {
+				sourArr[0] = "123456";
+				//return sourArr;
+			}
+			push(arr);
+			console.log(arr);
+			
+			//找到两个数的最大值
+			function compare (a,b) {
+				return a > b ? a : b;		
+			}
+			console.log(compare(1,2));
+			
+			//计算两个数的差
+			function sub(a,b){
+				//var max = a > b ? a : b;
+				var max = compare(a,b);
+				var min = a > b ? b : a;
+				return max - min;
+			}
+			var su = sub(100,10);
+			console.log(su);
+			console.log(sub(200,100));
+			
+			//找到三个数的最大值
+			function compare3(a,b,c){
+				var max = compare(a,b);
+				max = max > c ? max : c;
+				return max;
+			}
+			console.log(compare3(10,39,2));
+			
+			//找四个数的最大值：
+			function compare4 (a,b,c,d) {
+				var max = compare3(10,20,300);
+				return max = max > d ? max : d;
+			}
+			console.log(compare4(10,20,300,20));
+			
+			//随机数
+			function randNum (min,max) {
+				return parseInt(Math.random()*(max - min + 1) + min);
+			}
+			console.log(randNum(10,20));
+			console.log(randNum(10,200));
+			
+			//随机颜色
+			var div2 = document.getElementById("div2");
+			div2.onclick = function () {
+				div2.style.backgroundColor = randColor();
+			}
+			//随机颜色函数
+			function randColor () {
+				var r = randNum(0,255);
+				var g = randNum(0,255);
+				var b = randNum(0,255);
+				return "rgb(" +r+"," +g+"," +b+")";
+			}
+			
+			//封装一个函数，参数是数组（数组存的是数字），找到数组中的最大值，最小值和所有值之和，并把这三个数存到一个新的数组中返回来
+			function fillter (arr) {
+				var max = arr[0];
+				var min = arr[0];
+				var sum = 0;
+				
+				for(var i = 0; i < arr.length; i++){
+					max = max > arr[i] ? max : arr[i];
+					min = min < arr[i] ? min : arr[i];
+					sum += arr[i];
+					
+				}
+				console.log(max);
+				console.log(min);
+				console.log(sum);
+				var relA = [max];
+				relA[1] = min;
+				relA[2] = sum;
+				return relA;
+			}
+			var relarr = fillter([4,5,9,22,80]);
+			console.log(relarr);
+			
+			/*
+			 * 匿名函数：
+			 * 函数调用：函数名+（）
+			 * 函数名就是函数的地址（函数指针）
+			 */
+			//console.log(fillter(),typeof fillter);//function
+			
+			fillter.name2 = "函数";
+			console.log(fillter.name2);
+			//把函数地址赋值给fillter2，fillter2就可以调用函数
+			var fillter2 = fillter;
+			fillter2;
+			
+			//匿名函数默认把函数名为函数地址
+			//setColor就是一个引用类型的变量，保存的就是函数地址
+			var setColor = function(r,g,b){
+				console.log("r= " + r);
+			}
+			setColor("255");
+			
+			function load(callback){
+				console.log(callback);
+				//调用setColor
+				callback("1000000000");
+			}
+			load(setColor);
+			load(fillter);
+			//匿名函数作为参数
+			load(function(num){
+				console.log("匿名函数回调"+num);
+			});
+			
+			//匿名函数自身调用
+			(function (n) {
+				console.log("匿名函数自身调用"+n);
+			})("12345");
+			
+			//函数的默认参数
+			//求和函数（不限函数参数的个数）
+			function sum () {
+				//arguments:函数参数数组，保存所有传过来的参数
+				console.log(arguments);
+				var s = 0;
+				for (var i = 0; i < arguments.length; i++) {
+					console.log(arguments[i]);
+					s += arguments[i];
+				}
+				return s;
+			}
+			var rel = sum(1,2,3,4,5,66,77,88);
+			console.log("sum = " + rel);
+			
+			//return：若不给出函数返回值，则可以阻止函数继续执行
+			
+			function test () {
+				//return;//下面的代码不再被执行
+				if (arguments[0] === 123) return;
+				console.log("123");
+				console.log("456");
+			}
+			test(456);
+			
+		</script>
+		
+		
+	</body>
+</html>

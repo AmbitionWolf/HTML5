@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="div1">
+			<input type="text" id="in1" />
+		</div>
+
+		<div id="div2">
+			<input type="text" id="in2" />
+		</div>
+
+		<input type="button" id="btn" value="提交" />
+		<hr />
+
+		<div id="box">
+			<img src="img/1.gif" id="img" />
+		</div>
+		<hr />
+
+		<input type="button" id="ranBtn" value="产生随机数" />
+
+		<script type="text/javascript">
+			// 1.作业：封装一个获取input输入内容的函数
+			// 参数：input的id，返回值：input输入框的内容
+
+			var in1Con = document.getElementById("in1");
+			var in2Con = document.getElementById("in2");
+			var btnClick = document.getElementById("btn");
+			btnClick.onclick = function() {
+				var rel1 = in1Con.value;
+				var rel2 = in2Con.value;
+				console.log(rel1);
+				console.log(rel2);
+				//return in1Con.value;
+			}
+
+			//2.封装一个函数，参数是数组（数组存的是数字），找到数组中的最大值，最小值和所有值之和，并把这三个数存到一个新的数组中返回来
+			function fillter(arr) {
+				var max = arr[0];
+				var min = arr[0];
+				var sum = 0;
+
+				for(var i = 0; i < arr.length; i++) {
+					max = max > arr[i] ? max : arr[i];
+					min = min < arr[i] ? min : arr[i];
+					sum += arr[i];
+
+				}
+				console.log(max);
+				console.log(min);
+				console.log(sum);
+				var relA = [max];
+				relA[1] = min;
+				relA[2] = sum;
+				return relA;
+			}
+			var relarr = fillter([4, 5, 9, 22, 80, 111]);
+			console.log(relarr);
+
+			//3.点亮电灯泡
+			var imgClick = document.getElementById("img");
+			//var imgChange = document.getElementById("img");
+			imgClick.onclick = function() {
+
+				if(imgClick.getAttribute("src") == "img/1.gif") {
+					imgClick.src = "img/2.gif";
+				} else {
+					imgClick.src = "img/1.gif"
+				}
+			}
+
+			//4.产生6个[0,10]之内不能重复的随机数存入数组
+			var rBtn = document.getElementById("ranBtn");
+			rBtn.onclick = function() {
+				var num;
+				num = parseInt(Math.random() * (10 - 0 + 1) + 0);
+				var numA = [num];
+				for(var i = 1; i < 6; i++) {
+					num = parseInt(Math.random() * (10 - 0 + 1) + 0);
+					flag = false;
+					for(var j = 0; j < numA.length; j++) {
+						if(numA[j] === num) {
+							flag = true;
+						}
+					}
+					if(flag) {
+						i--;
+					} else {
+						numA[i] = num;
+					}
+				}
+				console.log(numA);
+				document.write(numA);
+				return numA;
+			}
+		</script>
+
+	</body>
+
+</html>
