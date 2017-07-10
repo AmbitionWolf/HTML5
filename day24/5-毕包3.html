@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<p id="show">点击次数：</p>
+		<input type="button" id="btn" value="调用add函数"/>
+		
+		
+		<script type="text/javascript">
+			//闭包是可访问上一层函数作用域里变量的函数，即便上一层函数已经关闭。
+			
+			var show = document.getElementById("show");
+			var btn = document.getElementById("btn");
+			
+			//匿名函数的自身调用
+			(function () {
+				
+			})();
+			
+			var add = (function () {
+				var counter = 0;
+				//add保存的匿名函数的地址
+				return function(){
+					return counter += 1;
+				};
+			})();
+			
+			
+			
+			btn.onclick = function () {
+				var c = add();
+				show.innerText = "add被执行次数" + c;
+			}
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

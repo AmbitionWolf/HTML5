@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 1.排序函数
+			 */
+			var names = ["hello", "world", "morning", "zhongbei"];
+			names.sort();
+			console.log(names);
+
+			//直接使用sort函数对数组进行排序有问题
+			var numbers = [1, 200, 4, 300];
+			numbers.sort();
+			console.log(numbers);
+			numbers.sort(function(a, b) {
+				console.log("a = " + a, "b = " + b);
+				//return true;
+				//return a > b;//数组元素按照从小到大排列
+				return a < b; //数组元素按照从大到小排列
+			})
+			console.log(numbers);
+
+			//冒泡排序
+			/*
+			 * 1.一共比较几个来回
+			 * 2.每个来回比较几次
+			 */
+			var arr = [1, 100, 20, 9];
+			//找到最大的数放在最后
+			for(var i = 0; i < arr.length; i++) {
+				if(arr[i] > arr[i + 1]) {
+					var temp = arr[i];
+					arr[i] = arr[i + 1];
+					arr[i + 1] = temp;
+				}
+			}
+			console.log(arr);
+			for(var i = 0; i < arr.length - 2; i++) {
+				if(arr[i] > arr[i + 1]) {
+					var temp = arr[i];
+					arr[i] = arr[i + 1];
+					arr[i + 1] = temp;
+				}
+			}
+			console.log(arr);
+
+			var arr = [90, 100, 20, 9];
+			for(var i = 0; i < arr.length - 1; i++) {
+				for(var j = 0; j < arr.length - 1 - i; j++) {
+					if(arr[j] > arr[j + 1]) {
+						var temp = arr[j];
+						arr[j] = arr[j + 1];
+						arr[j + 1] = temp;
+					}
+				}
+			}
+			console.log(arr);
+
+			function sort(arr) {
+				var arr = arr.concat();
+				for(var i = 0; i < arr.length - 1; i++) {
+					for(var j = 0; j < arr.length - 1 - i; j++) {
+						if(arr[j] > arr[j + 1]) {
+							var temp = arr[j];
+							arr[j] = arr[j + 1];
+							arr[j + 1] = temp;
+						}
+					}
+				}
+				console.log(arr);
+				return arr;
+			}
+			var arr = [90, 100, 20, 9];
+			//返回值是排序后的数组，保证原数组不变
+			var nArr = sort(arr);
+			sort(nArr,arr);
+			
+			
+			//通过匿名函数返回值决定排序方式
+			function sort2 (sourceArr,callBack) {
+				var sourceArr = sourceArr.concat();
+				for(var i = 0; i < sourceArr.length - 1; i++) {
+					for(var j = 0; j < sourceArr.length - 1 - i; j++) {
+						//var rel = callBack(sourceArr[j],sourceArr[j + 1])
+						//防止参数2没有传参
+						//var rel = callBack ? callBack(sourceArr[j],sourceArr[j + 1]) : false;
+						var rel = typeof callBack === "function" ? callBack(sourceArr[j],sourceArr[j + 1]) : false;
+						if(rel) {
+							var temp = sourceArr[j];
+							sourceArr[j] = sourceArr[j + 1];
+							sourceArr[j + 1] = temp;
+						}
+					}
+				}
+				console.log(arr);
+				return sourceArr;
+			}
+			
+			var arr = [90, 100, 20, 9];
+			nArr = sort2(arr,function (a,b) {
+				return a < b;//降序
+				return a > b;//升序
+			})
+			console.log(nArr,arr);
+			sort2(arr);
+			
+			
+			
+			
+			
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		
+		email:<input type="text" id="email" placeholder="请输入网址" />
+		<p id="show">email地址为：</p>
+		<input type="button" id="btn" value="提交" />
+		
+		
+		<script type="text/javascript">
+
+			//作业
+			var sArr1 = [1, 2];
+			var sArr2 = [10, 20, 30];
+			var sArr3 = [99, 88, 66, 77];
+
+			var mArr1 = [sArr1, sArr2];
+			var mArr2 = [sArr3];
+
+			var bArr = [mArr1, mArr2];
+
+			console.log(bArr);
+			//封装一个函数，计算所有三层嵌套下所有数字之和
+
+			
+			var sum = 0;
+
+			function arrSum(bArr) {
+				for(i = 0; i < bArr.length; i++) {
+					for(j = 0; j < bArr[i].length; j++) {
+						for(k = 0; k < bArr[i][j].length; k++) {
+							sum += bArr[i][j][k];
+						}
+					}
+				}
+				console.log(sum);
+				return sum;
+			}
+			var rel = arrSum(bArr);
+			console.log("rel = " + rel);
+			
+			
+			//获取字符串(3°15'20")中的3，15，20
+			var str = "3°15'20''";
+			console.log(str);
+			var subS = str.substring(1,0);
+			console.log(subS);
+			var subS = str.substring(4,2);
+			console.log(subS);
+			var subS = str.slice(5,7);
+			console.log(subS);
+			
+			//将字符串文艺青年改成字符串213青年
+			str = "文艺青年";
+			console.log(str);
+			var nStr = str.replace("文艺","213");
+			console.log("替换后的字符串为：" + nStr);
+			
+			//输入网址，判断网址是否有http://，若没有，则添加
+			var email = document.getElementById("email");
+			var show =document.getElementById("show");
+			var btn = document.getElementById("btn");
+			btn.onclick = function () {
+				var str = "http://";
+				var m = email.value;
+				var n = m.search("http://");
+				console.log(n);
+				var rel = n === -1;
+				console.log(rel);
+				if (rel) {
+					emailN = "http://" + m;
+					show.innerText = "email地址为：" + emailN; 
+
+				}else{
+					show.innerText = "email地址为：" + m;
+				}
+			}
+			
+			
+			
+			
+		</script>
+	</body>
+
+</html>
+</html>

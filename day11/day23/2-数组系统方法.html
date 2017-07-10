@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//自变量方法
+			var arr = [];
+			//构造方法，new可以省略
+			var arr = new Array(1, 2, 3, "123");
+			arr.name = "哈哈";
+			console.log(arr, arr.name);
+
+			//循环for in
+			for(var i in arr) {
+				console.log(i, arr[i]);
+			}
+			//for in 循环遍历对象
+			var obj = {
+				name: "aaa",
+				age: 18,
+				skill: "玩儿",
+				hobby: ["a", "b", "c"],
+				k: "--"
+			}
+
+			for(var k in obj) {
+				//对象访问属性方式1：
+				console.log(k);
+				//对象访问属性方式2： obj["name"], []里面必须是字符串或者变量
+				var age = "name";
+				//console.log(obj["name"]);
+				console.log(k, obj[k]);
+			}
+
+			/*
+			 * 数组的内置方法：直接通过数组对象调用
+			 * 1.从数组后面添加数值
+			 * push(a,b,c,d...)
+			 * 返回值：数组长度
+			 */
+			var arr = [];
+			arr.push(1);
+			arr.push(2);
+			//增加多个值
+			var l = arr.push("a", "b", 100, 300);
+
+			/*
+			 * 2.unshift(a,b,c)
+			 * 从数组前面添加数值，特点与push一样
+			 */
+			arr.unshift("aaa", 111);
+			var ll = arr.push("a", "b", 100, 300);
+
+			/*
+			 * 3.pop():从末尾删除一个元素，每次只能删除最后一个,没有参数，有参数参数也无效
+			 * 返回值：被删除的元素
+			 */
+			var r = arr.pop();
+
+			/*
+			 * 4.shift（）：从头部删除，特点同pop
+			 */
+			r = arr.shift();
+
+			/*
+			 * 5.splice():从指定位置添加或删除元素
+			 * 参数1：操作的初始位置
+			 * 参数2：确定删除元素的个数（0：不删除）包含开始位置
+			 * 参数3，4，5...:要添加的新元素
+			 * 
+			 * 返回值：被删除的元素组成的新数组
+			 */
+			arr = [1, 2, 3, 4, 5];
+			//删除元素2和3
+			r = arr.splice(1, 2);
+			console.log(arr);
+
+			//添加元素,参数2必须是0
+			arr = [1, 2, 3, 4, 5];
+			r = arr.splice(1, 0, 100, 200);
+			console.log(arr);
+
+			//删除并添加元素：
+			arr.splice(1, 2, "a", "b");
+			console.log(arr);
+
+			//末尾添加：
+			arr.splice(arr.length, 0, "c", "d");
+			console.log(arr);
+
+			//末尾删除：
+			arr.splice(arr.length - 1, 1);
+			console.log(arr);
+
+			//以上方法会修改原数组
+
+			/*
+			 * 6.slice():数组的截取，特点：不修改原数组
+			 * 参数1：开始位置
+			 * 参数2：结束位置
+			 * [2，3):包含开始，不包含结束
+			 */
+			arr = [1, 2, 3, 4, 5];
+			var r = arr.slice(1, 4);
+			console.log(r);
+			console.log(arr);
+
+			//从数字2开始截取到最后,可省略参数2,默认截取到最后
+			var r = arr.slice(1);
+			console.log(r);
+
+			//负数：   -1：表示最后一个数
+			var r = arr.slice(-1); //截取数字5
+			var r = arr.slice(-3, -1); //截取数字3，4
+			var r = arr.slice(-3); //截取数字最后三个数
+
+			/*
+			 * 7.toString():转化为字符串
+			 */
+			arr = [1, 2, 3, 4, 5];
+			console.log(arr.toString(), typeof arr.toString());
+
+			/*
+			 * 8.join():数组->字符串
+			 * 参数：设置分隔符号(默认以逗号分隔)
+			 */
+			var str = arr.join("**");
+			console.log(str);
+
+			/*
+			 * 9.reverse():反转数组
+			 */
+			var nArr = arr.reverse();
+			console.log(nArr);
+			//字符串转化为数组:参数是分隔符
+			var str = "abcdef";
+			arr = str.split("");
+			console.log(arr);
+			var time = "2017-11-22";
+			var timeArr = time.split("-");
+			console.log(timeArr, timeArr[0], timeArr[1]);
+
+			//将字符串逆序返回
+			var name = "abcdefghijklmn";
+			//split:字符串转化为数组，reverse：将数组元素逆序排列，join：数组元素连接为字符串
+			name = name.split("").reverse().join("");
+			console.log(name);
+
+			/*
+			 * 10.concat():数组的合并
+			 * 参数：需要被合并的数组
+			 * 
+			 * 返回值：合并后的新数组
+			 */
+			var arr1 = [1, 2, 3];
+			var arr2 = [4, 5, 6];
+			var arr3 = [7, 8, 9];
+
+			var mixArr = arr1.concat(arr2);
+			console.log(mixArr, arr1);
+			var mixArr2 = mixArr.concat(arr3);
+			console.log(mixArr2);
+
+			//数组的copy
+			var cpArr = arr1.concat();
+			console.log(cpArr, arr1);
+			arr1.push(100, 200);
+			//cpArr是arr1的副本，不会受到arr1其他操作的影响
+			console.log(cpArr, arr1);
+
+			//数组地址的copy,arr3与arr4共用同一块地址，所以对一个数组的修改会引起另一个数组的改变
+			var arr4 = arr3;
+			console.log(arr4, arr3);
+			arr3.push(111, 222);
+			console.log(arr4, arr3);
+
+			/*
+			 * 11.forEach():循环遍历数组
+			 * 参数是一个回调函数，这个回掉函数会被回调多次
+			 * 回调函数的形参：
+			 * 形参1.数组每一个元素
+			 * 形参2：该元素的下标
+			 */
+			arr3.forEach(function(value, index) {
+				console.log(value, index);
+			});
+			//实现forEach功能的函数
+
+			//参数1：需要被遍历的数组
+			//参数2：每次遍历后的回调
+			function forEach(arr, callBack) {
+				/*
+				callBack("a",0);
+				callBack("b",1);
+				callBack("c",2);
+				*/
+				for(var i = 0; i < arr.length; i++) {
+					callBack(arr[i], i);
+				}
+			}
+
+			//使用者
+			var arr = ["a", "b", "c"];
+			forEach(arr, function(value, index) {
+				console.log(value, index);
+			})
+
+			/*
+			 * 12.indexOf()
+			 * 参数1：要查找的元素
+			 * 参数2：从指定位置开始查找指定元素
+			 * 返回值：该元素下标，若元素不存在于数组，则返回-1
+			 * 判断一个元素是否存在于数组中，若返回值为-1，则不存在
+			 */
+
+			arr = ["a", "b", "a", "c", "a"];
+			var index = arr.indexOf("a", 0);
+			console.log(index);
+
+			//封装一个方法，找到数组中同一元素的所以下标
+			var i = 0;
+			var indexArr = [];
+			while(arr.indexOf("a", i) != -1) {
+				//找到元素所在位置下标
+				var index = arr.indexOf("a", i);
+				//将元素下标保存在新数组
+				indexArr.push(index);
+				//从index位置的后面继续查找
+				i = index + 1;
+			}
+			console.log(indexArr);
+
+			//查找数组中元素的下标
+			function findIndex(arr, value) {
+				var i = 0;
+				var indexArr = [];
+				while(arr.indexOf(value, i) != -1) {
+					//找到元素所在位置下标
+					var index = arr.indexOf(value, i);
+					//将元素下标保存在新数组
+					indexArr.push(index);
+					//从index位置的后面继续查找
+					i = index + 1;
+				}
+				return indexArr;
+			}
+			arr2 =["ab","ab","bcd","ab"];
+			var indexArr = findIndex(arr2,"ab");
+			console.log(indexArr);
+			
+			
+			/*
+			 * 13.every():检查数组中所有元素都满足某条件
+			 * 返回值：boolean;
+			 */
+			arr = [100,101,200];
+			
+			var rel = arr.every(function (value) {
+				console.log(value);
+				return value > 50;//元素值有一个不满足，函数就停止继续回调，every()函数就返回false
+			})
+			console.log(rel);
+			
+			/*
+			 * 14.some():检查数组中是否有元素满足指定条件
+			 * 返回值：boolean;
+			 */
+			var rel = arr.some(function (value) {
+				console.log(value);
+				return value === 101;//找到一个元素符合条件时函数就结束并返回true，都不满足返回false
+			})
+			console.log(rel);
+			
+			/*
+			 * 15.filter():找到符合条件的所有元素，并以数组形式返回
+			 */
+			arr = [100,101,200];
+			var relArr = arr.filter(function (value) {
+				return value > 100;
+			})
+			console.log(relArr);
+			
+			/*
+			 * 16.find():同filter,但find()函数，找到一个查找即结束，并以数组形式返回查找结果
+			 */
+			arr = [100,101,200];
+			var relArr = arr.find(function (value) {
+				return value > 100;//找到一个查找就结束
+			})
+			console.log(relArr);
+			
+			
+			/*
+			 * 17.map()
+			 * 对数组中每个数进行相应操作，并返回新的数组
+			 */
+			var mapArr = arr.map(function (value) {
+				return 100 + value + "px";
+			});
+			console.log(mapArr);
+			
+		</script>
+	</body>
+
+</html>

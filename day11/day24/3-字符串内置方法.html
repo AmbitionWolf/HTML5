@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//基本类型
+			var txt = "string";
+			//不能自定义属性
+			txt.s = "自定义属性";
+			console.log(txt.s);
+			
+			//new会创建一个字符串对象
+			var txt = new String("123");
+			console.log(txt);
+			console.log(txt.valueOf());
+			console.log(txt.toString());
+			console.log(txt.length);
+			
+			var name = "zhangSanZaiChiFan";
+			//基本类型字符串，可以使用系统的属性和方法
+			console.log(name.length);
+			//__proto__   这个对象保存的是内置方法
+			console.log(name.__proto__);
+			//访问单个字符，下标从0开始
+			console.log(name[3]);
+			
+			
+			var arr = [];
+			//遍历字符串
+			for(var i = 0; i < name.length; i++){
+				console.log(name[i],name.charAt(i));
+				arr.push(name[i]);
+			}
+			arr.reverse();
+			console.log(arr);
+			var rName = arr.join("");
+			console.log(rName);
+			
+			
+			/*
+			 * charAt():返回指定下标的字符 === name[小下标]
+			 * charCodeAt():返回指定位置的Unicode编码
+			 * 
+			 * 0~9:[48~57]
+			 * A~Z:[65~90]
+			 * a~z:[97~122]
+			 */			
+			console.log(name.charCodeAt(0));
+			
+			//concat():拼接
+			name = name.concat("123","456");
+			console.log(name);
+			
+			//fromCharCode:根据Unicode返回对应字符
+			var s = String.fromCharCode(97);
+			console.log(s);
+			
+			
+			/*
+			 * 字符串截取：
+			 * subString(开始位置，结束位置)
+			 * 返回值：截取的字符串
+			 * 包含开始位置，不包含结束位置[index1,index2]
+			 * 原字符串不会改变
+			 * 参数大小会自动比较(小的数被放到开始位置)
+			 */
+			name = "Sweety_Dr";
+			//var subS = name.substring(0,4);
+			var subS = name.substring(6,0);
+			
+			console.log(subS,name);
+			
+			
+			/*
+			 * slice():与subString类似
+			 * 
+			 * 特点：
+			 * 不能自动比较参数大小
+			 * 参数可以为负数，-1：最后一个数
+			 */
+			//参数2可以省略，默认截取到最后位置
+			subS = name.slice(0,6);
+			subS = name.slice(6);
+			//截取最后两位：
+			subS = name.slice(-2);
+			console.log(subS);
+			
+			
+			/*
+			 * substr():与substring的区别：
+			 * 参数2：截取字符的长度
+			 * 非标准方法，但浏览器支持
+			 */
+			subS = name.substr(0,6);
+			console.log(subS);
+			
+			
+			//split():字符串转为字符数组
+			var arr = name.split("Sweety");
+			var arr = name.split("");
+			var arr = name.split();
+			console.log(arr);
+			
+			
+			//indexOf()
+			var index = name.indexOf("S");
+			var index = name.indexOf("Dr");
+			console.log(index);
+			
+			//查找数组中字符的下标
+			function findIndex(string, value) {
+				var i = 0;
+				var indexs = [];
+				while(string.indexOf(value, i) != -1) {
+					//找到元素所在位置下标
+					var index = string.indexOf(value, i);
+					//将元素下标保存在新数组
+					indexs.push(index);
+					//从index位置的后面继续查找
+					i = index + 1;
+				}
+				return indexs;
+			}
+			var indexArr = findIndex(name,"ee");
+			console.log(indexArr);
+			
+			
+			/*
+			 * toUpperCase:转换成大写形式
+			 * toLowerCase:转换成小写形式
+			 */
+			var upName = name.toUpperCase();
+			console.log(upName);
+			console.log(upName.toLowerCase());
+			console.log(upName);
+			
+			//trim():去除字符串首尾空格
+			name = "Sweety _ Dr   "
+			console.log(name.length);
+			
+			var nStr = name.trim()
+			console.log(nStr,nStr.length);
+			
+			
+			/*
+			 * replace()：字符串替换,默认只能替换首次出现的字符
+			 */
+			nStr = name.replace("Dr","Drr");
+			console.log(nStr);
+			
+			
+			/*
+			 * search()：查找字符串
+			 * 找到返回下标，找不到返回-1
+			 */
+			var rel = name.search("!Dr");
+			console.log(rel);
+			
+			/*
+			 * match():匹配字符串
+			 */
+			var relArr = name.match("Dr");
+			//返回结果：["Dr", index: 9, input: "Sweety _ Dr   "]
+			console.log(relArr[0] === "Dr");
+		
+		</script>
+		
+	</body>
+</html>

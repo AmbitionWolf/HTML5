@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+
+	<body>
+
+		<img src="img/1.gif" id="light" />
+		<hr />
+		<img src="img/1.gif" id="light2" />
+		<hr />
+		<img src="img/1.gif" id="light3" />
+		<hr />
+		<img src="img/1.gif" id="light4"/>
+		
+		
+		<p id="show"></p>
+		<input type="button" name="xiaZhu" id="xiaZhu" value="下注" />
+
+		<script type="text/javascript">
+			
+			//方法一：
+			var light = document.getElementById("light");
+			var flag = false;
+			light.onclick = function() {
+				flag = !flag;
+				if(flag === true) {
+					light.src = "img/2.gif";
+				} else {
+					light.src = "img/1.gif";
+				}
+			}
+
+
+			//方法二：
+			var light2 = document.getElementById("light2");
+			//自定义属性
+			light2.flag = false;
+			light2.onclick = function() {
+				light2.flag = !light2.flag;
+
+				light2.src = light2.flag ? "img/2.gif" : "img/1.gif"
+			}
+
+
+			//方法三：
+			var light3 = document.getElementById("light3");
+			light3.index = 1;
+
+			light3.onclick = function() {
+				light3.index++;
+
+				light3.src = light3.index % 2 === 0 ? "img/2.gif" : "img/1.gif";
+				if(light3.index === 3) {
+					light3.index = 1;
+				}
+			}
+			
+			
+			//方法4：
+			var light4 = document.getElementById("light4");
+			
+			light4.onclick = function(){
+				//console.log(light4.src);	
+				var rel = light4.src.match("img/2.gif");
+				if(rel){
+					light4.src = "img/1.gif";
+				}else{
+					light4.src = "img/2.gif";
+				}
+			}
+			
+			
+			//产生不重复随机数
+			var show = document.getElementById("show");
+			show.innerHTML = "显示数组";
+			
+			var xiaZhu = document.getElementById("xiaZhu");
+			
+			xiaZhu.onclick = function  () {
+				var randNums = [];
+				var index = 0;
+				//数组添加元素（添加到最后位置）
+				//randNums.push(1);
+				//randNums.push(2);
+				//console.log(randNums);
+				//产生一个随机数，判断这个随机数是否包含在ranNums里，若存在，则跳过，否则，存入数组，使用while循环，数组长度>6停止循环
+				while(randNums.length != 6){
+					//产生一个随机数
+					var num = randNum(0,10);
+					//判断随机数是否已存在于数组
+					//randNums.indexOf();
+					//若存在，则返回true，否则返回false
+					var result = contain(num,randNums);
+					
+					if(!result){
+						randNums.push(num);
+					}
+					
+					/*
+					if(!result){
+						randNums[index] = num;
+						index++;
+					}
+					*/
+//					if(result) continue;
+//					randNums.push(num);
+				}
+				show.innerHTML = randNums;
+			}
+			
+			function randNum (min,max) {
+				return parseInt(Math.random()*(max - min + 1) + min);
+			}
+					
+			//判断一个数是否在数组中
+			function contain (n,arr) {
+				for(var i = 0; i < arr.length; i++){
+						if(n === arr[i]) return true;//返回true，并终止函数
+					}
+				return false;
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+
+</html>

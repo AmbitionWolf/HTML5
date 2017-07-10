@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<p id="show">点击次数：</p>
+		<input type="button" id="btn" value="调用add函数"/>
+		
+		
+		<script type="text/javascript">
+			//闭包是可访问上一层函数作用域里变量的函数，即便上一层函数已经关闭。
+			
+			var show = document.getElementById("show");
+			var btn = document.getElementById("btn");
+			
+			//计数器函数
+			//var counter = 0;
+			function add () {
+				var counter = 0;
+				
+				//plus函数就是内层的闭包函数
+				function plus () {
+					return counter += 1;
+				}
+				//闭包函数被返回到外面后多了一个plusG引用，counter局部变量也会被保留，即使add函数已经被执行完毕				
+				return plus;
+			}
+			//问题：counter是一个全局变量，任何地方都可以修改
+			var plusG = add();
+			
+			//plusG();//调用内嵌函数
+			
+			btn.onclick = function () {
+				var c = plusG();
+				show.innerText = "add被执行次数" + c;
+			}
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

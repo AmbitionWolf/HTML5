@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<p id="show">点击次数：</p>
+		<input type="button" id="btn" value="调用add函数"/>
+		
+		
+		<script type="text/javascript">
+			//闭包是可访问上一层函数作用域里变量的函数，即便上一层函数已经关闭。
+			
+			/*变量：
+			 * 1.全局变量：生命周期与整个文档生命周期相同，页面关闭释放
+			 * 缺点：作用域太大，任何地方都可以访问（尽量减少全局区的污染）
+			 * 
+			 * 2.局部变量:声明周期：函数调用开辟空间，调用结束后释放
+			 * 
+			 * 闭包：使用局部变量实现全局变量的功能
+			 */
+			var a = 100;
+			function fn () {
+				var b = 100;
+			}
+			fn();
+			
+			var show = document.getElementById("show");
+			var btn = document.getElementById("btn");
+			//计数器函数
+			//var counter = 0;
+			function add () {
+				var counter = 0;
+				return counter += 1;
+			}
+			//问题：counter是一个全局变量，任何地方都可以修改
+			
+			btn.onclick = function () {
+				var c = add();
+				show.innerText = "add被执行次数" + c;
+			}
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>
