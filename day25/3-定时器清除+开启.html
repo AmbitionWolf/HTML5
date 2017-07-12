@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#moveBall{
+				width: 100px;
+				height: 100px;
+				background: red;
+				border-radius: 50%;
+				position: relative;
+				left: 0;
+				top: 0;
+				
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="moveBall"></div>
+		
+		<div id="box">
+			<input type="button" class="action" value="开始" />
+			<input type="button" class="action" value="暂停" />
+		</div>
+		
+		
+		<script type="text/javascript">
+			var ball = document.getElementById("moveBall");
+			var btns = document.getElementById("box").getElementsByClassName("action");
+			var begin = btns[0];
+			var pause = btns[1];
+			var p = 0;
+			var timeID = 0;
+			
+			//每点击一次，都会创建一个新的定时器，一起修改小球的坐标值
+			begin.onclick = function(){
+				//先清除上一次创建的定时器
+				clearInterval(timeID);
+				timeID = setInterval(function () {
+					p += 2;
+					ball.style.left = p + "px"; 
+					ball.style.transform = "translateX("+p+"px)";
+				},60);
+				console.log(timeID);
+				
+			}
+			
+			//暂停
+			pause.onclick = function () {
+				clearInterval(timeID);
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

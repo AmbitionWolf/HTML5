@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			/* 循环定时器：setInterval()
+			 * 省去window直接调用
+			 * 两个参数：
+			 * 参数1：回调函数
+			 * 参数2：间隔多少毫秒调用一次  (1s==1000ms)
+			 */
+			var index = 0;
+
+			function callBack() {
+				index++;
+				console.log(index);
+			}
+			//匿名函数返回函数地址
+			var callBack2 = function() {
+				index += 2;
+				console.log(index);
+				if(index >= 10) {
+					clearInterval(timeID0);
+				}
+			}
+			var timeID0 = setInterval(callBack2,1000);
+
+			//setInterval(callBack2,1000);
+			var timeID = setInterval(function() {
+				index += 4;
+				console.log(index);
+			}, 1000);
+			console.log(timeID + "*******************");
+
+			/*
+			 * 关闭定时器:
+			 * 参数：setInterval反悔的唯一一个id数字，每调用一次都会返回不同的数字
+			 */
+			clearInterval(timeID);
+		</script>
+	</body>
+
+</html>

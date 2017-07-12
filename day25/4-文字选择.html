@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			li {
+				list-style: none;
+			}
+			
+			html,
+			body {
+				height: 100%;
+			}
+			
+			html {
+				font-size: 20px;
+			}
+			
+			#box {
+				position: relative;
+				display: flex;
+				/*background: red;*/
+				height: 100%;
+				/*主轴：column*/
+				flex-direction: column;
+				/*justify-content: space-around;*/
+				background-image: radial-gradient(circle at left top, dimgray, transparent, white);
+			}
+			
+			header {
+				/*background: blue;*/
+				flex: 1;
+				display: flex;
+				/*flex-direction: row;*/
+				/*主轴：*/
+				justify-content: space-between;
+				align-items: center;
+				padding: 0 1rem;
+				font-size: 1.2rem;
+			}
+			
+			section {
+				flex: 4;
+				/*background: gray;*/
+				font-size: 10rem;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				text-shadow: 0 0 20px dimgray;
+			}
+			
+			footer {
+				flex: 2;
+				/*background: darkblue;*/
+			}
+			
+			footer ul {
+				height: 100%;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				font-size: 2rem;
+				text-shadow: 0 0 10px dimgray;
+			}
+			
+			#mask {
+				font-size: 3rem;
+				color: white;
+				position: absolute;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				background: rgba(0, 0, 0, 0.7);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<header>
+				<div id="time">剩余时间：</div>
+				<div id="score">得分：0</div>
+			</header>
+
+			<section id="question">
+				黄
+			</section>
+
+			<footer>
+				<ul>
+					<li>红</li>
+					<li>黄</li>
+					<li>绿</li>
+					<li>蓝</li>
+					<li>紫</li>
+				</ul>
+			</footer>
+
+			<div id="mask">游戏结束</div>
+
+		</div>
+
+		<script type="text/javascript">
+			//游戏的信息
+			var gameObj = {
+				totalTime: 5, //总时间
+				score: 0, //总得分
+				countTimerID: null, //倒计时id
+				texts: ["红", "黄", "绿", "蓝", "紫"],
+				colors: ["red", "yellow", "green", "blue", "purple"],
+				answer: "", //每个问题的答案
+			};
+			var timeEle = document.getElementById("time");
+			var scoreEle = document.getElementById("score");
+			//问题元素标签
+			var qEle = document.getElementById("question");
+			//获取li对象
+			var footer = document.getElementsByTagName("footer")[0];
+			var colorEles = footer.getElementsByTagName("li");
+			//获取蒙版
+			var mask = document.getElementById("mask");
+			//计时器
+			function countTime() {
+				timeEle.innerText = "剩余时间：" + gameObj.totalTime + "秒";
+				//清除上一个定时器
+				clearInterval(gameObj.countTimeID);
+				gameObj.countTimerID = setInterval(function() {
+					gameObj.totalTime--;
+					timeEle.innerText = "剩余时间：" + gameObj.totalTime + "秒";
+					if(gameObj.totalTime === 0) {
+						//清除定时器
+						clearInterval(gameObj.countTimerID);
+						mask.style.display = "flex";
+					}
+				}, 1000);
+			}
+
+			//随机问题的颜色和文字
+			function changeQuestion() {
+				//随机文本
+				var tIndex = randNum(0, 4);
+				qEle.innerText = gameObj.texts[tIndex];
+				//随机颜色
+				var cIndex = randNum(0, 4);
+				qEle.style.color = gameObj.colors[cIndex];
+				//保存当前问题的汉子答案
+				gameObj.answer = gameObj.texts[cIndex]
+
+			}
+
+			//布局li顺序
+			function layoutColorList() {
+				//文字数组副本
+				var textsCopy = gameObj.texts.concat();
+				//颜色数组副本
+				var colorsCopy = gameObj.colors.concat();
+				//打乱数组顺序
+				randArr(textsCopy);
+				randArr(colorsCopy);
+
+				for(var i = 0; i < textsCopy.length; i++) {
+					colorEles[i].innerText = textsCopy[i];
+					colorEles[i].style.color = colorsCopy[i];
+				}
+			}
+
+			//绑定点击事件
+			function bind() {
+				for(var i = 0; i < colorEles.length; i++) {
+					colorEles[i].onclick = function() {
+						//判断是否正确
+						//alert(this.innerText);
+						recordScore(this.innerText);
+
+						changeQuestion();
+						layoutColorList();
+
+					};
+				}
+			}
+
+			//记录得分
+			function recordScore(tColor) {
+				var rel = tColor === gameObj.answer ? true : false;
+				rel ? gameObj.score++ : null;
+				scoreEle.innerText = "得分：" + gameObj.score;
+			}
+
+			//蒙版点击
+			mask.onclick = function() {
+				this.style.display = "none";
+				//游戏信息重置
+				gameObj.score = 0;
+				gameObj.totalTime = 10;
+				scoreEle.innerText = "得分：0";
+				main();
+			}
+
+			//入口函数
+			function main() {
+				//开始计时
+				countTime();
+				//产生新的问题和答案
+				changeQuestion();
+				//布局li
+				layoutColorList();
+				//绑定事件
+				bind();
+			}
+			main();
+
+			//随机功能函数
+			function randNum(min, max) {
+				return parseInt(Math.random() * (max - min + 1) + min);
+			}
+			//打乱数组顺序
+			function randArr(arr) {
+				arr = arr.sort(function(ele, ele2) {
+					return randNum(1, 5) >= 3;
+				});
+			}
+		</script>
+	</body>
+
+</html>

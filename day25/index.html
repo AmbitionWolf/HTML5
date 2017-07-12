@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			li{
+				list-style: none;
+			}
+			#box{
+				width: 500px;
+				margin: auto;
+			}
+			#box ul{
+				display: flex;
+				justify-content: space-around;
+			}
+			#box ul li{
+				background: brown;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="div1"></div>
+		
+		<hr />
+		
+		<div id="box">
+			<ul>
+				<li index = "0">首页0</li>
+				<li index = "1">首页1</li>
+				<li index = "2">首页2</li>
+				<li index = "3">首页3</li>
+				<li index = "4">首页4</li>
+			</ul>
+		</div>
+		
+		
+		
+		<script type="text/javascript">
+			var min = Math.min(1,20,30,5);
+			var max = Math.max(1,20,30,5);
+			console.log(min,max);
+			
+			var arr = [100,300,50,400];
+			//修改了max函数的this指向和参数形式
+			max = Math.max.apply(null,arr);
+			console.log(max);
+			
+			/*
+			 * this指向问题:
+			 * window:是js的全局对象，所有的全局变量都是这个对象的属性,所有全局函数都是window的方法
+			 */
+			console.log(this);
+			console.log(window);
+			console.log(max,window.max,window.arr,window,min);
+			
+			window.a = 10;//  === var a = 10;
+			console.log(a);
+			
+			console.log(window.document);
+			console.log(window.Math);
+			
+			//完整的写法：
+			window.document.getElementById("btn");
+			window.Math.abs(-100);
+			
+			//系统的全局函数
+			//window.alert("12");
+			window.console.log("1234");
+			
+			//自定义的全局函数,也是window的方法
+			function fn () {
+				console.log("abc");
+				var b = 100;
+				window.c = 200;//把c定义为全局变量
+				//在函数内部定义变量省略var时变量就变成了全局变量
+				d = 300;
+			}
+			//console.log(c);//函数还未执行，变量c还未创建，所有返回值为undefined
+			fn();
+			console.log(c);//返回值为200
+			window.fn();
+			console.log(window.b,window.c,c,d,window.d);//b是局部变量，无法通过window访问
+
+
+			this//当前对象，全局区：this === window
+			console.log(this);
+			
+			//函数体内的this === window
+			function fn2(){
+				console.log(this);
+				function fn3 () {
+					console.log(this);
+				}
+				fn3()
+			}
+			fn2();
+			
+			//对象下的方法：this === 当前对象
+			var obj ={
+				name:"Sweety_Dr",
+				eat:function(){
+					console.log(this.name+"鸡肉饼");
+					console.log(this);//this === obj
+					function fn4 () {
+						//this === window
+						console.log(this);
+					}
+					fn4();
+				}
+			};
+			obj.eat();
+			
+			
+			//方法在谁身上，当前对象this就是谁
+			var div1 = document.getElementById("div1");
+			div1.onclick = function () {
+				console.log("点击事件");
+				console.log(this);
+				this.style.background = "blue";
+			}
+			
+			
+			var box = document.getElementById("box");
+			var solids = box.getElementsByTagName("li");
+			//solids:元素集合，一个类数组，有length属性，可以通过下标获取单个元素，也可以循环这个集合，但是它没有数组的内置方法
+			console.log(solids);
+			//solids.push("123");//没有push方法，控制台报错
+			for (var i = 0; i < solids.length; i++) {
+				//给每个li元素都自定义一个index属性
+				solids[i].index = i;
+				
+				solids[i].onclick = function () {
+					//console.log("被点击了");
+					//点击是谁，当前对象就是谁
+					//console.log(this.innerText);
+					console.log(this);
+					console.log(this.index);
+					
+					var l = this.index * 100 + "px";
+					alert(l);
+					div1.style.transform = "translateX("+l+")";
+				}
+			}
+
+		</script>
+	</body>
+</html>
