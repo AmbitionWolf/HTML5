@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			li {
+				list-style: none;
+			}
+			
+			img {
+				vertical-align: middle;
+			}
+			
+			#box {
+				/*width: 500px;*/
+				/*border: 2px solid blue;*/
+				/*margin: auto;*/
+				position: relative;
+				overflow: hidden;
+				/*height: 280px;*/
+			}
+			
+			#content {
+				/*width: calc(500px*4);*/
+				width: 400%;
+				/*transition: all 1s linear;*/
+				position: relative;
+				/*position: absolute;*/
+				left: 0;
+				overflow: hidden;
+			}
+			
+			#content img {
+				float: left;
+				width: 25%;
+			}
+			
+			#left,
+			#right {
+				position: absolute;
+				width: 30px;
+				height: 50px;
+				color: white;
+				font-size: 20px;
+				line-height: 50px;
+				text-align: center;
+				background-color: rgba(0, 0, 0, 0.5);
+				top: 0;
+				bottom: 0;
+				margin: auto 0;
+				left: 10px;
+			}
+			
+			#right {
+				right: 10px;
+				left: auto;
+			}
+			
+			#solid_box {
+				position: absolute;
+				bottom: 10px;
+				background: rgba(0, 0, 0, 0.3);
+				width: 100px;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				left: 0;
+				right: 0;
+				margin: auto;
+				border-radius: 8px;
+			}
+			
+			#solid_box li {
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				background-color: black;
+				cursor: pointer;
+			}
+			
+			#solid_box .active {
+				background-color: orangered;
+				border: 2px solid white;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="box">
+			<div id="content" class="clearfix">
+				<img src="img/1.jpg" />
+				<img src="img/2.jpg" />
+				<img src="img/3.jpg" />
+
+				<img src="img/1.jpg" />
+			</div>
+			<div id="left">
+				<</div>
+					<div id="right">></div>
+
+					<ul id="solid_box">
+						<li class="active"></li>
+						<li></li>
+						<li></li>
+					</ul>
+
+			</div>
+
+			<script src="js/tween.js"></script>
+			<script type="text/javascript">
+				var swiperObj = {
+					pn:0,//记录图片的位置
+					//window.innerWidth:窗口大小
+					width:window.innerWidth,//图片大小
+					length:3,//图片个数
+					autoTimer:null,//图片自动轮播图片
+				}
+				
+				var box = document.getElementById("box");
+				var content = document.getElementById("content");
+				var left = document.getElementById("left");
+				var right = document.getElementById("right");
+				var solids = document.getElementById("solid_box").getElementsByTagName("li");
+				
+				//右边按钮事件
+				right.onclick = function () {
+					if (swiperObj.pn === swiperObj.length) {
+						//若此时是最后一张图片,回到第一张
+						content.style.left = "0";
+						//把位置标记也置为0
+						swiperObj.pn = 0;
+					}
+					swiperObj.pn++;
+					move(content,"left");
+					//圆点变化
+					changeActive(swiperObj.pn);
+				}
+				
+				//左边按钮事件
+				left.onclick = function () {
+					//此时图片如果是第一张图片
+					if (swiperObj.pn === 0) {
+						//跳到最后一张
+						content.style.left = -swiperObj.width*swiperObj.length+"px";
+						swiperObj.pn = 3;
+					}
+					swiperObj.pn--;
+					move(content,"left");
+					changeActive(swiperObj.pn);
+				}
+				
+		
+				//圆点高亮状态切换：参数：当前图片位置
+				function changeActive (index) {
+					//所有圆点恢复黑色
+					for (var i = 0; i < solids.length; i++) {
+						//class属性通过className获取或者设置
+						solids[i].className = "";
+					}
+					//若是最后一张图片
+					if (index === solids.length) {
+						index = 0;
+					}
+					//当前显示的图片
+					solids[index].className = "active";
+				}
+				
+				
+				//绑定圆点点击事件
+				function bindSolid () {
+					for (var i = 0; i < solids.length; i++) {
+						solids[i].index = i;
+						solids[i].onclick = function () {
+							//若是最后一张图片，则要回到第一张
+							if (swiperObj.pn === swiperObj.length) {
+								content.style.left = "0";
+							}
+							//圆点切换
+							changeActive(this.index);
+							//记录要显示图片的位置
+							swiperObj.pn = this.index;
+							//图片移动
+							move(content,"left");
+						}
+					}
+				}
+				bindSolid();
+				//自动轮播
+				swiperObj.autoTimer = setInterval(right.onclick,1800);
+				
+				//box加上移入事件
+				box.onmouseover = function () {
+					//alert(12);
+					clearInterval(swiperObj.autoTimer);
+				}
+				//鼠标离开，重新开启定时器
+				box.onmouseout = function () {
+					swiperObj.autoTimer = setInterval(right.onclick,1800);
+				}
+				
+				//tween方法
+				function move(objEle, pro, success) {
+
+					var t = 0;
+					//content.offsetLeft:获取当前元素定位后的偏移量					
+					var b = content.offsetLeft;//开始位置
+					var c = -swiperObj.width * swiperObj.pn - b;//变化量
+					var d = 100;
+					
+					clearInterval(objEle.timerID);
+					
+					objEle.timerID = setInterval(function() {
+						//2.时间累加，若累加不能等于d，则会超出最终位置
+						t += 3;
+						//只有Linear()可以直接调用
+						var value = Tween.Linear(t, b, c, d);
+						console.log(value);
+						//判断是否要加单位
+						var _value = pro === "opacity" ? "" : "px";
+
+						objEle.style[pro] = value + _value;
+						//3.判断时间是否加到了d
+						if(t >= d) {
+							clearInterval(objEle.timerID);
+							//防止超出:设置最终位置:开始位置+变化量
+							objEle.style[pro] = b + c + _value;
+							//动画完成
+							success ? success() : null;
+						}
+
+					}, 20);
+				}
+				
+				
+				
+			</script>
+
+	</body>
+
+</html>

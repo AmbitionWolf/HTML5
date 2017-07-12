@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			li {
+				list-style: none;
+			}
+			
+			img {
+				vertical-align: middle;
+			}
+			
+			#box {
+				width: 500px;
+				border: 2px solid blue;
+				margin: auto;
+				position: relative;
+				/*overflow: hidden;*/
+				/*height: 280px;*/
+			}
+			
+			#content {
+				width: calc(500px*4);
+				/*transition: all 1s linear;*/
+				position: relative;
+				/*position: absolute;*/
+				left: 0;
+				overflow: hidden;
+			}
+			
+			#content img {
+				float: left;
+				width: 25%;
+			}
+			
+			#left,
+			#right {
+				position: absolute;
+				width: 30px;
+				height: 50px;
+				color: white;
+				font-size: 20px;
+				line-height: 50px;
+				text-align: center;
+				background-color: rgba(0, 0, 0, 0.5);
+				top: 0;
+				bottom: 0;
+				margin: auto 0;
+				left: 10px;
+			}
+			
+			#right {
+				right: 10px;
+				left: auto;
+			}
+			
+			#solid_box {
+				position: absolute;
+				bottom: 10px;
+				background: rgba(0, 0, 0, 0.3);
+				width: 100px;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				left: 0;
+				right: 0;
+				margin: auto;
+				border-radius: 8px;
+			}
+			
+			#solid_box li {
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				background-color: black;
+				cursor: pointer;
+			}
+			
+			#solid_box .active {
+				background-color: orangered;
+				border: 2px solid white;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="box">
+			<div id="content" class="clearfix">
+				<img src="img/1.jpg" />
+				<img src="img/2.jpg" />
+				<img src="img/3.jpg" />
+
+				<img src="img/1.jpg" />
+			</div>
+			<div id="left">
+				<</div>
+					<div id="right">></div>
+
+					<ul id="solid_box">
+						<li class="active"></li>
+						<li></li>
+						<li></li>
+					</ul>
+
+			</div>
+
+			<script src="js/tween.js"></script>
+			<script type="text/javascript">
+				
+				var content = document.getElementById("content");
+				var left = document.getElementById("left");
+				var right = document.getElementById("right");
+				var solids = document.getElementById("solid_box").getElementsByTagName("li");
+				
+				//记录当前要显示图片的位置
+				var pn = 0;//第一张
+				//右边按钮事件
+				right.onclick = function () {
+					pn++;
+					//alert(content.offsetLeft);
+					var t = 0;
+					//content.offsetLeft:获取当前元素定位后的偏移量					
+					var b = content.offsetLeft;//开始位置
+					var c = -500 * pn - b;//变化量
+					var d = 100;
+					
+					move(content,"left",t,b,c,d);
+				}
+				
+				//左边按钮事件
+				left.onclick = function () {
+					pn--;
+					//alert(content.offsetLeft);
+					var t = 0;
+					//content.offsetLeft:获取当前元素定位后的偏移量					
+					var b = content.offsetLeft;//开始位置
+					var c = -500 * pn - b;//变化量
+					var d = 100;
+					
+					move(content,"left",t,b,c,d);
+				}
+				
+				
+				
+				//tween方法
+				function move(objEle, pro, t, b, c, d, success) {
+					clearInterval(objEle.timerID);
+					objEle.timerID = setInterval(function() {
+						//2.时间累加，若累加不能等于d，则会超出最终位置
+						t += 3;
+						//只有Linear()可以直接调用
+						var value = Tween.Linear(t, b, c, d);
+						console.log(value);
+						//判断是否要加单位
+						var _value = pro === "opacity" ? "" : "px";
+
+						objEle.style[pro] = value + _value;
+						//3.判断时间是否加到了d
+						if(t >= d) {
+							clearInterval(objEle.timerID);
+							//防止超出:设置最终位置:开始位置+变化量
+							objEle.style[pro] = b + c + _value;
+							//动画完成
+							success ? success() : null;
+						}
+
+					}, 20);
+				}
+			</script>
+
+	</body>
+
+</html>

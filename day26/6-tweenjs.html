@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				border: 5px solid black;
+				width: 900px;
+			}
+			
+			#ball {
+				width: 100px;
+				height: 100px;
+				background: red;
+				border-radius: 50%;
+				position: relative;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<div id="ball">
+
+			</div>
+		</div>
+
+		<script src="js/tween.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			var ball = document.getElementById("ball");
+			ball.onclick = function() {
+				/*
+				 * t:current time(当前时间)
+				 * b:beginning value(初始值)
+				 * c:change in value(变化量)
+				 * d:duration(持续时间)
+				 */
+				//通常取值为0
+				var t = 0;
+				//开始移动的位置
+				var b = 0;
+				//结束位置-初始位置
+				var c = 800;
+				//(总步数，步数值越大，持续时间越长（每一步用的时间是由时间定时器决定的）)
+				var d = 100;
+
+				clearInterval(window.timerID);
+				timerID = setInterval(function() {
+					//2.时间累加，若累加不能等于d，则会超出最终位置
+					t++;
+					//只有Linear()可以直接调用
+					var value = Tween.Bounce.easeInOut(t, b, c, d);
+					console.log(value);
+					
+					ball.style.left = value + "px";
+					//3.判断时间是否加到了d
+					if (t >= d) {
+						clearInterval(timerID);
+						//防止超出:设置最终位置:开始位置+变化量
+						ball.style.left = b + c + "px";
+					}
+					
+				}, 20);
+
+
+			}
+		</script>
+
+	</body>
+
+</html>

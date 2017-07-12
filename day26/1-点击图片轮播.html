@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<title></title>
+		<style type="text/css">
+			#box {
+				width: 520px;
+				border: 2px solid blue;
+				margin: auto;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			#content {
+				width: calc(520px * 5);
+				/*overflow: hidden;*/
+				/*动画效果*/
+				transition: all 1s linear;
+				position: relative;
+				/*定位+动画：要设置初始值，否则动画会丢失*/
+			}
+			
+			#content img {
+				float: left;
+			}
+			
+			#btnBox {
+				position: absolute;
+				bottom: 10px;
+				left: 0;
+				right: 0;
+				/*text-align: center;*/
+				/*display: flex;
+				justify-content: space-around;*/
+			}
+			
+			#btnBox ul {
+				display: flex;
+				justify-content: space-around;
+			}
+			
+			#btnBox ul li {
+				font-size: 18px;
+				border-radius: 10px;
+				background-image: linear-gradient(90deg, white, pink);
+				padding: 5px;
+				color: white;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="box">
+			<div id="content" class="clearfix">
+				<!--img[src="img/$.jpg"]*5-->
+				<img src="img/1.jpg" alt="" />
+				<img src="img/2.jpg" alt="" />
+				<img src="img/3.jpg" alt="" />
+				<img src="img/4.jpg" alt="" />
+				<img src="img/5.jpg" alt="" />
+			</div>
+
+			<div id="btnBox">
+				<ul>
+					<li index="0">图片1</li>
+					<li index="1">图片2</li>
+					<li index="2">图片3</li>
+					<li index="3">图片4</li>
+					<li index="4">图片5</li>
+				</ul>
+			</div>
+
+		</div>
+
+		<script type="text/javascript">
+			var btnBox = document.getElementById("btnBox");
+			//按钮数组
+			var btns = btnBox.getElementsByTagName("li");
+			console.log(btns);
+
+			var content = document.getElementById("content");
+
+			//content.style.transform = "translateX(-520px)";
+
+			for(i = 0; i < btns.length; i++) {
+				btns[i].index = i;
+				btns[i].onclick = function() {
+					var l = -520 * this.index + "px";
+					content.style.transform = "translateX(" + l + ")";
+				}
+			}
+
+		</script>
+	</body>
+
+</html>

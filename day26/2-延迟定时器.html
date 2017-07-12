@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="box">box</div>
+		
+		<script type="text/javascript">
+			/*
+			 * 延迟定时器：规定等多久后执行，只执行一次
+			 */
+			var box = document.getElementById("box");
+			
+			var timerID = setTimeout(function () {
+				box.style.backgroundColor = "red";
+				console.log("1s后");
+			},1000);
+			console.log(timerID);
+			box.onclick = function () {
+				//清除：在执行之前清除，就不会发生回调
+				clearTimeout(timerID);
+				clearTimeout(outID);
+			}
+			
+			
+			//循环调用：
+			var pn = 0;
+			function loop () {
+				pn++;
+				console.log(pn);	
+				//var省略，会变为全局变量，存储为window的属性
+				outID = setTimeout(loop,1000);
+			}
+			//setInterval(loop,1000);
+			//loop();
+			//第一次执行也延迟1s
+			//setTimeout(loop,1000);
+			
+			//两个timeout()实现与interval相同的功能
+			
+			
+			//1s调用一次
+			var pn1 = 0
+			setInterval(function () {
+				console.log('pn1=' + ++pn1);
+			},1000)
+			//用timeOut实现相同的功能，与上一个函数相比，执行效率更高，更安全
+			var pn2 = 0;
+			setTimeout(function () {
+				console.log('pn2=' + ++pn2);
+				//arguments.callee:保存的是当前函数体的函数地址
+				setTimeout(arguments.callee,1000);
+			},1000)
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

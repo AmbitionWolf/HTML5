@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<title></title>
+		<style type="text/css">
+			#box {
+				width: 500px;
+				border: 2px solid blue;
+				margin: auto;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			#content {
+				width: calc(500px * 4);
+				/*overflow: hidden;*/
+				/*动画效果*/
+				/*transition: all 1s linear;*/
+				position: relative;
+				/*定位+动画：要设置初始值，否则动画会丢失*/
+				left: 0;
+				/*overflow: hidden;*/
+				
+			}
+			
+			#content img {
+				float: left;
+				width: 25%;
+			}
+
+		</style>
+	</head>
+
+	<body>
+
+		<div id="box">
+			<div id="content" class="clearfix">
+				<!--img[src="img/$.jpg"]*5-->
+				<img src="img/1.jpg" alt="" />
+				<img src="img/2.jpg" alt="" />
+				<img src="img/3.jpg" alt="" />
+				<!--<img src="img/4.jpg" alt="" />-->
+				<!--<img src="img/5.jpg" alt="" />-->
+				
+				<!--在最后位置添加第一张图片-->
+				<img src="img/1.jpg" alt="" />
+			</div>
+		</div>
+		
+		
+		<script type="text/javascript">
+			var content = document.getElementById("content");
+			//累加位置
+			var pn = 0;
+			setInterval(function () {
+				pn -= 2;
+				//取绝对值函数
+				//Math.abs()
+				//完全显示最后一张的时候(最后一张图==第一张图)
+				pn = pn <= -3*500 ? 0 : pn;
+				content.style.left = pn + "px";
+			},20)
+
+
+
+
+
+
+
+
+			
+		</script>
+
+	</body>
+
+</html>
