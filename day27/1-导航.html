@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			li{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			#box{
+				border: 2px solid red;
+				width: 500px;
+				margin: 0 auto;
+				position: relative;
+				padding: 10px 0;
+			}
+			#box ul{
+				overflow: hidden;
+			}
+			#box ul li{
+				float: left;
+				width: 25%;
+				text-align: center;
+				font-size: 30px;
+				background: greenyellow;
+			}
+			#slider{
+				position: absolute;
+				height: 3px;
+				width: 25%;
+				background-color: gray;
+				bottom: 2px;
+				left: 0;
+				
+				transition: left 0.5s 0s cubic-bezier(1,-0.62,0.37,1.48); 
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="box">
+			
+			<ul>
+				<li><a href="###">首页</a></li>
+				<li><a href="###">国际</a></li>
+				<li><a href="###">首页</a></li>
+				<li><a href="###">国际</a></li>
+			</ul>
+			
+			<div id="slider"></div>
+			
+			
+		</div>
+		
+
+		<script src="js/tween.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/move.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var box = document.getElementById("box");
+			var navList = box.getElementsByTagName("a");
+			var slider = document.getElementById("slider");
+			
+			for (var i = 0; i < navList.length; i++) {
+				navList[i].index = i;
+				navList[i].onclick = function () {
+					//this.index
+					slider.style.left = this.index*125 + "px";
+				}
+				
+			}
+			
+			
+			
+			
+			
+			
+		
+		
+		
+		</script>
+	</body>
+</html>

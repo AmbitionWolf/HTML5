@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<p id="time"></p>
+		
+		<script type="text/javascript">
+			/*
+			 * new Date()
+			 * 没有参数，返回当前系统时间
+			 */
+			var cDate = new Date();
+			console.log(cDate);
+			//年
+			console.log(cDate.getFullYear());
+			//月(从0开始)
+			console.log(cDate.getMonth());
+			//日
+			console.log(cDate.getDate());
+			//星期：(周日：0)
+			console.log(cDate.getDay());
+			//时
+			console.log(cDate.getHours());
+			//分
+			console.log(cDate.getMinutes());			
+			//秒
+			console.log(cDate.getSeconds());
+			//毫秒
+			console.log(cDate.getMilliseconds());
+			
+			setInterval(function () {
+				var cDate = new Date();
+				var y = cDate.getFullYear();
+				var m = cDate.getMonth() + 1;
+				var d = cDate.getDate();
+				var weeks = ["周日","周一","周二","周三","周四","周五","周六"];
+				var w = weeks[cDate.getDay()];
+				var h = cDate.getHours();
+				var min = cDate.getMinutes();
+				var s = cDate.getSeconds();
+				var mis = cDate.getMilliseconds();
+				
+				time.innerHTML = "当前时间： " + y + "年" + m +"月" + d + "日" + "星期" + w + h + "时" + min + "分" + s + "秒" + mis + "毫秒";
+				
+			},1);
+			
+			//获取时间戳，单位：毫秒
+			console.log(cDate.getTime());
+			
+			//服务器返回一个时间戳1499915466064
+			var time = new Date(1499915466064);
+			console.log(time);
+			
+			//2017年1月3日
+			var time = new Date(2017,0,3);
+			console.log(time);
+			
+			var time = new Date("11 22 2017 11:11:11");
+			console.log(time);
+			
+		</script>
+		
+	</body>
+</html>

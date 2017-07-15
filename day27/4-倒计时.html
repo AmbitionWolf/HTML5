@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<h3 id="timeEle"></h3>
+		
+		<script type="text/javascript">
+			
+			//7 15 2017 18:00:00
+			function loop () {
+				//获取放假时间
+				var time1 = new Date("7 15 2017 18:00:00");
+				//获取当前时间
+				var time2 = new Date();
+				
+				//时间相减1：转化为时间戳再想减
+				var time = time1 - time2;
+				//console.log(time);
+				
+				
+				//时间相减2：两个时间对象相除，返回时间相差的毫秒数
+				//一天 === 24 * 60 * 60 * 1000 ms == 86400000 ms
+				var d = Math.floor(time / 86400000); 
+				var h = Math.floor(time % 86400000 / 3600000);
+				var min = Math.floor(time % 3600000 / 60000);
+				var s = Math.floor(time % 60000 / 1000);
+				
+				timeEle.innerHTML = "距离放假时间倒计时： " + d + "天" + h + "时" + min + "分" + s + "秒";
+
+			}
+			setInterval(loop,1000);
+			
+			
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

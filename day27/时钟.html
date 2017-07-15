@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.middle{
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+			}
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			li{
+				list-style: none;
+			}
+			#box{
+				width: 500px;
+				height: 500px;
+				margin: auto;
+				border-radius: 50%;
+				box-shadow: 0 0 20px 5px gray;
+				background-image: linear-gradient(to bottom,white 10%,lightgray 80%,white 90%);
+				position: relative;
+			}
+			#clock{
+				width: 465px;
+				height: 465px;
+				border-radius: 50%;
+				background: white;
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				/*inset:内阴影*/
+				box-shadow: 0 0 20px 3px gray inset;
+				
+			}
+			#number{
+				height: 100%;
+				/*background: red;*/
+			}
+			#number ul{
+				height: 100%;
+				/*background: lightcyan;*/
+				position: relative;
+			}
+			#number ul li{
+				position: absolute;
+				/*background: peachpuff;*/
+				width: 100%;
+				height: 50px;
+				top: 0;
+				bottom: 0;
+				margin: auto 0;
+				font-size: 50px;
+			}
+			#number ul li span{
+				position: absolute;
+				/*background: peru;*/
+				height: 100%;
+				line-height: 50px;
+				left: 15px;
+			}
+			
+			#needle{
+				position: absolute;
+				background: black;
+				width: 30px;
+				height: 30px;
+				border-radius: 50%;
+				
+			}
+			#needle li{
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				left: -10px;
+				
+				border-top-right-radius: 50%;
+				border-bottom-right-radius: 50%;
+				/*旋转中心点：黑圆半径15px+超出的10px*/
+				transform-origin: 25px center;
+				
+				
+			}
+			#hour{
+				width: 100px;
+				height: 10px;
+				background: blue;
+			}
+			#min{
+				width: 140px;
+				height: 6px;
+				background: purple;
+			}
+			#sec{
+				width: 200px;
+				height: 4px;
+				background: red;
+				transform: rotate(30deg);
+			}
+			#needle li:last-child{
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				background: white;
+				position: absolute;
+				left: 0;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="clock">
+				<!--数字-->
+				<div id="number">
+					<ul>
+						<!--<li><span>1</span></li>
+						<li><span>2</span></li>
+						<li><span>3</span></li>-->
+					</ul>
+				</div>
+				<!--刻度-->
+				
+				<!--针-->
+				<ul id="needle" class="middle">
+					<li id="hour"></li>
+					<li id="min"></li>
+					<li id="sec"></li>
+					<!--白色按钮-->
+					<li class="middle"></li>
+					
+				</ul>
+				
+			</div>
+		</div>
+		
+		
+		<script type="text/javascript">
+			
+			var number = document.getElementById("number");
+			//li-arr列表数组
+			var numbers = number.getElementsByTagName("li");
+			var numbers_span = number.getElementsByTagName("span");
+			var ulEle = number.getElementsByTagName("ul")[0];
+			var numberHTML = "";
+			
+			for(var i = 1; i <= 12; i++){
+				numberHTML += "<li><span>"+i+"</span></li>";				
+			}
+			ulEle.innerHTML = numberHTML;
+			for(var i = 0; i < numbers.length; i++){
+				var deg = 30 * (i+1) + 90+"deg";
+				numbers[i].style.transform = "rotate("+deg+")";
+				//数字摆正
+				deg = "-" + deg;
+				numbers_span[i].style.transform = "rotate("+deg+")";
+				
+			}
+			
+			
+			
+			
+		</script>
+		
+	</body>
+</html>
